@@ -158,4 +158,5 @@ xlim([0,2])
 ylim([0,0.1])
 box on
 
-sgtitle('VFCR-ZNN equation (20): Example 1')
+sgtitle('VFCR-ZNN equation (20): Example 1') 
+ 
