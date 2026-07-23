@@ -21,12 +21,12 @@ dQ = problem.dQ(t);
 v  = problem.v(t);
 dv = problem.dv(t);
 
-%%每一个下面的0矩阵要和上面矩阵的列数相同
+%% 每一个下面的0矩阵要和上面矩阵的列数相同
 n = size(G, 1);
 m = size(P, 1);
 w = size(Q, 1);
 
-%% 从 g 中取出变量 （这啥啊）
+%% 从 g 中取出变量
 x   = g(1:n);
 mu1 = g(n+1:n+m);
 mu2 = g(n+m+1:n+m+w);
