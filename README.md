@@ -1,6 +1,6 @@
 # znn_new
 
-通用 VFCR-ZNN 算法模块。具体的 TVQP 问题通过 `problem` 结构体传入，算法参数单独传入。
+通用VFCR-ZNN算法模块。具体的TVQP问题通过 `problem` 结构体传入，算法参数单独传入。
 
 ## 函数调用方式
 
@@ -32,7 +32,7 @@ z_dot
 
 ## problem 结构体
 
-`problem` 用来保存具体 TVQP 问题的数据：
+`problem` 用来保存具体TVQP问题的数据：
 
 ```matlab
 problem.G  = @(t) ...;
