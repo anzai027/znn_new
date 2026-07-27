@@ -1,6 +1,9 @@
-function [g_dot, z_dot] = my_system( ...
-    t, g, z, problem, ...
+function Y_dot = my_system( ...
+    t, Y, l, problem, ...
     r1, r2, lambda1, lambda2, a, p, q, delta)
+
+g = Y(1:l);
+z = Y(l+1:2*l);
 
 %% 读取具体题目的矩阵
 G  = problem.G(t);
@@ -28,7 +31,6 @@ w = size(Q, 1);
 
 %% 从 g 中取出变量
 x   = g(1:n);
-mu1 = g(n+1:n+m);
 mu2 = g(n+m+1:n+m+w);
 
 %% omega 和 sigma
@@ -96,18 +98,44 @@ rho = exp(lambda1 * acot(t) + lambda2);
 xi = H*g + theta;
 
 %% 激活函数
-phi_xi = Phi(xi, a, p, q);
+phi_xi = Active(xi, problem, a, p, q);
 
 %% 积分状态导数
 z_dot = rho * phi_xi;
 
-%% 公式（20）
+%% 外部噪声
+if isfield(problem, 'noise')
+    noise = problem.noise(t);
+    noise = noise(:);
+else
+    noise = zeros(l,1);
+end
+
+if isscalar(noise)
+    noise = noise * ones(l,1);
+end
+
+%% 公式（20）和公式（47）
 RHS = -M*g ...
       - varsigma ...
       - r1*rho*phi_xi ...
-      - r2*Phi(xi + r1*z, a, p, q);
+      - r2*Active(xi + r1*z, problem, a, p, q) ...
+      + noise;
 
 g_dot = J \ RHS;
+
+Y_dot = [g_dot; z_dot];
+
+end
+
+
+function y = Active(x, problem, a, p, q)
+
+if isfield(problem, 'phi')
+    y = problem.phi(x);
+else
+    y = Phi(x, a, p, q);
+end
 
 end
 

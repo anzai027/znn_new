@@ -4,6 +4,11 @@ function problem = example1_problem(phi_eps)
 % phi_eps = 0      ：公式（18）的严格NFTAF，计算可能很慢。
 % phi_eps = 1e-4   ：用于快速绘图的平滑数值近似。
 
+Q0 = [
+     eye(2);
+    -eye(2)
+];
+
 if nargin < 1
     phi_eps = 1e-4;
 end
@@ -26,10 +31,10 @@ problem.u  = @(t) cos(2*t);
 problem.du = @(t) -2*sin(2*t);
 
 % 论文用正负无穷表示无有限边界，并在实验中将无穷替换为1e8。
-problem.Q  = @(t) Q0; %#ok<NASGU>
-problem.dQ = @(t) zeros(4,2); %#ok<NASGU>
-problem.v  = @(t) 1e8*ones(4,1); %#ok<NASGU>
-problem.dv = @(t) zeros(4,1); %#ok<NASGU>
+problem.Q  = @(t) Q0; 
+problem.dQ = @(t) zeros(4,2); 
+problem.v  = @(t) 1e8*ones(4,1); 
+problem.dv = @(t) zeros(4,1); 
 
 problem.phi_eps = phi_eps;
 

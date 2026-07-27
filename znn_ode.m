@@ -8,12 +8,7 @@ if numel(Y) ~= 2*l
         'Y must contain [g; z] and therefore have length %d.', 2*l);
 end
 
-g = Y(1:l);
-z = Y(l+1:2*l);
-
-[g_dot, z_dot] = my_system( ...
-    t, g, z, problem, ...
+Y_dot = my_system( ...
+    t, Y, l, problem, ...
     r1, r2, lambda1, lambda2, a, p, q, delta);
-
-Y_dot = [g_dot; z_dot];
 end

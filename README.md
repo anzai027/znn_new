@@ -7,28 +7,28 @@
 函数定义为：
 
 ```matlab
-function [g_dot, z_dot] = my_system( ...
-    t, g, z, problem, ...
+function Y_dot = my_system( ...
+    t, Y, l, problem, ...
     r1, r2, lambda1, lambda2, a, p, q, delta)
 ```
 
 单次调用：
 
 ```matlab
-[g_dot, z_dot] = my_system( ...
-    t, g, z, problem, ...
+Y_dot = my_system( ...
+    t, Y, l, problem, ...
     r1, r2, lambda1, lambda2, ...
     a, p, q, delta);
 ```
 
-这个函数返回当前时刻的两个导数：
+组合状态和导数为：
 
 ```matlab
-g_dot
-z_dot
+Y = [g; z];
+Y_dot = [g_dot; z_dot];
 ```
 
-它们分别表示 \(\dot g(t)\) 和积分状态的导数 \(\dot z(t)\)，并不是完整的求解结果。
+`Y_dot` 是当前时刻的导数，并不是完整的求解结果。
 
 ## problem 结构体
 
@@ -119,8 +119,8 @@ z0 = zeros(l,1);
 | 参数 | 含义 |
 |---|---|
 | `t` | 当前时间 |
-| `g` | 状态向量 `[x; mu1; mu2]` |
-| `z` | 公式（20）中的积分状态 |
+| `Y` | 组合状态 `[g; z]` |
+| `l` | `g` 和 `z` 各自的长度 |
 | `problem` | 具体 TVQP 问题的数据 |
 | `r1`, `r2` | ZNN 模型参数 |
 | `lambda1`, `lambda2` | 可变增益参数 |
@@ -150,15 +150,10 @@ function Y_dot = znn_ode( ...
     r1, r2, lambda1, lambda2, ...
     a, p, q, delta)
 
-g = Y(1:l);
-z = Y(l+1:2*l);
-
-[g_dot, z_dot] = my_system( ...
-    t, g, z, problem, ...
+Y_dot = my_system( ...
+    t, Y, l, problem, ...
     r1, r2, lambda1, lambda2, ...
     a, p, q, delta);
-
-Y_dot = [g_dot; z_dot];
 
 end
 ```
@@ -168,3 +163,5 @@ end
 ```matlab
 x = Y(:,1:n);
 ```
+
+Example 2 的运行说明见 `README_example2.md`。
