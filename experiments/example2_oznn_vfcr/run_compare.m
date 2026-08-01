@@ -53,31 +53,43 @@ timeo = toc;
 
 ev = zeros(numel(t),1);
 eo = zeros(numel(t),1);
+cv = zeros(numel(t),1);
+co = zeros(numel(t),1);
 
 for k = 1:numel(t)
     gv = yv(k,1:l).';
     go = yo(k,:).';
     ev(k) = norm(vfcr_residual(tv(k),gv,problem,delta),2);
     eo(k) = norm(vfcr_residual(to(k),go,problem,delta),2);
+
+    G = problem.G(t(k));
+    h = problem.h(t(k));
+    xv = gv(1:n);
+    xo = go(1:n);
+    cv(k) = 0.5*xv.'*G*xv + h.'*xv;
+    co(k) = 0.5*xo.'*G*xo + h.'*xo;
 end
 
 tail = t >= 5;
 xv = yv(:,1:n);
 xo = yo(:,1:n);
 gap = vecnorm(xv(tail,:)-xo(tail,:),2,2);
+dif = abs(cv(tail)-co(tail));
 errv = max(ev(tail));
 erro = max(eo(tail));
 errx = max(gap);
-overlap = errv < 1e-3 && erro < 1e-3 && errx < 1e-3;
+errf = max(dif);
+overlap = errf < 1e-3 && errv < 1e-3 ...
+    && erro < 1e-3 && errx < 1e-3;
 
 fig = figure('Color','w','Position',[120,120,800,480]);
-plot(tv,eo,'--','Color',[0.15,0.45,0.85],'LineWidth',1.5)
+plot(to,co,'--','Color',[0.15,0.45,0.85],'LineWidth',1.5)
 hold on
-plot(tv,ev,'-','Color',[0.90,0.20,0.15],'LineWidth',1.5)
+plot(tv,cv,'-','Color',[0.90,0.20,0.15],'LineWidth',1.5)
 xlim([0,10])
 xlabel('t (s)')
-ylabel('||\xi(t)||_2')
-title('Example 2：OZNN 与 VFCR-ZNN 无噪声对比')
+ylabel('f(x(t),t)')
+title('Example 2：目标函数值对比')
 legend('OZNN','VFCR-ZNN','Location','northeast')
 grid on
 box on
@@ -89,7 +101,8 @@ fprintf('OZNN 用时：%.6f s\n',timeo)
 fprintf('VFCR-ZNN 用时：%.6f s\n',timev)
 fprintf('t>=5 时 OZNN 最大残差：%.3e\n',erro)
 fprintf('t>=5 时 VFCR-ZNN 最大残差：%.3e\n',errv)
-fprintf('t>=5 时两者最大状态差：%.3e\n',errx)
+fprintf('t>=5 时两者最大 x 差：%.3e\n',errx)
+fprintf('t>=5 时两者最大目标函数差：%.3e\n',errf)
 fprintf('后半段重合检查：%d\n',overlap)
 
 save all
