@@ -40,8 +40,8 @@ y0 = [g0;z0];
 
 opt = odeset('RelTol',1e-5,'AbsTol',1e-7,'MaxStep',0.02);
 fv = @(t,y) my_system( ...
-    t,y,l,problem,r1,r2,lambda1,lambda2,a,p,q,delta);
-fo = @(t,g) oznn_system(t,g,l,problem,lambda,delta);
+    t,y,l,problem,r1,r2,lambda1,lambda2,a,p,q,delta);   %VFCR
+fo = @(t,g) oznn_system(t,g,l,problem,lambda,delta);    %OZNN
 
 tic
 [tv,yv] = ode15s(fv,t,y0,opt);
@@ -62,7 +62,7 @@ for k = 1:numel(t)
     ev(k) = norm(vfcr_residual(tv(k),gv,problem,delta),2);
     eo(k) = norm(vfcr_residual(to(k),go,problem,delta),2);
 
-    G = problem.G(t(k));
+    G = problem.G(t(k));   %%纵轴
     h = problem.h(t(k));
     xv = gv(1:n);
     xo = go(1:n);
