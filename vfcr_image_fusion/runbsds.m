@@ -70,7 +70,7 @@ drawset(cases,1:3,'BSDS300 Gaussian noise',fullfile(figs,'bsds_gaussian.fig'), .
 drawset(cases,4:6,'BSDS300 salt and pepper noise',fullfile(figs,'bsds_salt.fig'), ...
     fullfile(imgs,'bsds_salt.png'))
 
-f = figure('Visible','off','Color','w','Position',[100,100,900,600]);
+f = figure('Visible','on','Color','w','Position',[100,100,900,600]);
 hold on
 for i = 1:6
     semilogy(cases(i).sol.t,max(cases(i).sol.e,eps),'LineWidth',1.2)
@@ -92,7 +92,7 @@ res.cases = cases;
 end
 
 function drawset(cases,ids,titletext,figpath,pngpath)
-f = figure('Visible','off','Color','w','Position',[100,100,1050,720]);
+f = figure('Visible','on','Color','w','Position',[100,100,1050,720]);
 tile = tiledlayout(f,3,3,'Padding','compact','TileSpacing','compact');
 for j = 1:3
     i = ids(j);

@@ -46,7 +46,7 @@ T = table(nums,ps,ss,paperp,papers,runtime,final,sumx,minx, ...
     'PaperSSIM','Runtime','FinalError','WeightSum','MinWeight'});
 writetable(T,fullfile(tabs,'count.csv'))
 
-f = figure('Visible','off','Color','w','Position',[100,100,950,650]);
+f = figure('Visible','on','Color','w','Position',[100,100,950,650]);
 tile = tiledlayout(f,2,2,'Padding','compact','TileSpacing','compact');
 nexttile(tile)
 imshow(img)
@@ -64,7 +64,7 @@ savefig(f,fullfile(figs,'count.fig'))
 exportgraphics(f,fullfile(imgs,'count.png'),'Resolution',180)
 close(f)
 
-f = figure('Visible','off','Color','w');
+f = figure('Visible','on','Color','w');
 semilogy(runs(1).sol.t,max(runs(1).sol.e,eps),'LineWidth',1.3)
 hold on
 semilogy(runs(2).sol.t,max(runs(2).sol.e,eps),'LineWidth',1.3)

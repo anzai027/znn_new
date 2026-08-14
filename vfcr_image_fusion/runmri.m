@@ -54,7 +54,7 @@ T = table(slice,kind,level,noisep,noises,ps,ss,paperp,papers, ...
     'PaperSSIM','Runtime','FinalError','WeightSum','MinWeight'});
 writetable(T,fullfile(tabs,'mri.csv'))
 
-f = figure('Visible','off','Color','w','Position',[100,100,1000,650]);
+f = figure('Visible','on','Color','w','Position',[100,100,1000,650]);
 tile = tiledlayout(f,2,3,'Padding','compact','TileSpacing','compact');
 for i = 1:2
     nexttile(tile)
@@ -71,7 +71,7 @@ savefig(f,fullfile(figs,'mri.fig'))
 exportgraphics(f,fullfile(imgs,'mri.png'),'Resolution',180)
 close(f)
 
-f = figure('Visible','off','Color','w');
+f = figure('Visible','on','Color','w');
 semilogy(cases(1).sol.t,max(cases(1).sol.e,eps),'LineWidth',1.3)
 hold on
 semilogy(cases(2).sol.t,max(cases(2).sol.e,eps),'LineWidth',1.3)
