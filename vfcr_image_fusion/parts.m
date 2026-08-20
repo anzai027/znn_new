@@ -1,0 +1,19 @@
+function [J,xi] = parts(g,G,cfg)
+n = size(G,1);
+x = g(1:n);
+mu1 = g(n+1);
+mu2 = g(n+2:end);
+P = ones(1,n);
+Q = -eye(n);
+v = zeros(n,1);
+omega = v-Q*x;
+delta = cfg.delta*ones(n,1);
+sigma = sqrt(omega.^2+mu2.^2+delta);
+k1 = diag(omega./sigma);
+k2 = diag(mu2./sigma);
+H = [G,P',Q';P,0,zeros(1,n);-Q,zeros(n,1),eye(n)];
+theta = [zeros(n,1);-1;v-sigma];
+J = [G,P',Q';P,0,zeros(1,n);(k1-eye(n))*Q,zeros(n,1),eye(n)-k2];
+g = [x;mu1;mu2];
+xi = H*g+theta;
+end

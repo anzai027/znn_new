@@ -1,0 +1,7 @@
+vfcr_image_fusion/output/all.mat filter=lfs diff=lfs merge=lfs -text
+vfcr_image_fusion/output/fig/*.fig filter=lfs diff=lfs merge=lfs -text
+vfcr_image_fusion/data/raw/*.tgz filter=lfs diff=lfs merge=lfs -text
+vfcr_image_fusion/data/raw/*.zip filter=lfs diff=lfs merge=lfs -text
+vfcr_image_fusion/data/BrainWeb/*.rawb filter=lfs diff=lfs merge=lfs -text
+vfcr_image_fusion/data/SIPI/**/*.tiff filter=lfs diff=lfs merge=lfs -text
+*.pdf binary
