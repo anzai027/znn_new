@@ -2,6 +2,8 @@ function dg = gnn_system(t, g, l, problem, gamma, p, delta)
 %GNN_SYSTEM 按 M1 式计算状态 g 的导数。
 % 状态 g=[x;mu1;mu2]，参数需满足 gamma>0、0<p<2、delta>0。
 % 固定 delta>0 时求解的是扰动后的 KKT/PFB 方程。
+% G 可以不对称，二次目标使用 G 的对称部分。
+% 若要保证目标函数凸，G 的对称部分应半正定。
 % 静态收敛证明还需雅可比矩阵的最小奇异值满足 sigma_min(J)>=m>0。
 % 时变问题可先取 p=1，理论分析还需 ||f_t||<=d 和 gamma*m>d。
 
@@ -21,6 +23,7 @@ if ~isnumeric(delta) || ~isreal(delta) || ...
 end
 
 G = problem.G(t);
+S = (G+G.')/2;
 h = problem.h(t);
 P = problem.P(t);
 u = problem.u(t);
@@ -55,7 +58,7 @@ mu2 = g(n+m+1:l);
 omega = v-Q*x;
 sigma = sqrt(omega.^2+mu2.^2+delta);
 
-xi = [G*x+h+P.'*mu1+Q.'*mu2; ...
+xi = [S*x+h+P.'*mu1+Q.'*mu2; ...
       P*x-u; ...
       omega+mu2-sigma];
 
@@ -63,7 +66,7 @@ k1 = diag(omega./sigma);
 k2 = diag(mu2./sigma);
 I = eye(w);
 
-J = [G, P.', Q.'; ...
+J = [S, P.', Q.'; ...
      P, zeros(m,m), zeros(m,w); ...
      (k1-I)*Q, zeros(w,m), I-k2];
 
