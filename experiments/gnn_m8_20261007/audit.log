@@ -1,0 +1,26 @@
+Formula cases=320, Jacobian=3.15584e-10, independent derivative=9.78318e-17
+Correction=1.24639e-13, predictor=1.45965e-13, combined formula=6.78217e-14
+SVD correction=5.46212e-15, SVD predictor=4.75574e-15, fixed-g difference=0
+Difference versus analytic partial=8.77279e-07; direct normalized balance=4.44089e-16
+          m8: 1.0000
+      direct: 1.0000
+    expected: 1.0000
+
+     predictor: 0
+    correction: 1.8000e-06
+         fixed: 0
+       changed: 9.9000e-09
+
+    positive: 9.9950e-10
+       alpha: 5.0000e-21
+    negative: -3.4142e+08
+
+     time     step     model      sigma          lc         lp         root       speed     predictor     identity       oracle      damping    difference     total       balance  
+    ______    _____    _____    _________    __________    _____    __________    ______    _________    __________    __________    _______    __________    ________    __________
+
+    3.4611    1e-05    "M8"     0.0010722         1e-06    1e-10    2.8979e-14    4735.7     4735.3       2.441e-14    4.5475e-13    0.41187     0.031695      0.38018    0.00044163
+    3.4611    1e-05    "M8A"    0.0010722    1.1497e-08        0    2.8979e-14    4735.7     4735.7       2.441e-14    4.5475e-13          0     0.031697     0.031697    8.0544e-13
+    9.7443    1e-05    "M8"     0.0010722         1e-06    1e-10    5.5949e-15    4735.7     4735.3      7.9579e-14    1.6553e-12    0.41187     0.031694      0.38018    0.00044163
+    9.7443    1e-05    "M8A"    0.0010722    1.1497e-08        0    5.5949e-15    4735.7     4735.7      7.9579e-14    1.6553e-12          0     0.031697     0.031697    2.6119e-13
+
+All assertions passed; no ODE was run; derivative fields were forbidden.

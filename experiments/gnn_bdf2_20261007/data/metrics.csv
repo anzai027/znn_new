@@ -1,0 +1,4 @@
+group,label,model,order,delta,h,noise,amp,seed,rtol,atol,complete,status,last,calls,parts,seconds,xd,x,g,gpeak,residual,respeak,obs,prediction,predpeak,speed,bias,reason
+zero,M8a-FD1 d1e-04 h1e-05 o1 zero A0e+00 seed1,M8a-FD1,1,0.0001,1e-05,zero,0,1,1e-11,1e-13,0,failed,10,38245,76392,7.1845576,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,MATLAB:badsubscript: Index exceeds array bounds.
+zero,M8a-BDF2 d1e-04 h1e-04 o2 zero A0e+00 seed1,M8a-BDF2,2,0.0001,0.0001,zero,0,1,1e-11,1e-13,0,failed,10,38506,115141,9.0362104,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,MATLAB:badsubscript: Index exceeds array bounds.
+zero,M8a-BDF2 d1e-04 h1e-05 o2 zero A0e+00 seed1,M8a-BDF2,2,0.0001,1e-05,zero,0,1,1e-11,1e-13,0,failed,10,37795,113104,9.3969637,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,MATLAB:badsubscript: Index exceeds array bounds.

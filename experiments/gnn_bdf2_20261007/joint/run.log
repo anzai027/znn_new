@@ -1,0 +1,12 @@
+开始联合检查 M8a-BDF2
+     group               label                 model       order    delta      h        noise       amp     seed    rtol     atol     complete      status      last    calls      parts       seconds        xd            x             g          gpeak      residual      respeak         obs        prediction     predpeak       speed          bias       reason
+    _______    __________________________    __________    _____    _____    _____    _________    _____    ____    _____    _____    ________    __________    ____    _____    __________    _______    __________    __________    __________    _______    __________    __________    __________    __________    __________    __________    __________    ______
+
+    "joint"    "M8a-BDF2 delta1e-6 noise"    "M8a-BDF2"      2      1e-06    1e-05    "colored"    1e-05     1      1e-08    1e-10     true       "complete"     10     73061    2.1906e+05    21.389     2.0568e-05    2.5309e-05    0.00019667    0.37843    2.6789e-05    4.3475e-05    6.8458e-11      195.16      4.2329e+05    4.6553e+05    1.4927e-05      ""  
+
+开始联合检查 VFCR-FD
+     group               label                model      order    delta      h        noise       amp     seed    rtol     atol     complete      status      last    calls      parts       seconds        xd            x             g          gpeak     residual      respeak         obs        prediction     predpeak       speed          bias       reason
+    _______    _________________________    _________    _____    _____    _____    _________    _____    ____    _____    _____    ________    __________    ____    _____    __________    _______    __________    __________    __________    _______    _________    __________    __________    __________    __________    __________    __________    ______
+
+    "joint"    "VFCR-FD delta1e-6 noise"    "VFCR-FD"      2      1e-06    1e-05    "colored"    1e-05     1      1e-08    1e-10     true       "complete"     10     74275    2.2266e+05    24.911     2.0568e-05    2.5309e-05    0.00019671    0.37847    2.679e-05    4.3476e-05    1.1849e-09      195.17      4.2329e+05    4.6554e+05    1.4927e-05      ""  
+

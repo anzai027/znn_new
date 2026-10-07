@@ -1,0 +1,12 @@
+       bdf         formula         vfcr       ratio     ratiomin    ratiomax
+    __________    __________    __________    ______    ________    ________
+
+    4.9826e-11    7.1904e-14    1.1312e-14    4.0004     3.9912      4.0167 
+
+开始 1/37 M8a-FD1 d1e-04 h1e-05 o1 zero A0e+00 seed1
+完成 1 complete=0 calls=38245 xd=NaN x=NaN gpeak=NaN MATLAB:badsubscript: Index exceeds array bounds.
+开始 2/37 M8a-BDF2 d1e-04 h1e-04 o2 zero A0e+00 seed1
+完成 2 complete=0 calls=38506 xd=NaN x=NaN gpeak=NaN MATLAB:badsubscript: Index exceeds array bounds.
+开始 3/37 M8a-BDF2 d1e-04 h1e-05 o2 zero A0e+00 seed1
+完成 3 complete=0 calls=37795 xd=NaN x=NaN gpeak=NaN MATLAB:badsubscript: Index exceeds array bounds.
+开始 4/37 M8a-BDF2 d1e-04 h1e-06 o2 zero A0e+00 seed1

@@ -1,0 +1,20 @@
+pn_system.m
+pn_config.m
+pn_run.m
+         id: 'NASGU'
+    message: 'Value assigned to variable might be unused.'
+        fix: 0
+       line: 8
+     column: [1 3]
+
+pn_metrics.m
+run_m8.m
+  4×1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+SMOKE_OK

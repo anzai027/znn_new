@@ -1,0 +1,115 @@
+开始 1/37 M8a-FD1 d1e-04 h1e-05 o1 zero A0e+00 seed1
+完成 1 complete=1 calls=38245 xd=2.9660508e-09 x=0.0005064372 gpeak=1.6010085e-06 
+开始 2/37 M8a-BDF2 d1e-04 h1e-04 o2 zero A0e+00 seed1
+完成 2 complete=1 calls=38506 xd=1.7127195e-11 x=0.00050643787 gpeak=1.1071796e-08 
+开始 3/37 M8a-BDF2 d1e-04 h1e-05 o2 zero A0e+00 seed1
+完成 3 complete=1 calls=37795 xd=2.3967919e-13 x=0.00050643787 gpeak=1.3065388e-10 
+开始 4/37 M8a-BDF2 d1e-04 h1e-06 o2 zero A0e+00 seed1
+完成 4 complete=1 calls=39429 xd=4.4410341e-13 x=0.00050643787 gpeak=3.8369529e-10 
+开始 5/37 VFCR-FD d1e-04 h1e-05 o1 zero A0e+00 seed1
+完成 5 complete=1 calls=41758 xd=5.6958803e-07 x=0.00050633223 gpeak=6.3647065e-05 
+开始 6/37 VFCR-FD d1e-04 h1e-05 o2 zero A0e+00 seed1
+完成 6 complete=1 calls=41377 xd=3.0157254e-11 x=0.00050643787 gpeak=1.7596244e-08 
+开始 7/37 VFCR-S d1e-04 h1e-05 o2 zero A0e+00 seed1
+完成 7 complete=1 calls=41727 xd=1.9366813e-11 x=0.00050643787 gpeak=5.1831978e-09 
+开始 8/37 M8a-BDF2 d1e-05 h1e-05 o2 zero A0e+00 seed1
+完成 8 complete=1 calls=40431 xd=2.8135955e-13 x=8.5962119e-05 gpeak=5.3330096e-09 
+开始 9/37 VFCR-FD d1e-05 h1e-05 o2 zero A0e+00 seed1
+完成 9 complete=1 calls=44733 xd=3.254055e-11 x=8.5962122e-05 gpeak=1.7575986e-07 
+开始 10/37 VFCR-S d1e-05 h1e-05 o2 zero A0e+00 seed1
+完成 10 complete=1 calls=45344 xd=2.3602632e-11 x=8.5962119e-05 gpeak=6.1945861e-08 
+开始 11/37 M8a-BDF2 d1e-06 h1e-05 o2 zero A0e+00 seed1
+完成 11 complete=1 calls=42072 xd=3.0114214e-13 x=1.4927451e-05 gpeak=5.4280727e-08 
+开始 12/37 VFCR-FD d1e-06 h1e-05 o2 zero A0e+00 seed1
+完成 12 complete=1 calls=46189 xd=3.5480224e-11 x=1.4927453e-05 gpeak=1.7539495e-06 
+开始 13/37 VFCR-S d1e-06 h1e-05 o2 zero A0e+00 seed1
+完成 13 complete=1 calls=47180 xd=2.5964531e-11 x=1.4927451e-05 gpeak=5.4776308e-07 
+开始 14/37 M8a-FD1 d1e-04 h1e-05 o1 colored A1e-05 seed1
+完成 14 complete=1 calls=70096 xd=2.0504933e-05 x=0.0005064504 gpeak=0.0063059452 
+开始 15/37 M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-05 seed1
+完成 15 complete=1 calls=70076 xd=2.0501683e-05 x=0.00050645094 gpeak=0.0063026982 
+开始 16/37 M8-reg d1e-04 h1e-05 o2 colored A1e-05 seed1
+完成 16 complete=1 calls=70147 xd=2.0514722e-05 x=0.00050645814 gpeak=0.092404539 
+开始 17/37 VFCR-FD d1e-04 h1e-05 o2 colored A1e-05 seed1
+完成 17 complete=1 calls=71751 xd=2.0502199e-05 x=0.00050645107 gpeak=0.0063041014 
+开始 18/37 M8a-FD1 d1e-04 h1e-05 o1 colored A1e-05 seed2
+完成 18 complete=1 calls=68334 xd=1.6814529e-05 x=0.0005066465 gpeak=0.0037203473 
+开始 19/37 M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-05 seed2
+完成 19 complete=1 calls=68463 xd=1.6811828e-05 x=0.00050664706 gpeak=0.003720578 
+开始 20/37 M8-reg d1e-04 h1e-05 o2 colored A1e-05 seed2
+完成 20 complete=1 calls=68279 xd=1.6839532e-05 x=0.00050665466 gpeak=0.098137088 
+开始 21/37 VFCR-FD d1e-04 h1e-05 o2 colored A1e-05 seed2
+完成 21 complete=1 calls=71361 xd=1.6812289e-05 x=0.00050664718 gpeak=0.0037191717 
+开始 22/37 M8a-FD1 d1e-04 h1e-05 o1 colored A1e-05 seed3
+完成 22 complete=1 calls=74069 xd=2.0832032e-05 x=0.00050662874 gpeak=0.0022243335 
+开始 23/37 M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-05 seed3
+完成 23 complete=1 calls=74101 xd=2.0829028e-05 x=0.00050662929 gpeak=0.0022255763 
+开始 24/37 M8-reg d1e-04 h1e-05 o2 colored A1e-05 seed3
+完成 24 complete=1 calls=74109 xd=2.0850986e-05 x=0.00050663687 gpeak=0.097152545 
+开始 25/37 VFCR-FD d1e-04 h1e-05 o2 colored A1e-05 seed3
+完成 25 complete=1 calls=75658 xd=2.0829471e-05 x=0.00050662944 gpeak=0.0022244104 
+开始 26/37 M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-07 seed1
+完成 26 complete=1 calls=37492 xd=2.0501549e-07 x=0.00050643388 gpeak=6.303576e-05 
+开始 27/37 M8-reg d1e-04 h1e-05 o2 colored A1e-07 seed1
+完成 27 complete=1 calls=37190 xd=9.3236389e-07 x=0.00050644138 gpeak=0.095948845 
+开始 28/37 VFCR-FD d1e-04 h1e-05 o2 colored A1e-07 seed1
+完成 28 complete=1 calls=43896 xd=2.0508622e-07 x=0.00050643426 gpeak=6.4568098e-05 
+开始 29/37 M8a-BDF2 d1e-04 h1e-04 o2 colored A1e-05 seed1
+完成 29 complete=1 calls=70111 xd=2.0501971e-05 x=0.00050645097 gpeak=0.0063022667 
+开始 30/37 M8-reg d1e-04 h1e-04 o2 colored A1e-05 seed1
+完成 30 complete=1 calls=70145 xd=2.051501e-05 x=0.00050645817 gpeak=0.092405113 
+开始 31/37 VFCR-FD d1e-04 h1e-04 o2 colored A1e-05 seed1
+完成 31 complete=1 calls=71764 xd=2.0544611e-05 x=0.00050645314 gpeak=0.0063269697 
+开始 32/37 M8a-BDF2 d1e-04 h1e-03 o2 colored A1e-05 seed1
+完成 32 complete=1 calls=70383 xd=2.0649165e-05 x=0.0005064583 gpeak=0.0063422448 
+开始 33/37 M8-reg d1e-04 h1e-03 o2 colored A1e-05 seed1
+完成 33 complete=1 calls=70407 xd=2.0661985e-05 x=0.00050646548 gpeak=0.092357004 
+开始 34/37 VFCR-FD d1e-04 h1e-03 o2 colored A1e-05 seed1
+完成 34 complete=1 calls=74439 xd=2.3892222e-05 x=0.00050661753 gpeak=0.0086628174 
+开始 35/37 M8a-BDF2 d1e-04 h1e-05 o2 constant A1e-05 seed1
+完成 35 complete=1 calls=12105 xd=1.741292e-05 x=0.00050478963 gpeak=0.011039933 
+开始 36/37 M8-reg d1e-04 h1e-05 o2 constant A1e-05 seed1
+完成 36 complete=1 calls=12199 xd=1.7410834e-05 x=0.00050479626 gpeak=0.089598973 
+开始 37/37 VFCR-FD d1e-04 h1e-05 o2 constant A1e-05 seed1
+完成 37 complete=1 calls=16174 xd=1.7412964e-05 x=0.0005047898 gpeak=0.011041396 
+       group                             label                            model       order    delta       h         noise        amp     seed    rtol     atol     complete      status      last    calls      parts       seconds        xd            x             g           gpeak        residual      respeak         obs        prediction     predpeak       speed          bias       reason
+    ___________    _________________________________________________    __________    _____    ______    ______    __________    _____    ____    _____    _____    ________    __________    ____    _____    __________    _______    __________    __________    __________    __________    __________    __________    __________    __________    __________    __________    __________    ______
+
+    "zero"         "M8a-FD1 d1e-04 h1e-05 o1 zero A0e+00 seed1"         "M8a-FD1"       1      0.0001     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     38245         76392    8.7338     2.9661e-09    0.00050644    9.8532e-09     1.601e-06    4.5417e-09    9.1343e-09    4.5417e-09    0.00021912      0.051892        4735.7    0.00050644      ""  
+    "zero"         "M8a-BDF2 d1e-04 h1e-04 o2 zero A0e+00 seed1"        "M8a-BDF2"      2      0.0001    0.0001    "zero"            0     1      1e-11    1e-13     true       "complete"     10     38506    1.1514e+05    10.171     1.7127e-11    0.00050644    4.8419e-11    1.1072e-08    1.6424e-11    2.8736e-11    1.6424e-11    1.1822e-06    0.00035986        4735.7    0.00050644      ""  
+    "zero"         "M8a-BDF2 d1e-04 h1e-05 o2 zero A0e+00 seed1"        "M8a-BDF2"      2      0.0001     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     37795     1.131e+05    9.8447     2.3968e-13    0.00050644    9.9185e-13    1.3065e-10    2.6674e-13    1.6592e-12    2.6674e-13     1.174e-08    3.4767e-06        4735.7    0.00050644      ""  
+    "zero"         "M8a-BDF2 d1e-04 h1e-06 o2 zero A0e+00 seed1"        "M8a-BDF2"      2      0.0001     1e-06    "zero"            0     1      1e-11    1e-13     true       "complete"     10     39429    1.1804e+05    6.3954      4.441e-13    0.00050644    1.6815e-12     3.837e-10    5.0093e-13    1.9142e-12    5.0093e-13    3.9967e-08    1.4382e-05        4735.7    0.00050644      ""  
+    "zero"         "VFCR-FD d1e-04 h1e-05 o1 zero A0e+00 seed1"         "VFCR-FD"       1      0.0001     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     41758         83402     6.073     5.6959e-07    0.00050633    1.0417e-06    6.3647e-05    8.4112e-07     2.313e-06    8.4112e-07     0.0037899        1.0857        4735.8    0.00050644      ""  
+    "zero"         "VFCR-FD d1e-04 h1e-05 o2 zero A0e+00 seed1"         "VFCR-FD"       2      0.0001     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     41377    1.2382e+05     6.596     3.0157e-11    0.00050644    9.1917e-11    1.7596e-08    3.2471e-11    9.5735e-11    3.2471e-11    1.0861e-06     0.0002903        4735.7    0.00050644      ""  
+    "zero"         "VFCR-S d1e-04 h1e-05 o2 zero A0e+00 seed1"          "VFCR-S"        2      0.0001     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     41727         41727    6.5805     1.9367e-11    0.00050644    5.5455e-11    5.1832e-09    2.2877e-11    8.5946e-11    2.2877e-11    3.2353e-07    8.6416e-05        4735.7    0.00050644      ""  
+    "delta"        "M8a-BDF2 d1e-05 h1e-05 o2 zero A0e+00 seed1"        "M8a-BDF2"      2       1e-05     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     40431    1.2102e+05    7.6503     2.8136e-13    8.5962e-05    8.9668e-12     5.333e-09    3.1402e-13    1.9224e-12    3.1402e-13    9.5833e-07    0.00088159         46631    8.5962e-05      ""  
+    "delta"        "VFCR-FD d1e-05 h1e-05 o2 zero A0e+00 seed1"         "VFCR-FD"       2       1e-05     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     44733    1.3389e+05    9.6025     3.2541e-11    8.5962e-05    2.0887e-10    1.7576e-07     3.427e-11    9.0452e-11     3.427e-11    3.4843e-05      0.029389         46631    8.5962e-05      ""  
+    "delta"        "VFCR-S d1e-05 h1e-05 o2 zero A0e+00 seed1"          "VFCR-S"        2       1e-05     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     45344         45344    7.9415     2.3603e-11    8.5962e-05    8.9288e-11    6.1946e-08    2.7457e-11    8.5539e-11    2.7457e-11    1.2311e-05       0.01034         46631    8.5962e-05      ""  
+    "delta"        "M8a-BDF2 d1e-06 h1e-05 o2 zero A0e+00 seed1"        "M8a-BDF2"      2       1e-06     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     42072    1.2594e+05     6.853     3.0114e-13    1.4927e-05    7.7013e-11    5.4281e-08    3.3935e-13    3.9187e-12    3.3935e-13    3.7212e-05       0.10402    4.6134e+05    1.4927e-05      ""  
+    "delta"        "VFCR-FD d1e-06 h1e-05 o2 zero A0e+00 seed1"         "VFCR-FD"       2       1e-06     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     46189    1.3825e+05    13.415      3.548e-11    1.4927e-05    6.3286e-10    1.7539e-06     3.677e-11    9.3072e-11     3.677e-11     0.0011108        2.9077    4.6134e+05    1.4927e-05      ""  
+    "delta"        "VFCR-S d1e-06 h1e-05 o2 zero A0e+00 seed1"          "VFCR-S"        2       1e-06     1e-05    "zero"            0     1      1e-11    1e-13     true       "complete"     10     47180         47180    9.9046     2.5965e-11    1.4927e-05    2.1634e-10    5.4776e-07    2.9653e-11    8.4108e-11    2.9653e-11    0.00034602       0.90983    4.6134e+05    1.4927e-05      ""  
+    "noise"        "M8a-FD1 d1e-04 h1e-05 o1 colored A1e-05 seed1"      "M8a-FD1"       1      0.0001     1e-05    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     70096    1.4015e+05    16.465     2.0505e-05    0.00050645    5.1816e-05     0.0063059    2.6793e-05    4.3484e-05    7.1105e-09       0.39333        105.36        4736.5    0.00050644      ""  
+    "noise"        "M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-05 seed1"     "M8a-BDF2"      2      0.0001     1e-05    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     70076     2.101e+05     19.29     2.0502e-05    0.00050645    5.1804e-05     0.0063027    2.6789e-05    4.3475e-05    6.8312e-11       0.39313        105.35        4736.5    0.00050644      ""  
+    "noise"        "M8-reg d1e-04 h1e-05 o2 colored A1e-05 seed1"       "M8-reg"        2      0.0001     1e-05    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     70147    2.1032e+05    21.636     2.0515e-05    0.00050646    0.00034705      0.092405    2.6805e-05    0.00018848    9.6296e-07        6.4775        2229.4        2731.9    0.00050644      ""  
+    "noise"        "VFCR-FD d1e-04 h1e-05 o2 colored A1e-05 seed1"      "VFCR-FD"       2      0.0001     1e-05    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     71751    2.1508e+05    23.953     2.0502e-05    0.00050645    5.1807e-05     0.0063041     2.679e-05    4.3476e-05    1.1661e-09       0.39322        105.38        4736.5    0.00050644      ""  
+    "noise"        "M8a-FD1 d1e-04 h1e-05 o1 colored A1e-05 seed2"      "M8a-FD1"       1      0.0001     1e-05    "colored"     1e-05     2      1e-08    1e-10     true       "complete"     10     68334    1.3663e+05    15.106     1.6815e-05    0.00050665    3.9195e-05     0.0037203    2.4036e-05    4.7916e-05    6.7034e-09       0.22915        63.906        4741.6    0.00050644      ""  
+    "noise"        "M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-05 seed2"     "M8a-BDF2"      2      0.0001     1e-05    "colored"     1e-05     2      1e-08    1e-10     true       "complete"     10     68463    2.0527e+05     19.58     1.6812e-05    0.00050665    3.9191e-05     0.0037206    2.4032e-05    4.7903e-05    7.2745e-11       0.22916        63.905        4741.6    0.00050644      ""  
+    "noise"        "M8-reg d1e-04 h1e-05 o2 colored A1e-05 seed2"       "M8-reg"        2      0.0001     1e-05    "colored"     1e-05     2      1e-08    1e-10     true       "complete"     10     68279    2.0471e+05    19.623      1.684e-05    0.00050665    0.00037224      0.098137    2.4053e-05    0.00020024    9.6373e-07        6.6179        2235.5        2733.2    0.00050644      ""  
+    "noise"        "VFCR-FD d1e-04 h1e-05 o2 colored A1e-05 seed2"      "VFCR-FD"       2      0.0001     1e-05    "colored"     1e-05     2      1e-08    1e-10     true       "complete"     10     71361    2.1392e+05    24.485     1.6812e-05    0.00050665     3.919e-05     0.0037192    2.4033e-05    4.7904e-05    1.2122e-09       0.22907        63.882        4741.6    0.00050644      ""  
+    "noise"        "M8a-FD1 d1e-04 h1e-05 o1 colored A1e-05 seed3"      "M8a-FD1"       1      0.0001     1e-05    "colored"     1e-05     3      1e-08    1e-10     true       "complete"     10     74069     1.481e+05    16.669     2.0832e-05    0.00050663    4.4339e-05     0.0022243    2.5606e-05    5.0258e-05    6.6689e-09       0.14364        40.948        4744.3    0.00050644      ""  
+    "noise"        "M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-05 seed3"     "M8a-BDF2"      2      0.0001     1e-05    "colored"     1e-05     3      1e-08    1e-10     true       "complete"     10     74101    2.2218e+05    21.515     2.0829e-05    0.00050663    4.4332e-05     0.0022256    2.5602e-05    5.0245e-05    5.6996e-11        0.1437        40.947        4744.3    0.00050644      ""  
+    "noise"        "M8-reg d1e-04 h1e-05 o2 colored A1e-05 seed3"       "M8-reg"        2      0.0001     1e-05    "colored"     1e-05     3      1e-08    1e-10     true       "complete"     10     74109     2.222e+05    18.187     2.0851e-05    0.00050664    0.00036828      0.097153     2.562e-05    0.00019805    9.6308e-07        6.5892          2232        2735.4    0.00050644      ""  
+    "noise"        "VFCR-FD d1e-04 h1e-05 o2 colored A1e-05 seed3"      "VFCR-FD"       2      0.0001     1e-05    "colored"     1e-05     3      1e-08    1e-10     true       "complete"     10     75658    2.2681e+05    15.366     2.0829e-05    0.00050663    4.4333e-05     0.0022244    2.5602e-05    5.0247e-05    1.0781e-09       0.14363        40.928        4744.3    0.00050644      ""  
+    "amplitude"    "M8a-BDF2 d1e-04 h1e-05 o2 colored A1e-07 seed1"     "M8a-BDF2"      2      0.0001     1e-05    "colored"     1e-07     1      1e-08    1e-10     true       "complete"     10     37492    1.1235e+05    7.1434     2.0502e-07    0.00050643    5.1805e-07    6.3036e-05    2.6789e-07    4.3477e-07    2.9025e-11     0.0039318        1.0535        4735.7    0.00050644      ""  
+    "amplitude"    "M8-reg d1e-04 h1e-05 o2 colored A1e-07 seed1"       "M8-reg"        2      0.0001     1e-05    "colored"     1e-07     1      1e-08    1e-10     true       "complete"     10     37190    1.1145e+05    8.5645     9.3236e-07    0.00050644    0.00036023      0.095949    9.9878e-07    0.00019465    9.6268e-07        6.5655          2234        2731.2    0.00050644      ""  
+    "amplitude"    "VFCR-FD d1e-04 h1e-05 o2 colored A1e-07 seed1"      "VFCR-FD"       2      0.0001     1e-05    "colored"     1e-07     1      1e-08    1e-10     true       "complete"     10     43896    1.3152e+05     11.78     2.0509e-07    0.00050643    5.2037e-07    6.4568e-05      2.68e-07    4.3519e-07     8.324e-10     0.0040258        1.0791        4735.7    0.00050644      ""  
+    "step"         "M8a-BDF2 d1e-04 h1e-04 o2 colored A1e-05 seed1"     "M8a-BDF2"      2      0.0001    0.0001    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     70111    2.1014e+05    20.254     2.0502e-05    0.00050645    5.1804e-05     0.0063023    2.6789e-05    4.3475e-05    4.1311e-09       0.39312        105.35        4736.5    0.00050644      ""  
+    "step"         "M8-reg d1e-04 h1e-04 o2 colored A1e-05 seed1"       "M8-reg"        2      0.0001    0.0001    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     70145    2.1024e+05    20.161     2.0515e-05    0.00050646    0.00034705      0.092405    2.6805e-05    0.00018849    9.6298e-07        6.4775        2229.4        2731.9    0.00050644      ""  
+    "step"         "VFCR-FD d1e-04 h1e-04 o2 colored A1e-05 seed1"      "VFCR-FD"       2      0.0001    0.0001    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     71764    2.1508e+05    24.342     2.0545e-05    0.00050645    5.1929e-05      0.006327    2.6845e-05    4.3559e-05     7.336e-08       0.39464        105.76        4736.5    0.00050644      ""  
+    "step"         "M8a-BDF2 d1e-04 h1e-03 o2 colored A1e-05 seed1"     "M8a-BDF2"      2      0.0001     0.001    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     70383    2.1086e+05    21.573     2.0649e-05    0.00050646    5.2172e-05     0.0063422    2.6983e-05    4.3728e-05    3.7536e-07        0.3967         105.5        4736.4    0.00050644      ""  
+    "step"         "M8-reg d1e-04 h1e-03 o2 colored A1e-05 seed1"       "M8-reg"        2      0.0001     0.001    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     70407    2.1094e+05    20.547     2.0662e-05    0.00050647    0.00034687      0.092357    2.6998e-05    0.00018842    1.0328e-06        6.4756          2229          2732    0.00050644      ""  
+    "step"         "VFCR-FD d1e-04 h1e-03 o2 colored A1e-05 seed1"      "VFCR-FD"       2      0.0001     0.001    "colored"     1e-05     1      1e-08    1e-10     true       "complete"     10     74439    2.2302e+05    24.513     2.3892e-05    0.00050662    6.2418e-05     0.0086628    3.1213e-05    5.0246e-05    6.7191e-06       0.53957        144.42        4736.5    0.00050644      ""  
+    "constant"     "M8a-BDF2 d1e-04 h1e-05 o2 constant A1e-05 seed1"    "M8a-BDF2"      2      0.0001     1e-05    "constant"    1e-05     1      1e-08    1e-10     true       "complete"     10     12105         36192    3.9386     1.7413e-05    0.00050479    6.5157e-05       0.01104    2.6458e-05    2.6458e-05    1.7469e-10       0.68148         183.8        4734.6    0.00050644      ""  
+    "constant"     "M8-reg d1e-04 h1e-05 o2 constant A1e-05 seed1"      "M8-reg"        2      0.0001     1e-05    "constant"    1e-05     1      1e-08    1e-10     true       "complete"     10     12199         36474    3.5687     1.7411e-05     0.0005048    0.00033518      0.089599    2.6471e-05    0.00018428    9.6209e-07        6.4094        2225.2        2731.2    0.00050644      ""  
+    "constant"     "VFCR-FD d1e-04 h1e-05 o2 constant A1e-05 seed1"     "VFCR-FD"       2      0.0001     1e-05    "constant"    1e-05     1      1e-08    1e-10     true       "complete"     10     16174         48354    5.0823     1.7413e-05    0.00050479    6.5167e-05      0.011041    2.6458e-05    2.6473e-05    5.9672e-09       0.68157        183.83        4734.6    0.00050644      ""  
+

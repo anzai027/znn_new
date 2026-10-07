@@ -1,0 +1,18 @@
+MATLAB 25.2.0.3177638 (R2025b) Update 5；严格复核容差 1e-11/1e-13；输出点数 29837
+开始严格复核 1/4 M8 h1e-5
+完成 M8 h1e-5 complete=1 last=10 calls=45443 xd=2.94640003e-09 gpeak=9.79835057e-06 residual=1.31499655e-08
+开始严格复核 2/4 M8a h1e-5
+完成 M8a h1e-5 complete=1 last=10 calls=38221 xd=2.96605075e-09 gpeak=1.60094211e-06 residual=9.1342585e-09
+开始严格复核 3/4 M8a h1e-6
+完成 M8a h1e-6 complete=1 last=10 calls=36558 xd=2.96560748e-10 gpeak=1.59982012e-07 residual=9.13343733e-10
+开始严格复核 4/4 VFCR-S
+完成 VFCR-S complete=1 last=10 calls=41784 xd=1.93601021e-11 gpeak=5.64781835e-09 residual=8.5832241e-11
+       group           label        model      rtol     atol       h       correct      complete      status      last    calls    parts    seconds        xd            x             g           xdpeak        gpeak        residual     residualrmse     equality     inequality     tc4       tc6      reason
+    ____________    ___________    ________    _____    _____    _____    __________    ________    __________    ____    _____    _____    _______    __________    __________    __________    __________    __________    __________    ____________    __________    __________    ______    ______    ______
+
+    "refinement"    "M8 h1e-5"     "M8"        1e-11    1e-13    1e-05    "fixed"        true       "complete"     10     45443    90886    14.142     2.9464e-09    0.00050644     2.846e-08    1.8533e-08    9.7984e-06     1.315e-08     4.5293e-09      7.859e-09        0         0.0095    0.0095      ""  
+    "refinement"    "M8a h1e-5"    "M8A"       1e-11    1e-13    1e-05    "adaptive"     true       "complete"     10     38221    76442    12.375     2.9661e-09    0.00050644     9.853e-09    1.3099e-08    1.6009e-06    9.1343e-09     4.5417e-09     3.0258e-09        0         0.0095    0.0095      ""  
+    "refinement"    "M8a h1e-6"    "M8A"       1e-11    1e-13    1e-06    "adaptive"     true       "complete"     10     36558    73116    12.374     2.9656e-10    0.00050644    9.8522e-10      1.31e-09    1.5998e-07    9.1334e-10     4.5415e-10     3.0256e-10        0         0.0095    0.0095      ""  
+    "refinement"    "VFCR-S"       "VFCR-S"    1e-11    1e-13      NaN    "none"         true       "complete"     10     41784    41784    16.252      1.936e-11    0.00050644    5.6045e-11    6.1827e-11    5.6478e-09    8.5832e-11     2.2882e-11     6.1041e-11        0          1.565    1.9135      ""  
+
+严格复核已保存；本次仅检查精度，不能仅凭同一容差宣布模型排名。

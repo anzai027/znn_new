@@ -1,0 +1,17 @@
+    10
+
+     1    66
+
+     2    27
+
+           3       25381
+
+     7     1
+
+Index exceeds array bounds.
+
+Error in deval (line 138)
+if anynan(tint) || (tdir*(tint(1) - t(1)) < 0) || (tdir*(tint(end) - t(end)) > 0)
+                          ^^^^^^^
+           7       33608
+
