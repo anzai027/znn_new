@@ -1,0 +1,1383 @@
+PAGE 1
+IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 6, JUNE 2024 3415
+A Variable-Gain Fixed-Time Convergent and
+Robust ZNN Model for Image Fusion:
+Design, Analysis, and Veriﬁcation
+Lin Xiao , Xiangru Yan , Yongjun He , and Penglin Cao
+Abstract—Image fusion can obtain the superior information
+and reduce the noise in the source image by designing a speciﬁc
+scheme. However, the noise in image fusion has been a difﬁcult
+issue and hard to handle. In this article, a variable-gain ﬁxed-
+time convergent and robust zeroing neural network (VFCR-ZNN)
+model is proposed to ﬁgure out the image fusion problem and
+the corresponding quadratic programming (QP) problem. In
+contrast to the original zeroing neural network model, the VFCR-
+ZNN model adopts a novel ﬁxed-time activation function and
+a useful variable-gain parameter, which allows the VFCR-ZNN
+model to converge faster in ﬁxed-time and realize noise immunity
+under external disturbance. The detailed theory is provided
+to support this point. Different numerical QP comparative
+examples are carried out to effectively corroborate the rightness
+of the theoretical analyses and the excellence of the VFCR-ZNN
+model. Additionally, the quality of fused images acquired by the
+VFCR-ZNN model is higher compared to existing state-of-the-art
+models for image fusion. Furthermore, the VFCR-ZNN model
+is successfully utilized in the repetitive motion of six-link robot
+manipulator to demonstrate its signiﬁcant practical implications.
+Index Terms —Fixed-time convergence, image fusion, noise
+resistance, variable-gain parameter, zeroing neural network
+(ZNN).
+I. I NTRODUCTION
+T
+HE PROCESS of fusing image information about the
+same target acquired from two or more different sensors
+into a new image containing high-quality information is the
+core problem of image fusion. Image fusion has a high-
+research application in the ﬁelds of high-resolution processing
+of images [1], [2], computer vision processing [3], [4], and
+remote sensing [5], [6]. Nevertheless, in the process of images
+acquisition and transmission, the images often be disturbed by
+different noises due to the environment, imaging equipment
+and human factors, which leads to the degradation of the
+Manuscript received 18 August 2023; accepted 9 January 2024. Date of
+publication 16 February 2024; date of current version 17 May 2024. This
+work was supported in part by the Natural Science Foundation of Hunan
+Province of China under Grant 2022RC1103 and Grant 2021JJ20005, and
+in part by the National Natural Science Foundation of China under Grant
+61866013. This article was recommended by Associate Editor L. Wang.
+(Corresponding author: Lin Xiao.)
+The authors are with the Hunan Provincial Key Laboratory of
+Intelligent Computing and Language Information Processing and MOE-
+LCSM, Hunan Normal University, Changsha 410081, China (e-mail:
+xiaolin860728@163.com).
+Color versions of one or more ﬁgures in this article are available at
+https://doi.org/10.1109/TSMC.2024.3356530.
+Digital Object Identiﬁer 10.1109/TSMC.2024.3356530
+acquired images quality and affects the subsequent fused
+images. Image fusion denoising means removing noise from
+the source images while fusing the images. However, noise
+processing in image fusion has been a challenging issue [7].
+The image fusion denoising problem can be converted
+into a quadratic programming (QP) problem, which can be
+tackled by traditional numerical iterative methods and neural
+network methods. While the traditional numerical algorithms
+are usually based on serial processing, resulting in their
+complexities are directly proportional to the dimensional cube,
+and they have been proven to be inefﬁcient for dealing
+with large-scale problems in practical applications [8], [9].I n
+contrast, neural network-based methods have become powerful
+and effective alternatives for solving various problems due to
+their parallel distribution properties, easy implementation in
+hardware, and high adaptability [10], [11], [12], [13]. Gradient
+neural networks have superior computational ability, global
+stability, and convergence in contrast to traditional numerical
+methods [14], [15]. However, since gradient neural network
+is scalar-based in its error design formulation, it can handle
+static problems, but often fails to solve dynamic problems
+accurately [16], [17]. Accounting for the mutability of the
+coefﬁcients, most of the methods used to tackle static problems
+exist certain lagged error when addressing dynamic problems,
+which may cause tasks to fail. Therefore, Zhang et al.
+suggested the zeroing neural network (ZNN) to tackle dynamic
+problems. The ZNN has the ability to decay the lagged error
+to zero by utilizing the time derivative of the coefﬁcient
+matrix [18]. With this strength, the ZNN has caught ﬁre and
+gained a lot of research and applications [19], [20], [21].
+At present, domestic and international research on the
+ZNN primarily focuses on its stability, convergence and
+robustness. A newly designed sign-bi-power activation func-
+tion (SBPAF) was reported, and the convergence time of
+the ZNN model incorporating the SBPAF is experimentally
+demonstrated to be bounded [22]. Some ﬁnite-time convergent
+ZNN (FTZNN) models have emerged with signiﬁcantly faster
+convergence [23]. Nevertheless, the convergence time of the
+FTZNN models is uncertain and susceptible to the initial
+state [24], [25]. Furthermore, it is highly challenging to control
+the initial state in real applications [26], [27]. Therefore, it
+is necessary to develop a ﬁxed-time convergent model that
+remains unaffected by the initial state.
+Additionally, there are always errors in the hardware real-
+ization of ZNN, which are more complicated than the perfect
+2168-2216 c⃝ 2024 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 2
+3416 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 6, JUNE 2024
+case. The properties of the electronics constrain the capabilities
+of the ZNN and yield diverse errors, like constant noises
+caused by differential errors as well as model realization
+errors [28], nonlinear time varying noises caused by envi-
+ronmental disturbances as well as perturbations of external
+conditions [28]. With the interference of these noises, the state
+solutions obtained using ZNN may not be accurate anymore.
+Most of the works concerning ZNN usually assume that
+there is noise-free or that denoising is completed prior to the
+calculation, so these ZNN models are largely noise-intolerant,
+or relatively weakly noise-tolerant [29]. Therefore, an integral-
+enhanced ZNN formulation was presented by Jin et al. [28],
+which utilizes the integral control technique in control theory
+for handling multiple noises.
+There are relatively few studies regarding the utilization of
+neural network methods for tackling image fusion problem.
+In [30], a gradient neural network model was suggested to
+address convex QP problems and was employed to tackle
+the image fusion. Recently, ZNN models have been proposed
+for image fusion [31], [32]. But none of them take into
+account noise. Furthermore, the above mentioned ZNN models
+primarily focus on the study of activation functions, while
+the research on variable-gain parameters is relatively limited.
+The ZNN models have shown better performance when the
+variable-gain parameters are incorporated, which can usually
+substantially increase the convergence speed [33].A sar e s u l t
+of the aforementioned reasons, a variable-gain ﬁxed-time
+convergent and robust ZNN (VFCR-ZNN) model is proposed
+in this article.
+The principal contributions of this article are summarized
+as follows.
+1) A VFCR-ZNN model with a novel nonlinear ﬁxed-
+time activation function (NFTAF) and an outstanding
+variable-gain parameter is put forward to tackle the
+image fusion problem by solving the corresponding QP
+problem.
+2) The newly devised variable-gain parameter not only
+improves the convergence speed of the VFCR-ZNN
+model but also saves computational resources to a
+certain extent.
+3) The NFTAF enables the VFCR-ZNN model to possess
+prominent ﬁxed-time convergence and splendid robust-
+ness. Besides, the NFTAF renders the upper bound
+of the convergence time of the VFCR-ZNN model
+computable.
+4) The simulation results demonstrate that the VFCR-
+ZNN model achieves better-denoising performance,
+compared to the existing ZNN models for image fusion.
+Subsequently, the repetitive motion of the six-link robot
+manipulator has demonstrated the practical value of the
+VFCR-ZNN model.
+Following is the structure of the remaining parts of this
+article. The formulation of the image fusion problem and the
+optimization process of the QP are described in Section II.
+Section III illustrates the procedure of constructing the VFCR-
+ZNN model, and presents the variable-gain parameter and the
+NFTAF. Section IV analyzes the attributes of the VFCR-ZNN
+model theoretically. Numerical simulations are conducted
+using the VFCR-ZNN model in Section V. The VFCR-
+ZNN model has been proven to be effective in both robot
+manipulator repetitive motion and image fusion, as demon-
+strated in Section VI. The primary consequences of this article
+are concisely summed up in Section VII.
+II. P
+RELIMINARY THEORY
+The formulation of the image fusion problem, the relation-
+ship between the image fusion problem and the QP problem,
+and the optimization process of the QP problem are provided
+in this section.
+A. Problem Formulation
+There are Z different grayscale images of size A×B, which
+can be taken by the same or different sensors. Normalize these
+Z images pixels to form Z matrices, denoted as Vz(a, b), where
+a = 1, 2,..., A; b = 1, 2,..., B; z = 1, 2,..., Z. Then put
+Vz matrix row-ﬁrst vectorization into the zth column of the
+W ∈RS×Z matrix, where S = AB. Then, one can get
+Wz((a − 1)B + b) = Vz(a, b) (1)
+with a = 1, 2,..., A and b = 1, 2,..., B, where Wz indicates
+the zth column of the matrix W, and Wz satisﬁes the following
+decomposition formula [30], [31]:
+Wz = η◦vz + nz (2)
+where ◦ stands for Hadamard product that represents the
+product of elements in the same position, η∈RS denotes the
+scaling vector, vz ∈ RS denotes the row-wise vectorization of
+matrix Vz, and nz ∈RS denotes the noise generated during the
+imaging process. Based on (2), the fused image information
+w∗ ∈RS is acquired by
+w∗ =
+Z∑
+z=1
+Wzx∗(z) = Wx∗ (3)
+where x∗ is the optimal solution to the QP problem
+min xTGx/2
+s.t. cTx = 1
+x ≥ 0( 4 )
+where c = [1, 1,..., 1]T ∈ RZ, G = (∑S
+s=1 rsrT
+s )/S ∈ RZ×Z,
+rT
+s ∈ R1×Z represents the sth row of W, the symbol T
+represents the transpose matrix or the transpose vector. Finally,
+the fused image V∗(a, b) is reconstructed through
+V∗(a, b) = w∗((a − 1)B + b). (5)
+Hence, the issue of image fusion can be addressed by resolving
+the QP problem (4).
+B. Optimization Theory
+In order to expand the scope of the research and application
+of the QP problems, and the ZNN model that can tackle the
+time-varying QP (TVQP) problems can also tackle the time-
+invarying QP (TIQP) problems, so we focus on the TVQP
+problems in this article.
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 3
+XIAO et al.: VFCR-ZNN MODEL FOR IMAGE FUSION: DESIGN, ANALYSIS, AND VERIFICATION 3417
+The standard TVQP is illustrated as
+min xT(t)G(t)x(t) + hT(t)x(t) (6)
+s.t. P(t)x(t) = u(t) (7)
+Q(t)x(t) ≤ v(t) (8)
+where vector x(t) ∈ Rn is unknown, symmetric positive
+deﬁnite matrix G(t) ∈ Rn×n,m a t r i xh(t) ∈ Rn, P(t) ∈ Rm×n,
+u(t) ∈Rm, Q(t) ∈Rw×n, and v(t) ∈Rw are known.
+Lemma 1 [31], [34]: The TVQP problem has an optimal
+solution x∗(t) ∈ Rn if and only if the vector μ∗
+1(t) ∈
+Rm and μ∗
+2(t) ∈ Rw exist such that the vector g∗(t) =
+[x∗T(t),μ∗T
+1 (t),μ∗T
+2 (t)]T ∈Rn+m+w fulﬁlls the Karush–Kuhn–
+Tucker (KKT) conditions
+⎧
+⎪⎪⎨
+⎪⎪
+⎩
+G(t)x
+∗(t) + h(t) + PT(t)μ∗
+1(t) + QT(t)μ∗
+2(t) = 0
+P(t)x∗(t) − u(t) = 0
+μ∗
+2(t) ≥ 0, v(t) − Q(t)x∗(t) ≥ 0
+μ∗T
+2 (t)(v(t) − Q(t)x∗(t)) = 0
+(9)
+where μ∗
+1(t), μ∗
+2(t) are the multiplication multipliers of (7),
+inequality (8), respectively.
+In order to tackle the TVQP problem by using ZNN model,
+we need to convert KKT conditions (9) into an equation.
+Therefore, the perturbed Fischer–Burmeister (PFB) [31], [32]
+function is brought in, which is deﬁned as
+ψδ
+PFB(ℵ1,ν1) = ℵ1 + ν1 −
+√
+ℵ1 ◦ℵ1 + ν1 ◦ν1 + δ (10)
+for δ → 0+, where ℵ1 ∈ Rn, ν1 ∈ Rn, and δ ∈ Rn is a
+perturbed term.
+Lemma 2 [34]: The scalar form of the PFB function is the
+following:
+ψδ
+PFB(ℵ1,ν1) = 0 ⇔ℵ 1 ≥ 0,ν1 ≥ 0,ℵ1ν1 = δ/2 (11)
+where δ> 0, and ψδ
+PFB(ℵ1,ν1) is smooth.
+Based on the (10) and (11), (9) is converted to
+⎧
+⎨
+⎩
+G(t)x∗(t) + h(t) + PT(t)μ∗
+1(t) + QT(t)μ∗
+2(t) = 0
+P(t)x∗(t) − u(t) = 0,
+ψδ
+PFB
+(
+v(t) − Q(t)x∗(t),μ∗
+2(t)
+)
+= 0
+(12)
+if and only if x∗(t) is the KKT point of TVQP (6)–(8) for
+each δ→ 0+.
+Then, (12) can be transferred into
+f(g(t), t) = H(t)g(t) + ϑ(t) = 0 (13)
+where
+H(t) =
+⎡
+⎣
+G(t) PT(t) QT(t)
+P(t) 00
+−Q(t) 0 I
+⎤
+⎦ ∈Rl×l
+g(t) =
+⎡
+⎣
+x(t)
+μ1(t)
+μ2(t)
+⎤
+⎦ ∈Rl,ϑ(t) =
+⎡
+⎣
+h(t)
+−u(t)
+v(t) − σ(t)
+⎤
+⎦ ∈Rl
+where σ(t) :=
+√
+ω(t) ◦ω(t) + μ2(t) ◦μ2(t) + δ, ω(t) = v(t)−
+Q(t)x(t), l = n + m + w. Therefore, TVQP (6)–(8) can be
+addressed by tackling (13).
+Fig. 1. Trajectories of various parameters with λ = 10, p = 2, a = 2,
+b = 0.5, λ1 = 1, and λ2 = 2.
+III. VFTCR-ZNN M ODEL DESIGN
+First, in accordance with (13), the error function is deter-
+mined
+ξ(t) = H(t)g(t) + ϑ(t). (14)
+The original ZNN (OZNN) formula [35] is written as
+˙ξ(t) =− λ/Psi1(ξ(t)) (15)
+where constant λ> 0 is a ﬁxed parameter; /Psi1(·) is a activate
+function (AF), which is generally a monotonically increasing
+odd function.
+The OZNN model can converge effectively in the ideal
+case. But in the case of noise, the computational error among
+the state solution output from the neural network and the
+theoretical solution will be large. Hence, a novel design
+method is adopted in this article to minimize the negative
+impact of noise [36]. The method is formulated as
+˙ξ(t) =− r
+1/Psi11(ξ(t)) − r2/Psi12
+(
+ξ(t) + r1
+∫ t
+0
+/Psi11(ξ(ι))dι
+)
+(16)
+where r1 > 0 and r2 > 0 are parameters, /Psi11(·) and /Psi12(·)
+are AFs.
+The parameters in (16) are ﬁxed parameters, which is chal-
+lenging in the actual hardware implementation. In addition,
+researchers indicate that models with time-varying parame-
+ters converge faster than models with ﬁxed parameters [37].
+However, as illustrated in Fig. 1, most of the existing time-
+varying parameters are increasing with time. In practical
+scenarios, it is not feasible nor available for parameters to tend
+to inﬁnity as time progresses. Therefore, the following ZNN
+formula with variable-gain parameter is designed
+˙ξ(t) =− r
+1ρ(t)/Psi11(ξ(t))
+− r2/Psi12
+(
+ξ(t) + r1
+∫ t
+0
+ρ(ι)/Psi11(ξ(ι))dι
+)
+(17)
+where ρ(t) = exp(λ1arccot(t) + λ2) is a variable-gain param-
+eter; λ1 > 0, λ2 > 0 are constants.
+Remark 1: The variable-gain parameter ρ(t) is different
+from conventional constant parameters and variable-gain
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 4
+3418 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 6, JUNE 2024
+parameters, as it is a function that decreases over time
+and eventually tends to a constant value. The variable-gain
+parameter ρ(t) is large in the early stage to accelerate the
+convergence of the ZNN model. The variable-gain parameter
+ρ(t) is reduced when the ZNN model converges, which can
+save computational costs to a certain extent.
+To make the ZNN model realize ﬁxed-time convergence
+with faster convergence speed and enhanced robustness, this
+article proposes the NFTAF /Phi1(x) with ith element φ
+i(x) as
+follows:
+φi(x) = a exp
+(
+|x|q)
+|x|psign(x) (18)
+where a > 0, p < 1, q > 0, and p + q ≥ 1; sign(·) is a sign
+function. In the simulation, both /Psi11(·) and /Psi12(·) of (17) adopt
+the /Phi1(·).
+Next, bringing (14) into (17) yields
+˙H(t)g(t) + H(t)˙g(t) + ˙ϑ(t) =− r1ρ(t)/Phi1(H(t)g(t) + ϑ(t))
+− r2/Phi1
+(
+H(t)g(t) + ϑ(t) + r1
+∫ t
+0
+ρ(ι)/Phi1(H(ι)g(ι)+ ϑ(ι))dι
+)
+(19)
+where ˙ϑ(t) = [˙h(t),−˙u(t), ˙v(t) − k1(t) ˙ω(t) − k2(t) ˙μ2(t)]T,
+˙ω(t) =˙v(t) − ˙Q(t)x(t) − Q(t)˙x(t); k1(t) :=∧ (ω(t) ⊘ σ(t)),
+k2(t) :=∧ (μ2(t) ⊘ σ(t)); ∧(·) represents the diagonal matrix;
+⊘ refers to the Hadamard division operator.
+By further reformulating (19), the VFCR-ZNN model is
+obtained as
+J(t)˙g(t) =− M(t)g(t) − ς(t) − r1ρ(t)/Phi1(H(t)g(t) + ϑ(t))
+− r2/Phi1
+(
+H(t)g(t) + ϑ(t) + r1
+∫ t
+0
+ρ(ι)/Phi1(H(ι)g(ι)+ ϑ(ι))dι
+)
+(20)
+where
+J(t) =
+⎡
+⎣
+G(t) PT(t) QT(t)
+P(t) 00
+(k1(t) − I)Q(t) 0 I − k2(t)
+⎤
+⎦ ∈Rl×l
+M(t) =
+⎡
+⎢⎣
+˙G(t) ˙PT(t) ˙QT(t)
+˙P(t) 00
+(k1(t) − I) ˙Q(t) 00
+⎤
+⎥⎦ ∈Rl×l
+ς(t) =
+⎡
+⎣
+˙h(t)
+−˙u(t)
+˙v(t) − k1(t)˙v(t)
+⎤
+⎦ ∈Rl.
+For the purpose of comparison, this article lists some AFs
+employed in simulation.
+1) Bipolar-Sigmoid AF (BSAF): They are displayed as
+follows
+ψi(x) = 1 + exp(−α)
+1 + exp(−α) · 1 + exp(−αx)
+1 + exp(−αx). (21)
+2) SBPAF:
+ψi(x) = 1
+2|x|βsign(x) + 1
+2|x|
+1
+β sign(x). (22)
+3) New Sign-Bi-Power AF (NSBPAF):
+ψi(x) = 1
+2x + 1
+2|x|βsign(x) + 1
+2|x|
+1
+β sign(x) (23)
+where α> 2, β ∈ (0, 1).
+IV . THEORETICAL ANALYSIS
+Deﬁnition 1 [40], [41], [42]: A class of nonlinear time-
+varying systems is represented as
+˙ξ(t) =− /Psi1(ξ(t)),ξ0 = ξ(0) (24)
+where ξ(t) denotes the error function and /Psi1(·) is an AF.
+System (24) can achieve ﬁnite-time convergence, if it is
+asymptotically stable and there is T∗(ξ0)> 0 such that ξ(ta) =
+0f o r ∀ta ≥ T∗(ξ0), where T∗(ξ0) is the settling time.
+Deﬁnition 2 [42]: System (24) can achieve ﬁxed-time con-
+vergence, if it is ﬁnite-time convergence and there is Tmax > 0
+such that ξ(ta) = 0f o r ∀ta ≥ Tmax, where Tmax is irrelevant
+to the initial state, but is relevant to system parameters.
+A. Stability
+Theorem 1: Given G(t) ∈ Rn×n, P(t) ∈ Rm×n, Q(t) ∈
+Rw×n, h(t) ∈ Rn, u(t) ∈ Rm and v(t) ∈ Rw of TVQP
+problem (6)–(8), the state solution of VFCR-ZNN model (20)
+can converge to the theoretical solution for any random initial
+value g(0).
+Proof: At ﬁrst, convert VFCR-ZNN model (20) to for-
+mula (17). Consider the ith (∀i ∈ 1, 2,..., l) subsystem of
+the (17), which is indicated as
+˙ξi(t) =− r1ρ(t)φi(ξi(t))
+− r2φi
+(
+ξi(t) + r1
+∫ t
+0
+ρ(ι)φi(ξi(ι))dι
+)
+(25)
+where ˙ξi(t) denotes the ith element of ˙ξ(t), φi(·) represents
+the ith element of /Phi1(·).
+An intermediate function is brought in
+ϖi(t) = ξi(t) + r1
+∫ t
+0
+ρ(ι)φi(ξi(ι))dι (26)
+then
+˙ϖi(t) = ˙ξi(t) + r1ρ(t)φi(ξi(t)). (27)
+Substituting ϖi(t) and ˙ϖi(t) into (25) yields
+˙ϖi(t) =− r2φi(ϖi(t)). (28)
+Choose a Lyapunov function (LF) as
+Li(t) = ϖ 2
+i (t). (29)
+Computing the derivative of (29), we get
+˙Li(t) = 2 ˙ϖi(t)ϖi(t). (30)
+From (28) and (29),w eh a v e
+˙Li(t) =− 2r2φi(ϖi(t))ϖi(t)
+=− 2ar2 exp
+(
+|ϖi(t)|q)
+|ϖi(t)|psign(ϖi(t))ϖi(t)
+=− 2ar2 exp
+(
+|ϖi(t)|q)
+|ϖi(t)|p+1
+=− 2ar2 exp
+(
+Lq/2
+i (t)
+)
+L(p+1)/2
+i (t). (31)
+From the above derivation, it derives that Li(t) ≥ 0
+and ˙L(t) ≤ 0, so Li(t) can ultimately reach to 0. Thus,
+subsystem (25) is reformulated as
+˙ξi(t) =− r1ρ(t)φi(ξi(t)). (32)
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 5
+XIAO et al.: VFCR-ZNN MODEL FOR IMAGE FUSION: DESIGN, ANALYSIS, AND VERIFICATION 3419
+Deﬁne a new LF as
+Di(t) = ξ2
+i (t) (33)
+then, one can derive
+˙Di(t) = 2˙ξi(t)ξi(t). (34)
+Substituting (32) into (34) derives
+˙Di(t) =− 2r1ρ(t)φi(ξi)(t)ξi(t)
+=− 2ar1ρ(t) exp
+(
+|ξi(t)|q)
+|ξi(t)|p+1. (35)
+Given that Di(t) ≥ 0 and ˙D(t) ≤ 0, subsystem (25) is globally
+stable. At last, it can be ﬁrmly concluded that VFCR-ZNN
+model (20) is globally stable.
+B. Convergence
+Theorem 2: GivenG(t) ∈Rn×n, P(t) ∈Rm×n, Q(t) ∈Rw×n,
+h(t) ∈Rn, u(t) ∈Rm and v(t) ∈Rw of TVQP problem (6)–(8),
+the error of VFCR-ZNN model (20) can be stabilized to 0 at
+a ﬁxed-time T1
+T1 < (r1 exp(λ2) + r2)/Gamma1((1 − p)/q)
+ar1r2 exp(λ2)q (36)
+for any random initial value g(0), where parameters r1, r2, λ1,
+λ2, p, and q are deﬁned as before.
+Proof: Suppose Li(t) = 0 when t ≥ T11, and Di(t) = 0 when
+t ≥ T11 +T12. The following equation can be derived from(31):
+dLi
+−2ar2 exp
+(
+Lq/2
+i (t)
+)
+L(p+1)/2
+i (t)
+= dt. (37)
+Li(t) can converge to 0 from the initial state Li(0) after T11.
+Therefore, we obtain
+∫ 0
+Li(0)
+dLi
+−2ar2 exp
+(
+Lq/2
+i (t)
+)
+L(p+1)/2
+i (t)
+=
+∫ T11
+0
+dt. (38)
+After calculation, one yields
+T11 =
+∫ Li(0)
+0
+dLi
+2ar2 exp
+(
+Lq/2
+i (t)
+)
+L(p+1)/2
+i (t)
+≤
+∫ +∞
+0
+dLi
+2ar2 exp
+(
+Lq/2
+i (t)
+)
+L(p+1)/2
+i (t)
+=
+∫ +∞
+0
+l(1−p)/q−1
+i (t)
+ar2q exp(li(t))dli
+= /Gamma1((1 − p)/q)
+ar2q (39)
+where li(t) = Lq/2
+i (t), /Gamma1(s) =
+∫ +∞
+0 ts−1 exp(−t)dt.
+When t ≥ T11, Li(t) = 0, ϖi(t) = 0, so
+˙ξi(t) =− r1ρ(t)φi(ξi(t)). (40)
+From (35), one gets
+˙Di(t) =− 2ar1ρ(t) exp
+(
+|ξi(t)|q)
+|ξi(t)|p+1
+=− 2ar1 exp(λ1arccot(t) + λ2) exp
+(
+|ξi(t)|q)
+|ξi(t)|p+1
+< −2ar1 exp(λ2) exp
+(
+|ξi(t)|q)
+|ξi(t)|p+1. (41)
+Substituting the LF Di(t) = ξ2
+i (t) into the equation yields
+˙Di(t)< −2ar1 exp(λ2) exp
+(
+Dq/2
+i (t)
+)
+Dp+1/2
+i (t). (42)
+It can be transformed into
+dDi
+−2ar1 exp(λ2) exp
+(
+Dq/2
+i (t)
+)
+D(p+1)/2
+i (t)
+> dt. (43)
+Given that Di(t) can converge to 0 from Di(T11) when t ≥
+T11 + T12, one have
+∫ 0
+Di(T11)
+dDi
+−2ar1 exp(λ2) exp
+(
+Dq/2
+i (t)
+)
+D(p+1)/2
+i (t)
+>
+∫ T11+T12
+T11
+dt. (44)
+Similarly, we can have
+T12 < /Gamma1((1 − p)/q)
+ar1 exp(λ2)q. (45)
+Combining (39) and (45), the ﬁxed-time T1 is
+T1 = T11 + T12
+< /Gamma1((1 − p)/q)
+ar2q + /Gamma1((1 − p)/q)
+ar1 exp(λ2)q
+= (r1 exp(λ2) + r2)/Gamma1((1 − p)/q)
+ar1r2 exp(λ2)q . (46)
+From the previous analysis, the ﬁxed time of VFCR-ZNN
+model (20) has been determined as T1.
+C. Robustness
+In the realistic realization of ZNN, there is always a
+diversity of noise and it is unavoidable. For this reason, the
+VFCR-ZNN model subjected to bounded noise ζ(t) ∈ Rl
+interference is considered as
+J(t)˙g(t) =− M(t)g(t) − ς(t) − r1ρ(t)/Phi1(H(t)g(t) + ϑ(t))
+− r2/Phi1
+(
+H(t)g(t) + ϑ(t) + r1
+∫ t
+0
+ρ(ι)/Phi1(H(ι)g(ι)+ ϑ(ι))dι
+)
++ ζ(t).
+(47)
+Theorem 3: If ζ(t) ∈Rl is a bounded noise and |ζi(t)|≤ k,
+the ∥ξ(t)∥2 of VFCR-ZNN model (47) disturbed by the noise
+can always converge to a bounded value 2 k
+√
+l/(aqr1 exp(λ2))
+when t →+ ∞ , where ζi(t) denotes the ith element of ζ(t).
+Proof: VFCR-ZNN model (47) disturbed by noise can be
+converted into the formula
+˙ξ(t) =− r1ρ(t)/Phi1(ξ(t))
+− r2/Phi1
+(
+ξ(t) + r1
+∫ t
+0
+ρ(ι)/Phi1(ξ(ι))dι
+)
++ ζ(t). (48)
+Consider the ith subsystem of formula (48) as
+˙ξi(t) =− r1ρ(t)φi(ξi(t))
+− r2φi
+(
+ξi(t) + r1
+∫ t
+0
+ρ(ι)φi(ξi(ι))dι
+)
++ ζi(t). (49)
+Similarly bring in the intermediate function ϖi(t) = ξi(t) +
+r1
+∫ t
+0 ρ(ι)φi(ξi(ι))dι, and ˙ϖi(t) = ˙ξi(t) + r1ρ(t)φi(ξi(t)).
+Substitute ϖi(t) and ˙ϖi(t) into (49) to get
+˙ϖi(t) =− r2φi(ϖi(t)) + ζi(t). (50)
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 6
+3420 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 6, JUNE 2024
+Deﬁne a LF as
+Gi(t) = 1
+2ϖ 2
+i (t) (51)
+then
+˙Gi(t) =˙ϖi(t)ϖi(t). (52)
+Substituting (50) into (51) yields
+˙Gi(t) = ϖi(t)(−r2φi(ϖi(t)) + ζi(t))
+=− r2φi(ϖi(t))ϖi(t) + ζi(t)ϖi(t)
+≤− r2|φi(ϖi(t))||ϖi(t)|+| ζi(t)||ϖi(t)|
+≤− r2|φi(ϖi(t))||ϖi(t)|+ k|ϖi(t)|
+≤− | ϖi(t)|(r2|φi(ϖi(t))|− k). (53)
+Assume r2|φi(ϖi(t))|− k > 0, ˙Gi(t)< 0, and ϖi(t) will
+decease until r2|φi(ϖi(t))|− k ≤ 0. Therefore, when t →+ ∞ ,
+r2|φi(ϖi(t))|≤ k.
+Deﬁne a new LF as
+0 (t) = 1
+2ξi(t)2. (54)
+After r2|φi(ϖi(t))|≤ k, based on (49), it can be inferred that
+˙0 (t) = ξi(t)˙ξi(t)
+= ξi(t)(−r1ρ(t)φi(ξi(t)) − r2φi(ϖi(t)) + ζi(t))
+=− r1ρ(t)ξi(t)φi(ξi(t)) − r2ξi(t)φi(ϖi(t))
++ ξi(t)ζi(t)
+≤− r1ρ(t)|ξi(t)||φi(ξi(t))|+ r2|ξi(t)||φi(ϖi(t))|
++| ξi(t)||ζi(t)|
+≤− r1ρ(t)|ξi(t)||φi(ξi(t))|+ 2k|ξi(t)|
+=− |ξi(t)|(r1ρ(t)|φi(ξi(t))|− 2k). (55)
+In a comparable manner, when t →+ ∞ ,
+r1ρ(t)|φi(ξi(t))|≤ 2k. Therefore, one gets
+0 ≤| ξi(t)|≤
+⏐⏐
+⏐
+⏐φ
+−1
+i
+( 2k
+r1ρ(t)
+) ⏐⏐
+⏐
+⏐. (56)
+Due to |φ
+i(x)|≥| aqx|, |φ−1
+i (x)|≤| x/aq|, (56) becomes
+0 ≤| ξi(t)|≤| 2k/(aqr1ρ(t))|. So we can derive
+lim
+t→+∞
+∥ξ(t)∥2 =
+√
+l∑
+i=1
+(ξi(t))2
+≤
+
+√
+l∑
+i=1
+( 2k
+aqr1ρ(t)
+) 2
+=
+
+√
+l∑
+i=1
+( 2k
+aqr1 exp(λ1arccot(t) + λ2)
+) 2
+≤ 2k
+√
+l
+aqr1exp(λ2). (57)
+Consequently, the error of VFCR-ZNN model (47) will
+converge to an upper bounded value when there exists the
+bounded noise. The certiﬁcate of Theorem 3 is already
+ﬁnished.
+Remark 2: There are many nonlinear time-varying noises
+in actual applications. In the real-time calculation process, the
+time-varying noise can be regarded as a bounded noise [43].
+Therefore, we evaluate the anti-interference capability of the
+VFCR-ZNN model by calculating the error of the model under
+bounded noise. From Theorem 3, it is known that the error
+of VRCR-ZNN model (47) converges to a bounded value as
+long as the noise is bounded.
+V. I
+LLUSTRATIVE EXAMPLE
+In this section, QP problem numerical examples testify the
+excellence of VFCR-ZNN model (20) and the rightness of
+the analyses of Section IV. In all simulations, choose the
+parameters pertaining to VFCR-ZNN model (20), that is, r1 =
+1, r2 = 1, p = 0.5, q = 0.5, a = 1, λ1 = 1, λ2 = 1. All
+elements of δ are initialized to 0.0001.
+A. Example 1
+A TVQP problem with equational constraint [44]
+min 0 .5(0.25 sin(t) + 1)x2
+1(t) + 0.5(0.25 sin(t) + 1)x2
+2(t)
++ 0.5 cos(t)x1(t)x2(t) + sin(3t)x1(t) + cos(3t)x2(t)
+s.t. sin (4t)x1(t) − cos(4t)x2(t) = cos(2t) (58)
+that is transformed into x(t) =
+[ x1(t)
+x2(t)
+]
+, G(t) =
+[ 0.25 sin(t) + 10 .5 cos(t)
+0.5 cos(t) 0.25 sin(t) + 1
+]
+h(t) =
+[ sin(3t)
+cos(3t)
+]
+, P(t) =
+[sin(4t) cos(4t)]
+u(t) = cos(2t),
+Q(t) = [I2,−I2]T, v(t) = [∞ T
+2 ,∞ T
+2 ]T, where I2 ∈R2×2 is an
+identity matrix, ∞ 2 is a 2 dimension vector and every element
+is positively inﬁnite. In the experiment, the ∞ is replaced by
+108.T h e g(0) = [xT(0),μT
+1 (0),μT
+2 (0)]T is randomly selected
+from [0, 1], [0, 10], [0, 100], [0, 1000], respectively. The
+ﬁxed time of VFCR-ZNN model (20) is calculated as T1 ≈
+2.7 s through Theorem 2.F i g .2 illustrates the outcomes of
+applying VFCR-ZNN model (20) with varying initial values
+g(0) to address Example V-A.I nF i g .2(c), the initial values
+do not impact the upper bound on the convergence time
+of VFCR-ZNN model (20), which demonstrates that VFCR-
+ZNN model (20) is a ﬁxed-time convergence model. The
+convergence time of VFCR-ZNN model (20) is signiﬁcantly
+smaller than T1, conﬁrming the correctness of Theorem 2.
+B. Example 2
+A TVQP problem with equality and inequality con-
+straints [44]
+min 0 .5(0.25 sin(t) + 1)x2
+1(t) + 0.5(0.25 sin(t) + 1)x2
+2(t)
++ 0.5 cos(t)x1(t)x2(t) + sin(3t)x1(t) + cos(3t)x2(t)
+s.t. sin(4t)x1(t) − cos(4t)x2(t) = cos(2t)
+− 1.2 ≤ x1(t), x2(t) ≤ 1.2. (59)
+The matrices x(t), G(t), h(t), P(t), and Q(t) are the same
+as in Example V-A, v(t) = [1.2, 1.2, 1.2, 1.2]T.T h e g(0) =
+[xT(0),μT
+1 (0),μT
+2 (0)]T is randomly selected from [0, 1]. To
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 7
+XIAO et al.: VFCR-ZNN MODEL FOR IMAGE FUSION: DESIGN, ANALYSIS, AND VERIFICATION 3421
+(a) (b) (c)
+Fig. 2. State solution trajectories and error trajectories produced by VFCR-ZNN model (20) with varying initial values on solving Example 1. (a) x1(t).
+(b) x2(t). (c) Error.
+(a) (b)
+Fig. 3. Error trajectories produced by VFCR-ZNN model (20) with four
+AFs. (a) No noise. (b) Cosine noise ζi(t) = cos(t).
+verify the dominance of the NFTAF over the other AFs,
+VFCR-ZNN model (20) with the NFTAF and other AFs is
+employed to address Section V-B. The parameters in other
+AFs are set to α = 4 and β = 0.4. Fig. 3(a) indicates that the
+VFCR-ZNN model with NFTAF converges the fastest. When
+noise ζi(t) = cos(t) is present, the VFCR-ZNN model with
+NFTAF can still converge to 0 in Fig.3(b). However, the errors
+of the model with other AFs exhibit noticeable ﬂuctuations.
+To testify the robustness of VFCR-ZNN model (20),w es e t
+up six types of noise, namely, constant noise ζi = 2, linear
+noise ζi(t) = 0.1t, cosine noise ζi(t) = cos(t), and Gamma
+noise ζi(t) ∼ /Gamma1(a0, b0) with shape parameter a0 = 1 and
+scale parameter b0 = 1, Gaussian noise ζi(t) ∼ N(m0, v0) with
+mean m0 = 0 and standard deviation v0 = 1, and Harmonic
+noise ζi(t) = sin(8πt + 2). Under six types of noise, the
+outcomes of applying the OZNN model, the predeﬁned-time
+convergent and robust ZNN (PTCR-ZNN) model [44], and
+the VFCR-ZNN model to tackle Section V-B are displayed
+in Fig. 4. When noise is present, OZNN model (15) can
+not converge. In Fig. 4(a) and (e), the error of PTCR-ZNN
+model ﬂuctuates even after convergence, which reveals that
+the PTCR-ZNN model is not steady. As observed in Fig. 4(b),
+(c), and (f), although the PTCR-ZNN model is able to con-
+verge, the error of VFCR-ZNN model (20) is less contrasted
+with the PTCR-ZNN model. Both VFCR-ZNN model (20)
+and the PTCR-ZNN model exhibit similar levels of precision,
+but VFCR-ZNN model (20) converges faster under Gamma
+noise. In conclusion, VFCR-ZNN model (20) exhibits superior
+performance in convergence and robustness in comparison
+with OZNN model (15) and the PTCR-ZNN model. To accen-
+tuate the exceptional robustness of VFCR-ZNN model (20),
+Table I provides a comprehensive summary of the features of
+the OZNN model, the PTCR-ZNN model, and VFCR-ZNN
+model (20), where sgn
+λ(x) =| x|λ for x ≥ 0, and sgn λ(x) =
+−|x|λ for x < 0.
+VI. A PPLICATIONS TO IMAGE FUSION AND ROBOT
+A. Image Fusion
+To underscore the preeminence of VFCR-ZNN model (20)
+in image fusion, VFCR-ZNN model (20) is compared with
+fuzzy ﬁnite-time ZNN (FFT-ZNN) model [45] and the PTCR-
+ZNN model [44] that also tackle image fusion.
+Quality Evaluation: The peak signal to noise ratio (PSNR)
+and the structure similarity (SSIM) are utilized to check the
+effect of image fusion. The higher the value of PSNR means
+the superior image quality. The SSIM value ranges from
+0 to 1, and the closer to 1 means the more similar to the
+original image [46].
+Choose images of size 481 × 321 downloaded from
+BSDS300 dataset, https://www2.eecs.berkeley.edu/Research/P
+rojects/CS/vision/grouping/segbench/. VFTCR-ZNN model
+(20), the FFT-ZNN model [45], and the PTCR-ZNN
+model [44] are employed to fuse 20 images impacted with
+various intensities of Gaussian noise and different intensities of
+pepper and salt noise, respectively. The mean m and variance
+v of Gaussian noises are set to m
+1 = 0, v1 = 0.05, m2 =
+0, v2 = 0.08, m3 = 0, v3 = 0.1, respectively. The densities
+of the pepper and salt noise are set to d1 = 0.05, d2 = 0.1,
+d3 = 0.2. The fused images are exhibited in Figs. 5 and 6, and
+the NRST and SSIM values corresponding to the fused images
+are displayed in Table II. Noises 1-3 represent Gaussian noises
+with v
+1 = 0.05, v2 = 0.08, and v3 = 0.1. Noises 4-6
+denote pepper and salt noises with d1 = 0.05, d2 = 0.1, and
+d3 = 0.2. The highest PSNR and SSIM are bolded. Based on
+the comparison ﬁndings presented in Table II, it is noticed that
+the quality of the fused images of VFCR-ZNN model (20) is
+superior to the other two models. From Fig. 7, the error of
+VFCR-ZNN model (20) also converges faster than the other
+two models when solving image fusion.
+Further, an image of size 512 × 512 is selected for another
+experiment, and multiple images impacted by Gaussian noise
+with m = 0 and v = 0.05 are generated. Using VFCR-ZNN
+model (20) to fuse 20 noisy images and 50 noisy images,
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 8
+3422 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 6, JUNE 2024
+(a) (b) (c)
+(d) (e) (f)
+Fig. 4. Error trajectories produced by the OZNN model, the PTCR-ZNN model, and the VFCR-ZNN model under a variety of noises. (a) Constant noise
+ζi(t) = 2. (b) Linear noise ζi(t) = 0.1t. (c) Cosine noise ζi(t) = cos(t). (d) Gamma noise with shape parameter a0 = 1 and scale parameter b0 = 1.
+(e) Gaussian noise with mean m0 = 0 and standard deviation v0 = 1. (f) Harmonic noise ζi(t) = sin(8πt + 2).
+TABLE I
+FEATURES OF THE OZNN M ODEL , THE PTCR-ZNN M ODEL , AND THE VFCR-ZNN M ODEL
+respectively, the ﬁndings are displayed in Fig. 8 and Table III.
+From Fig. 8(c) and (d), compared with Fig. 8(b), most of the
+noise is removed, which conﬁrms that VFCR-ZNN model (20)
+can indeed tackle the image fusion problem and get a higher-
+quality fused image. Moreover, the PSNR value of the image
+after fusing 50 images is raised by 9.04 dB compared to the
+image after fusing 20 images. Consequently, it can be known
+that the more the number of images are involved in the fusion,
+the higher the quality of the fused images. The more noisy
+images, the larger the size of the matrix processed by VFCR-
+ZNN model (20), indicating that VFCR-ZNN model (20) can
+effectively handle large-scale problems from this experiment.
+Magnetic resonance (MR) images provide rich and valu-
+able information about human body structures, but MR
+images are often disturbed by random noise during acqui-
+sition. The existence of Rician noise in MR images
+not only affects the observation of physicians but also
+affects the subsequent processing and analysis effects.
+Therefore, suppressing the Rician noise in MR images is
+an important step in the image preprocessing stage. A
+MR image dataset with slice thickness of 1 mm, noise
+level of 0, grayscale inhomogeneity level of 0, and image
+size of 217 × 181 is downloaded from the BrainWeb
+database, https://brainweb.bic.mni.mcgill.ca/brainweb/. The
+database includes 181 slices, from which we select two
+slices and apply both Gaussian noise and Rician noise
+for simulations. The 50 slices with noise are fused using
+VFCR-ZNN model (20), as shown in Fig. 9 and Table IV.
+The results illustrate that the quality of the fused images
+is remarkably improved compared to images affected by
+noises. Consequently, VFCR-ZNN model (20) can reduce both
+Gaussian noise and Rician noise in images, which reduces the
+difﬁculty of subsequent recognition and processing.
+B. Repetitive Motion of Six-Link Robot
+In order to broaden the application scope of VFCR-ZNN
+model (20), it is utilized for the repetitive motion of six-link
+robot manipulator which takes joint constraints into account. In
+accordance with [45], the repetitive motion of the manipulator
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 9
+XIAO et al.: VFCR-ZNN MODEL FOR IMAGE FUSION: DESIGN, ANALYSIS, AND VERIFICATION 3423
+Fig. 5. Outcomes of fusing images affected by different Gaussian noises.
+The ﬁrst, second, and third rows represent the fused images with variances
+of v1 = 0.05, v2 = 0.08, and v3 = 0.1, respectively. (a), (e), and (i) Noisy
+images. (b), (f), and (j) FFT-ZNN model. (c), (g), and (k) PTCR-ZNN model.
+(d), (h), and (l) VFCR-ZNN model.
+Fig. 6. Outcomes of fusing images affected by different pepper and salt
+noises. The ﬁrst, second, and third rows represent the fused images with
+densities of d
+1 = 0.05, d2 = 0.1, and d3 = 0.2, respectively. (a), (e), and (i)
+Noisy images. (b), (f), and (j) FFT-ZNN model. (c), (g), and (k) PTCR-ZNN
+model. (d), (h), and (l) VFCR-ZNN model.
+TABLE II
+QUALITY EVA L UAT I O N O FFUSED IMAGES USING THREE MODELS
+at joint angle velocity is expressed as
+min ˙ωT(t) ˙ω(t)/2 + bT(t) ˙ω(t)
+s.t. A(ω(t)) ˙ω(t) =˙c(t) + ϱ(c(t) − ϒ(ω(t)))
+ω− (t) ≤ ω(t) ≤ ω+(t)
+˙ω− (t) ≤ ˙ω(t) ≤ ˙ω+(t) (60)
+Fig. 7. Error trajectories produced by employing the FFT-ZNN model,
+the PTCR-ZNN model, and VFCR-ZNN model (20) to tackle image fusion.
+(a) Gaussian noise with v2 = 0.08. (b) Gaussion noise with v3 = 0.1.
+(c) Pepper and salt noise with d2 = 0.1. (d) Pepper and salt noise with
+d3 = 0.2.
+Fig. 8. Outcomes of fusion of different numbers of images affected by
+Gaussian noise using VFCR-ZNN model (20). (a) Original image. (b) Images
+affected by Gaussian noise. (c) Image after fusing 20 images. (d) Image after
+fusing 50 images.
+where ω(t) ∈ R6 is joint angle, ˙ω(t) denotes joint angle
+velocity, b(t) = ϵ(ω(t) − ω(0)) is joint drift from the initial
+s t a t et ot h et i m et and ϵ> 0; c(t) ∈ R2 denotes the expected
+path vector of the end effector, A(ω(t)) = ∂ϒ(ω(t))/∂ω(t)
+represents the Jacobian matrix, and ϱ(c(t) − ϒ(ω(t))) rep-
+resents the feedback control with ϱ> 0; ω− (t),ω+(t) and
+˙ω− (t), ˙ω+(t) indicate the upper bound and lower bound of
+joint angle and joint angle velocity, respectively. The for-
+mula (60) is represented as the standard TVQP
+min 1
+2 ˙ωT(t)G(t) ˙ω(t) + bT(t) ˙ω(t)
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 10
+3424 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 6, JUNE 2024
+TABLE III
+QUALITY EVA L UAT I O N O FIMAGES AFTER FUSING DIFFERENT NUMBERS
+IMAGES AFFECTED BY GAUSSIAN NOISE USING THE VFCR-ZNN M ODEL
+Fig. 9. Outcomes of fusion of MR images affected by Gaussian noise or
+Rician noise using VFCR-ZNN model (20). (a) Original image of slice 40.
+(b) Slice 40 affected by Gaussian noise. (c) Image after fusing 50 images of
+40 slice. (d) Original image of slice 100. (e) Slice 100 affected by Rician
+noise. (f) Image after fusing 50 images of 100 slice.
+s.t. A(t) ˙ω(t) = u(t)
+Q(t) ˙ω(t) ≤ v(t) (61)
+where G(t) = I6, u(t) =˙c(t) + ϱ(c(t) − ϒ(ω(t))), Q(t) =
+[I6,−I6]T, where I6 ∈ R6×6 represents the identity matrix,
+v(t) = [ℏ+T,ℏ−T]T with
+ℏ−
+i =
+⎧
+⎨
+⎩
+˙ω−
+i ,ω i(t) ∈
+[
+ωl,ω +
+i
+]
+−˙ω−
+i (ωi−ωl)2
+(
+ω−
+i −ωl
+)2 +˙ω−
+i ,ω i(t) ∈
+[
+ω−
+i ,ω l
+]
+ℏ+
+i =
+⎧
+⎨
+⎩
+˙ω+
+i ,ω i(t) ∈
+[
+ω−
+i ,ω r
+]
+−˙ω+
+i (ωi−ωr)2
+(
+ω+
+i −ωr
+)2 +˙ω+
+i ,ω i(t) ∈
+[
+ωr,ω +
+i
+] (62)
+with ωr,ω l ∈ [ω−
+i ,ω +
+i ] and ωr >ω l, where ωi, ˙ωi, and ℏi are
+the ith (∀∈ 1, 2,..., 6) element of ω, ˙ω, and ℏ, respectively.
+We set up VFCR-ZNN model (20) with the same parameters
+as Section V; ω+
+i = 0.8π rad, ω−
+i =− 0.8π rad, ωr = ωl =
+ω+
+i − 0.1 rad, ˙ω+
+i = π rad/s, and ˙ω−
+i =− π rad/s.
+Fig. 10(a) illustrates the positions of the manipulator. The
+real end-effector trajectory and the desired trajectory can be
+completely overlapped in Fig. 10(b). In Fig. 11, neither the
+joint angles nor the joint angles velocities are outside the
+limits. The ultimate state of each joint is the same as the initial
+state and the ultimate velocity of each joint is equal to 0. It
+can be deduced that VFCR-ZNN model (20) has the capability
+to address the repetitive motion problem. From Fig. 12,i tc a n
+be noticed that the errors are all at the level of 10
+−4. Thus, the
+TABLE IV
+QUALITY EVA L UAT I O N O FMR I MAGES AFTER FUSING IMAGES
+AFFECTED BY GAUSSIAN NOISE OR RICIAN NOISE
+USING THE VFCR-ZNN M ODEL
+Fig. 10. Trajectories of the six-link robot manipulator utilizing VFCR-ZNN
+model (20) to track the circle. (a) Motion trajectories. (b) Expected path (EP)
+and actual end-effector path (AP).
+Fig. 11. Simulation outcomes of the six-link robot manipulator utilizing
+VFCR-ZNN model (20). (a) Joint angles. (b) Joint angles velocities.
+Fig. 12. Error trajectories of the six-link robot manipulator utilizing VFCR-
+ZNN model (20). (a) End-effector position error. (b) End-effector velocity
+error.
+six-link robot manipulator utilizing VFCR-ZNN model (20)
+can precisely accomplish the speciﬁed task. In summary, the
+above ﬁndings demonstrate that VFCR-ZNN model (20) can
+effectively address the repetitive motion problem of the six-
+link manipulator.
+VII. C ONCLUSION
+In order to tackle the image fusion problem, we propose
+the VFCR-ZNN model with a NFTAF and a novel variable-
+gain parameter. Through theoretical analyses and numerical
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 11
+XIAO et al.: VFCR-ZNN MODEL FOR IMAGE FUSION: DESIGN, ANALYSIS, AND VERIFICATION 3425
+simulations, it is demonstrated that the VFCR-ZNN model
+possesses faster convergence and can achieve convergence in
+a ﬁxed-time. Moreover, in contrast to the OZNN and the
+PTCR-ZNN model, the VFCR-ZNN model can tackle the
+QP problems more accurately under different bounded noise
+disturbances. In image fusion simulation, the VFCR-ZNN
+model can obtain higher-quality fused image compared to
+the other two models. Ultimately, the potential application
+of the VFCR-ZNN model is demonstrated by its successful
+implementation in solving repetitive motion problem of six-
+link robot. Furthermore, our future research will pay attention
+to investigating ZNN model with stronger robustness to over-
+come other sorts of sophisticated noise.
+R
+EFERENCES
+[1] Z. Lee and T. Q. Nguyen, “Multi-resolution disparity processing and
+fusion for large high-resolution stereo image,” IEEE Trans. Multimedia,
+vol. 17, no. 6, pp. 792–803, Jun. 2015.
+[2] F. Pan, Z. Wu, Q. Liu, Y . Xu, and Z. Wei, “DCFF-Net: A densely
+connected feature fusion network for change detection in high-resolution
+remote sensing images,” IEEE J. Sel. Top. Appl. Earth Observ. Remote
+Sens., vol. 14, pp. 11974–11985, Nov. 2021.
+[3] B. Ni, Y . Pei, P. Moulin, and S. Yan, “Multilevel depth and image
+fusion for human activity detection,”IEEE Trans. Cybern., vol. 43, no. 5,
+pp. 1383–1394, Oct. 2013.
+[4] S. Wang, B. Pan, H. Chen, and Q. Ji, “Thermal augmented expression
+recognition,” IEEE Trans. Cybern. , vol. 48, no. 7, pp. 2203–2214,
+Jul. 2018.
+[5] J. Yang, G. Cheng, and M. Shen, “Secure fusion of encrypted remote
+sensing images based on brovey,” Sci. China Inf. Sci. , vol. 64, no. 2,
+pp. 1–3, 2021.
+[6] M. Ghahremani, Y . Liu, P. Yuen, and A. Behera, “Remote sensing image
+fusion via compressive sensing,” ISPRS J. Photogramm. Remote Sens. ,
+vol. 152, pp. 34–48, Jun. 2019.
+[7] J. Tan, Y . Ma, and D. Baron, “Compressive imaging via approximate
+message passing with image denoising,” IEEE Trans. Signal Process. ,
+vol. 63, no. 8, pp. 2085–2092, Apr. 2015.
+[8] L. Xiao et al., “Nonlinear gradient neural network for solving system
+of linear equations,” Inf. Process. Lett., vol. 142, pp. 35–40, Feb. 2019.
+[9] S. Liao, J. Liu, Y . Qi, H. Huang, R. Zheng, and X. Xiao, “An adaptive
+gradient neural network to solve dynamic linear matrix equations,” IEEE
+Trans. Syst. Man Cybern. Syst., vol. 52, no. 9, pp. 5913–5924, Sep. 2022.
+[10] A. Nazemi and A. Sabeghi, “A novel gradient-based neural network
+for solving convex second-order cone constrained variational inequality
+problems,” J. Comput. Appl. Math. , vol. 347, pp. 343–356, Feb. 2019.
+[11] J. Li, Y . Shi, and H. Xuan, “Uniﬁed model solving nine types of time-
+varying problems in the frame of zeroing neural network,” IEEE Trans.
+Neural Netw. Learn. Syst. , vol. 32, no. 5, pp. 1896–1905, May 2021.
+[12] D. Yang, G. Zong, and S.-F. Su, “ H
+∞ tracking control of uncertain
+Markovian hybrid switching systems: A fuzzy switching dynamic
+adaptive control approach,” IEEE Trans. Cybern. , vol. 52, no. 5,
+pp. 3111–3122, May 2022.
+[13] G. Zong, D. Yang, J. Lam, and X. Song, “Fault-tolerant control of
+switched LPV systems: A bumpless transfer approach,” IEEE ASME
+Trans. Mechatron., vol. 27, no. 3, pp. 1436–1446, Jun. 2022.
+[14] D. Chen, Y . Zhang, and S. Li, “Tracking control of robot manipulators
+with unknown models: A Jacobian-matrix-adaption method,” IEEE
+Trans. Ind. Inform. , vol. 14, no. 7, pp. 3044–3053, Jul. 2018.
+[15] L. Liu, Z. Wang, and H. Zhang, “Neural-network-based robust optimal
+tracking control for MIMO discrete-time systems with unknown uncer-
+tainty using adaptive critic design,” IEEE Trans. Neural Netw. Learn.
+Syst., vol. 29, no. 4, pp. 1239–1251, Apr. 2017.
+[16] L. Xiao and Y . Zhang, “Zhang neural network versus gradient neural
+network for solving time-varying linear inequalities,” IEEE Trans.
+Neural Netw., vol. 22, no. 10, pp. 1676–1684, Oct. 2011.
+[17] Q. Zuo, K. Li, L. Xiao, Y . Wang, and K. Li, “On generalized zeroing
+neural network under discrete and distributed time delays and its
+application to dynamic Lyapunov equation,” IEEE Trans. Syst., Man,
+Cybern., Syst., vol. 52, no. 8, pp. 5114–5126, Aug. 2021.
+[18] Y . Zhang and S. S. Ge, “Design and analysis of a general recurrent
+neural network model for time-varying matrix inversion,” IEEE Trans.
+Neural Netw. Learn. Syst. , vol. 16, no. 6, pp. 1477–1490, Nov. 2005.
+[19] Y . Kong, Y . Jiang, and X. Xia, “Terminal recurrent neural networks for
+time-varying reciprocal solving with application to trajectory planning of
+redundant manipulators,” IEEE Trans. Syst., Man, Cybern., Syst., vol. 52,
+no. 1, pp. 387–399, Jan. 2022.
+[20] M. Yang, Y . Zhang, Z. Zhang, and H. Hu, “6-step discrete ZNN model
+for repetitive motion control of redundant manipulator,” IEEE Trans.
+Syst., Man, Cybern., Syst. , vol. 52, no. 8, pp. 4969–4980, Aug. 2022.
+[21] B. Liao, Y . Zhang, and L. Jin, “Taylor O(h
+3) discretization of ZNN
+models for dynamic equality-constrained quadratic programming with
+application to manipulators,” IEEE Trans. Neural Netw. Learn. Syst. ,
+vol. 27, no. 2, pp. 225–237, Feb. 2016.
+[22] S. Li and Y . Li, “Nonlinearly activated neural network for solving time-
+varying complex Sylvester equation,” IEEE Trans. Cybern. , vol. 44,
+no. 8, pp. 1397–1407, Aug. 2014.
+[23] L. Xiao, B. Liao, J. Jin, R. Lu, X. Yang, and L. Ding, “A ﬁnite-
+time convergent dynamic system for solving online simultaneous linear
+equations,” Int. J. Comput. Math. , vol. 94, no. 9, pp. 1778–1786, 2017.
+[24] W. Qi, G. Zong, and C. K. Ahn, “Input–output ﬁnite-time asynchronous
+SMC for nonlinear semi-Markov switching systems with application,”
+IEEE Trans. Syst., Man, Cybern., Syst. , vol. 52, no. 8, pp. 5344–5353,
+Aug. 2022.
+[25] W. Li, “Predeﬁned-time convergent neural solution to cyclical motion
+planning of redundant robots under physical constraints,” IEEE Trans.
+Ind. Electron., vol. 67, no. 12, pp. 10732–10743, Dec. 2020.
+[26] W. Qi, Y . Hou, G. Zong, and C. K. Ahn, “Finite-time event-triggered
+control for semi-Markovian switching cyber–physical systems with FDI
+attacks and applications,” IEEE Trans. Circuits Syst. I Regul. Pap. ,
+vol. 68, no. 6, pp. 2665–2674, Jun. 2021.
+[27] B. Liao, Y . Wang, W. Li, C. Peng, and Q. Xiang, “Prescribed-time
+convergent and noise-tolerant Z-type neural dynamics for calculating
+time-dependent quadratic programming,” Neural Comput. Appl., vol. 33,
+no. 10, pp. 5327–5337, May 2021.
+[28] L. Jin, Y . Zhang, and S. Li, “Integration-enhanced Zhang neural network
+for real-time-varying matrix inversion in the presence of various kinds
+of noises,” IEEE Trans. Neural Netw. Learn. Syst. , vol. 27, no. 12,
+pp. 2615–2627, Dec. 2016.
+[29] K. Chen and C. Yi, “Robustness analysis of a hybrid of recursive neural
+dynamics for online matrix inversion,” Appl. Math. Comput. , vol. 273,
+pp. 969–975, Jan. 2016.
+[30] A. Nazemi and M. Nazemi, “A gradient-based neural network method
+for solving strictly convex quadratic programming problems,” Cogn.
+Comput., vol. 6, no. 3, pp. 484–495, Feb. 2014.
+[31] A. Nazemi, “A capable neural network framework for solving degenerate
+quadratic optimization problems with an application in image fusion,”
+Neural Process Lett. , vol. 47, no. 1, pp. 167–192, Feb. 2018.
+[32] W. Li, X. Ma, J. Luo, and L. Jin, “A strictly predeﬁned-time convergent
+neural solution to equality- and inequality-constrained time-variant
+quadratic programming,” IEEE Trans. Syst., Man, Cybern., Syst., vol. 51,
+no. 7, pp. 4028–4039, Jul. 2021.
+[33] Z. Zhang, L. Zheng, J. Weng, Y . Mao, W. Lu, and L. Xiao, “A new
+varying-parameter recurrent neural-network for online solution of time-
+varying Sylvester equation,” IEEE Trans. Cybern. , vol. 48, no. 11,
+pp. 3135–3148, Nov. 2018.
+[34] X. Huang, X. Lou, and B. Cui, “A novel neural network for solving con-
+vex quadratic programming problems subject to equality and inequality
+constraints,” Neurocomputing, vol. 214, pp. 23–31, Nov. 2016.
+[35] Y . Zhang, C. Yi, D. Guo, and J. Zheng, “Comparison on Zhang neural
+dynamics and gradient-based neural dynamics for online solution of
+nonlinear time-varying equation,” Neural Comput. Appl. , vol. 20, no. 1,
+pp. 1–7, Feb. 2011.
+[36] D. Chen and Y . Zhang, “Robust zeroing neural-dynamics and its
+time-varying disturbances suppression model applied to mobile robot
+manipulators,” IEEE Trans. Neural Netw. Learn. Syst. , vol. 29, no. 9,
+pp. 4385–4397, Sep. 2018.
+[37] Y . He, L. Xiao, F. Sun, and Y . Wang, “A variable-parameter ZNN with
+predeﬁned-time convergence for dynamic complex-valued Lyapunov
+equation and its application to AOA positioning,” Appl. Soft Comput. ,
+vol. 130, Nov. 2022, Art. no. 109703.
+[38] L. Xiao, J. Tao, J. Dai, Y . Wang, L. Jia, and Y . He, “A parameter-
+changing and complex-valued zeroing neural-network for ﬁnding
+solution of time-varying complex linear matrix equations in ﬁnite
+time,” IEEE Trans. Ind. Informat. , vol. 17, no. 10, pp. 6634–6643,
+Oct. 2021.
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 12
+3426 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 6, JUNE 2024
+[39] Z. Zhang, X. Deng, X. Qu, B. Liao, L. Kong, and L. Li, “A varying-gain
+recurrent neural network and its application to solving online time-
+varying matrix equation,” IEEE Access, vol. 6, pp. 77940–77952, 2018.
+[40] L. Xiao, Y . Cao, J. Dai, L. Jia, and H. Tan, “Finite-time and predeﬁned-
+time convergence design for zeroing neural network: Theorem,
+method, and veriﬁcation,” IEEE Trans. Ind. Informat. , vol. 17, no. 7,
+pp. 4724–4732, Jul. 2021.
+[41] W. Qi, C. Zhang, G. Zong, S.-F. Su, and M. Chadli, “Finite-time event-
+triggered stabilization for discrete-time fuzzy Markov jump singularly
+perturbed systems,” IEEE Trans. Cybern., vol. 53, no. 7, pp. 4511–4520,
+Jul. 2023, doi: 10.1109/TCYB.2022.3207430.
+[42] C. Hu and H. Jiang, “Special functions-based ﬁxed-time estimation and
+stabilization for dynamic systems,” IEEE Trans. Syst., Man, Cybern.,
+Syst., vol. 52, no. 5, pp. 3251–3262, May 2021.
+[43] Y . Lei, B. Liao, and Q. Yin, “A noise-acceptable ZNN for computing
+complex-valued time-dependent matrix pseudoinverse,” IEEE Access ,
+vol. 7, pp. 13832–13841, 2019.
+[ 4 4 ]Z .H u ,L .X i a o ,J .D a i ,Y .X u ,Q .Z u o ,a n dC .L i u ,“ Au n i ﬁ e d
+predeﬁned-time convergent and robust ZNN model for constrained
+quadratic programming,” IEEE Trans. Ind. Informat. , vol. 17, no. 3,
+pp. 1998–2010, Mar. 2021.
+[45] L. Xiao, L. Jia, Y . Wang, J. Dai, Q. Liao, and Q. Zhu, “Performance
+analysis and applications of ﬁnite-time ZNN models with constant/fuzzy
+parameters for TVQPEI,” IEEE Trans. Neural Netw. Learn. Syst. ,
+vol. 33, no. 11, pp. 6665–6676, Nov. 2022.
+[46] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image
+quality assessment: From error visibility to structural similarity,” IEEE
+Trans. Image Process., vol. 13, pp. 600–612, 2004.
+Lin Xiao received the B.S. degree in electronic
+information science and technology from Hengyang
+Normal University, Hengyang, China, in 2009, and
+the Ph.D. degree in communication and information
+systems from Sun Yat-sen University, Guangzhou,
+China, in 2014.
+He is currently a Professor with the College
+of Information Science and Engineering, Hunan
+Normal University, Changsha, China. He has
+authored over 100 articles in international con-
+ferences and journals. His main research interests
+include neural networks, robotics, and intelligent information processing.
+Xiangru Yan received the B.S. degree in medical
+information engineering from the Hunan University
+of Chinese Medicine, Changsha, China, in 2022. She
+is currently pursuing the master’s degree in soft-
+ware engineering with the College of Information
+Science and Engineering, Hunan Normal University,
+Changsha.
+Her research interests include neural networks and
+robotics.
+Yongjun He received the B.S. degree in electronic
+information engineering and the M.S. degree in
+electronics and communication engineering from
+Jishou University, Jishou, China, in 2019 and 2022,
+respectively. He is currently pursuing the Ph.D.
+degree in operational research and cybernetics from
+the College of Mathematics and Statistics, Hunan
+Normal University, Changsha, China.
+His research interests include neural networks and
+robotics.
+Penglin Cao received the B.S. degree in elec-
+tronic information engineering from the Hunan
+University of Finance and Economics, Changsha,
+China, in 2019. He is currently pursuing the master’s
+degree in software engineering with the College
+of Information Science and Engineering, Hunan
+Normal University, Changsha.
+His current research interests include neural
+networks and chaos synchronization.
+Authorized licensed use limited to: Jinan University. Downloaded on July 14,2026 at 07:47:13 UTC from IEEE Xplore.  Restrictions apply. 

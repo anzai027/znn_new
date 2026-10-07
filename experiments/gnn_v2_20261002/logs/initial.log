@@ -1,0 +1,59 @@
+[136/164] initial M1 ex1 reduced zero gamma=100 eps=0.01 lambda=1e-06
+  solver_failure last=0.08851057 2.121s calls=59647 deltaRMSE=NaN residual=NaN motion=0
+[137/164] initial M2 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.248s calls=4161 deltaRMSE=0.00117 residual=0.002605 motion=1
+[138/164] initial M3 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.105s calls=1635 deltaRMSE=0.0004072 residual=0.0006184 motion=1
+[139/164] initial M4 ex1 reduced zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.179s calls=1798 deltaRMSE=0.0008195 residual=0.001296 motion=1
+[140/164] initial VFCR ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=6.8093273 23.280s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[141/164] initial VFCR-S ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.356s calls=6279 deltaRMSE=2.761e-06 residual=1.104e-05 motion=NaN
+[142/164] initial M1 ex1 reduced zero gamma=100 eps=0.01 lambda=1e-06
+  solver_failure last=0.092672001 0.868s calls=34122 deltaRMSE=NaN residual=NaN motion=1
+[143/164] initial M2 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.146s calls=4142 deltaRMSE=0.00117 residual=0.002605 motion=1
+[144/164] initial M3 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.092s calls=1565 deltaRMSE=0.0004072 residual=0.0006183 motion=1
+[145/164] initial M4 ex1 reduced zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.115s calls=1807 deltaRMSE=0.0008194 residual=0.001296 motion=1
+[146/164] initial VFCR ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=6.9208934 20.933s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[147/164] initial VFCR-S ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.338s calls=6352 deltaRMSE=3.429e-06 residual=1.049e-05 motion=NaN
+[148/164] initial M1 ex1 reduced zero gamma=100 eps=0.01 lambda=1e-06
+  solver_failure last=1.0833551 0.522s calls=21517 deltaRMSE=NaN residual=NaN motion=1
+[149/164] initial M2 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.110s calls=4108 deltaRMSE=0.00117 residual=0.002604 motion=1
+[150/164] initial M3 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.064s calls=1610 deltaRMSE=0.0004071 residual=0.0006183 motion=1
+[151/164] initial M4 ex1 reduced zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.092s calls=1718 deltaRMSE=0.0008195 residual=0.001296 motion=1
+[152/164] initial VFCR ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=7.8869709 20.475s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[153/164] initial VFCR-S ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.315s calls=6332 deltaRMSE=3.335e-06 residual=1.204e-05 motion=NaN
+[154/164] initial M1 ex1 reduced zero gamma=100 eps=0.01 lambda=1e-06
+  complete last=10 0.025s calls=579 deltaRMSE=437.6 residual=1246 motion=1
+[155/164] initial M2 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.054s calls=1833 deltaRMSE=98.29 residual=554.3 motion=1
+[156/164] initial M3 ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.050s calls=1079 deltaRMSE=53.12 residual=313.1 motion=1
+[157/164] initial M4 ex1 reduced zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.061s calls=1121 deltaRMSE=304.2 residual=682 motion=1
+[158/164] initial VFCR ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=7.9406153 21.301s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[159/164] initial VFCR-S ex1 reduced zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.358s calls=7164 deltaRMSE=2.754e-06 residual=1.019e-05 motion=NaN
+[160/164] bounds M2 ex1 large zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=2.0590726 9.597s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[161/164] bounds M3 ex1 large zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=1.806247 12.415s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[162/164] bounds M4 ex1 large zero gamma=300 eps=0.01 lambda=1e-06
+  budget last=0.43434605 16.429s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[163/164] bounds VFCR ex1 large zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=2.0450146 18.220s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[164/164] bounds VFCR-S ex1 large zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 5.047s calls=99515 deltaRMSE=2.408e-07 residual=1.354e-06 motion=NaN
+已保存 164/164 组。

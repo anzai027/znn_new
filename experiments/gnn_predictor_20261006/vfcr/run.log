@@ -1,0 +1,13 @@
+开始 VFCR-S main
+完成 VFCR-S main complete=1 last=10 calls=12775 xd=3.75077493e-08 gpeak=9.41127337e-06 residual=2.12170091e-07
+开始 VFCR-S precision
+完成 VFCR-S precision complete=1 last=10 calls=20514 xd=8.55213935e-10 gpeak=2.267246e-07 residual=4.08876505e-09
+开始 VFCR main
+完成 VFCR main complete=0 last=1.56755275 calls=500001 xd=NaN gpeak=NaN residual=NaN
+       group        model      rtol     atol     complete      status       last     calls    seconds        xd            x             g           xdpeak        gpeak        residual      equality     inequality     tc4      tc6      residualrmse     integral          reason      
+    ___________    ________    _____    _____    ________    __________    ______    _____    _______    __________    __________    __________    __________    __________    __________    __________    __________    _____    ______    ____________    __________    _________________
+
+    "main"         "VFCR-S"    1e-07    1e-09     true       "complete"        10    12775    3.0298     3.7508e-08    0.00050644    1.2071e-07    1.3348e-07    9.4113e-06    2.1217e-07    1.1818e-07         0        1.565     1.912     4.7211e-08     5.0991e-07    ""               
+    "precision"    "VFCR-S"    1e-09    1e-11     true       "complete"        10    20514    4.4391     8.5521e-10    0.00050644    2.5327e-09    2.9696e-09    2.2672e-07    4.0888e-09    2.9661e-09         0        1.565    1.9135     1.0215e-09       1.09e-08    ""               
+    "main"         "VFCR"      1e-07    1e-09     false      "budget"      1.5676    5e+05     78.45            NaN           NaN           NaN           NaN           NaN           NaN           NaN       NaN          NaN       NaN            NaN            NaN    "达到函数调用上限。"
+

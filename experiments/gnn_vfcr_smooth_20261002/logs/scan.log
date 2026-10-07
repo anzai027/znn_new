@@ -1,0 +1,33 @@
+[1/38] scan ex2 VFCR-ZNN zero eps=0.0001 repeat=1 seed=1
+  complete t=10 1.372s calls=19847 deltaRMSE=4.252e-07 motion=NaN
+[2/38] scan ex2 GNN zero eps=0.0001 repeat=1 seed=1
+  budget t=0.84496195 7.576s calls=500001 deltaRMSE=NaN motion=1
+[3/38] scan ex2 VFCR-ZNN cosine eps=0.0001 repeat=1 seed=1
+  complete t=10 0.649s calls=10759 deltaRMSE=0.03781 motion=NaN
+[4/38] scan ex2 GNN cosine eps=0.0001 repeat=1 seed=1
+  budget t=0.64017956 8.002s calls=500001 deltaRMSE=NaN motion=1
+[5/38] scan ex2 VFCR-ZNN zero eps=0.001 repeat=1 seed=1
+  complete t=10 0.661s calls=14599 deltaRMSE=6.196e-07 motion=NaN
+[6/38] scan ex2 GNN zero eps=0.001 repeat=1 seed=1
+  budget t=5.80756504 7.211s calls=500001 deltaRMSE=NaN motion=1
+[7/38] scan ex2 VFCR-ZNN cosine eps=0.001 repeat=1 seed=1
+  complete t=10 0.303s calls=8574 deltaRMSE=0.03781 motion=NaN
+[8/38] scan ex2 GNN cosine eps=0.001 repeat=1 seed=1
+  complete t=10 4.808s calls=364774 deltaRMSE=0.007693 motion=1
+[9/38] scan ex2 VFCR-ZNN zero eps=0.01 repeat=1 seed=1
+  complete t=10 0.381s calls=10375 deltaRMSE=2.325e-06 motion=NaN
+[10/38] scan ex2 GNN zero eps=0.01 repeat=1 seed=1
+  complete t=10 0.300s calls=20330 deltaRMSE=0.0304 motion=1
+[11/38] scan ex2 VFCR-ZNN cosine eps=0.01 repeat=1 seed=1
+  complete t=10 0.247s calls=6993 deltaRMSE=0.03767 motion=NaN
+[12/38] scan ex2 GNN cosine eps=0.01 repeat=1 seed=1
+  complete t=10 0.274s calls=18419 deltaRMSE=0.03039 motion=1
+[13/38] scan ex2 VFCR-ZNN zero eps=0.1 repeat=1 seed=1
+  complete t=10 0.287s calls=8276 deltaRMSE=5.715e-06 motion=NaN
+[14/38] scan ex2 GNN zero eps=0.1 repeat=1 seed=1
+  complete t=10 0.174s calls=11772 deltaRMSE=0.08757 motion=1
+[15/38] scan ex2 VFCR-ZNN cosine eps=0.1 repeat=1 seed=1
+  complete t=10 0.226s calls=5702 deltaRMSE=0.04543 motion=NaN
+[16/38] scan ex2 GNN cosine eps=0.1 repeat=1 seed=1
+  complete t=10 0.181s calls=11999 deltaRMSE=0.08842 motion=1
+本次已保存 16/38 组。

@@ -1,0 +1,71 @@
+function probe()
+% 验证分块速度可能暂时增大静态残差。
+folder = fileparts(mfilename('fullpath'));
+source = fullfile(fileparts(fileparts(folder)),'gnn_v2_20261002');
+addpath(source,'-begin');
+assert(strcmpi(which('pg_system'),fullfile(source,'pg_system.m')));
+problem.G = @(t) 10;
+problem.h = @(t) 0;
+problem.P = @(t) 1;
+problem.u = @(t) 0;
+problem.Q = @(t) zeros(0,1);
+problem.v = @(t) zeros(0,1);
+lambda = 1e-6;
+eps = 1e-2;
+delta = 1e-4;
+rates = [100,200,200];
+gamma = hypot(rates(1),rates(2));
+d = [-0.05;1];
+J = [10,1;1,0];
+g = d+lambda*((J.'*J)\d);
+[xi,A] = parts(0,g,problem,delta);
+s = A.'*xi;
+[v3,d3] = pg_system(0,g,2,problem,gamma,lambda,eps,delta,false);
+[v4,d4] = pg_system(0,g,2,problem,rates,lambda,eps,delta,true);
+assert(norm(d3-d) < 1e-12 && norm(d4-d) < 1e-12);
+V = 0.5*dot(xi,xi);
+dot3 = dot(s,v3);
+dot4 = dot(s,v4);
+h = 1e-7;
+f = @(z) 0.5*norm(parts(0,z,problem,delta))^2;
+fd3 = (f(g+h*v3)-f(g-h*v3))/(2*h);
+fd4 = (f(g+h*v4)-f(g-h*v4))/(2*h);
+assert(dot3 < 0 && dot4 > 0);
+assert(abs(fd3-dot3) < 1e-5 && abs(fd4-dot4) < 1e-5);
+t = (0:1e-5:0.02).';
+opt = odeset('RelTol',1e-9,'AbsTol',1e-11,'MaxStep',1e-4);
+[~,y3] = ode15s(@(t,y) pg_system(t,y,2,problem,gamma,lambda,eps,delta,false),t,g,opt);
+[~,y4] = ode15s(@(t,y) pg_system(t,y,2,problem,rates,lambda,eps,delta,true),t,g,opt);
+V3 = 0.5*sum((y3*J.').^2,2);
+V4 = 0.5*sum((y4*J.').^2,2);
+data = table(t,y3(:,1),y3(:,2),V3,y4(:,1),y4(:,2),V4, ...
+    'VariableNames',{'t','x3','mu3','V3','x4','mu4','V4'});
+writetable(data,fullfile(folder,'trajectory.csv'));
+summary = table(V,dot3,dot4,fd3,fd4,max(V3),max(V4),gamma, ...
+    'VariableNames',{'V','dot3','dot4','fd3','fd4','peak3','peak4','gamma'});
+writetable(summary,fullfile(folder,'summary.csv'));
+save(fullfile(folder,'result.mat'),'problem','lambda','eps','delta','rates','gamma', ...
+    'd','J','g','xi','s','v3','v4','V','dot3','dot4','fd3','fd4','t','y3','y4','V3','V4');
+fig = figure('Visible','off','Color','w','Position',[80,80,1200,430]);
+subplot(1,2,1);
+plot(t,V3,'LineWidth',1.5); hold on;
+plot(t,V4,'LineWidth',1.5); yline(V,':k','Initial V');
+xlabel('t'); ylabel('V = ||xi||^2 / 2'); grid on;
+legend('M3: common normalization','M4: block normalization','Location','best');
+title('Static convex QP: initial residual increases under M4');
+subplot(1,2,2);
+plot(t,y3(:,1),'LineWidth',1.5); hold on;
+plot(t,y4(:,1),'LineWidth',1.5); yline(0,':k','Target x');
+xlabel('t'); ylabel('x'); grid on;
+legend('M3','M4','Location','best');
+title(sprintf('Same actual speed cap %.6g',gamma));
+savefig(fig,fullfile(folder,'counterexample.fig'));
+exportgraphics(fig,fullfile(folder,'counterexample.png'),'Resolution',150);
+close(fig);
+fprintf('g = [%.10g, %.10g]\n',g);
+fprintf('d = [%.10g, %.10g]\n',d4);
+fprintf('V = %.12g\n',V);
+fprintf('M3 Vdot = %.12g; finite difference = %.12g\n',dot3,fd3);
+fprintf('M4 Vdot = %.12g; finite difference = %.12g\n',dot4,fd4);
+fprintf('M3 max V = %.12g; M4 max V = %.12g\n',max(V3),max(V4));
+end

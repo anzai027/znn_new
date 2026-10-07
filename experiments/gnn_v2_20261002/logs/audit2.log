@@ -1,0 +1,9 @@
+       jacobian: 1.5590e-10
+      direction: 4.5791e-16
+          block: [99.9957 199.9964 199.9965]
+    derivatives: 1
+          plain: 1
+      reference: 1
+         claims: [1×1 struct]
+
+AUDIT: 228 rows, 15 figure pairs

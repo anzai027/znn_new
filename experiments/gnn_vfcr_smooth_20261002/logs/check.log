@@ -1,0 +1,47 @@
+[17/60] initial ex1 VFCR-ZNN zero eps=0.001 repeat=1 seed=1
+  complete t=10 6.737s calls=228045 deltaRMSE=6.426e-07 motion=NaN
+[18/60] precision ex2 VFCR-ZNN zero eps=0.001 repeat=1 seed=1
+  complete t=10 0.631s calls=16334 deltaRMSE=1.085e-08 motion=NaN
+[19/60] initial ex1 GNN zero eps=0.001 repeat=1 seed=1
+  budget t=1.77011364 5.270s calls=500001 deltaRMSE=NaN motion=1
+[20/60] precision ex2 GNN zero eps=0.001 repeat=1 seed=1
+  complete t=10 4.652s calls=348722 deltaRMSE=0.007704 motion=1
+[21/60] random ex2 VFCR-ZNN gaussian eps=0.001 repeat=1 seed=1
+  complete t=10 3.079s calls=76109 deltaRMSE=0.02202 motion=NaN
+[22/60] random ex2 GNN gaussian eps=0.001 repeat=1 seed=1
+  complete t=10 1.837s calls=86894 deltaRMSE=0.00766 motion=1
+[23/60] random ex2 VFCR-ZNN gaussian eps=0.001 repeat=1 seed=2
+  complete t=10 2.911s calls=76594 deltaRMSE=0.01947 motion=NaN
+[24/60] random ex2 GNN gaussian eps=0.001 repeat=1 seed=2
+  complete t=10 1.539s calls=86507 deltaRMSE=0.007731 motion=1
+[25/60] random ex2 VFCR-ZNN gaussian eps=0.001 repeat=1 seed=3
+  complete t=10 2.976s calls=77530 deltaRMSE=0.01775 motion=NaN
+[26/60] random ex2 GNN gaussian eps=0.001 repeat=1 seed=3
+  complete t=10 1.547s calls=87712 deltaRMSE=0.007867 motion=1
+[27/60] random ex2 VFCR-ZNN gaussian eps=0.001 repeat=1 seed=4
+  complete t=10 3.069s calls=77996 deltaRMSE=0.01975 motion=NaN
+[28/60] random ex2 GNN gaussian eps=0.001 repeat=1 seed=4
+  complete t=10 1.503s calls=87650 deltaRMSE=0.007731 motion=1
+[29/60] random ex2 VFCR-ZNN gaussian eps=0.001 repeat=1 seed=5
+  complete t=10 2.935s calls=76159 deltaRMSE=0.02057 motion=NaN
+[30/60] random ex2 GNN gaussian eps=0.001 repeat=1 seed=5
+  complete t=10 1.533s calls=87208 deltaRMSE=0.007781 motion=1
+[31/60] timing ex2 VFCR-ZNN zero eps=0.001 repeat=2 seed=1
+  complete t=10 0.491s calls=14599 deltaRMSE=6.196e-07 motion=NaN
+[32/60] timing ex2 GNN zero eps=0.001 repeat=2 seed=1
+  budget t=5.80756504 6.143s calls=500001 deltaRMSE=NaN motion=1
+[33/60] timing ex2 VFCR-ZNN cosine eps=0.001 repeat=2 seed=1
+  complete t=10 0.280s calls=8574 deltaRMSE=0.03781 motion=NaN
+[34/60] timing ex2 GNN cosine eps=0.001 repeat=2 seed=1
+  complete t=10 4.647s calls=364774 deltaRMSE=0.007693 motion=1
+[35/60] timing ex2 VFCR-ZNN zero eps=0.001 repeat=3 seed=1
+  complete t=10 0.442s calls=14599 deltaRMSE=6.196e-07 motion=NaN
+[36/60] timing ex2 GNN zero eps=0.001 repeat=3 seed=1
+  budget t=5.80756504 6.163s calls=500001 deltaRMSE=NaN motion=1
+本次已保存 36/60 组。
+{Not enough input arguments.
+
+Error in finish (line 3)
+stats = readtable(fullfile(folder,'data','metrics.csv'),'TextType','string');
+                           ^^^^^^
+} 

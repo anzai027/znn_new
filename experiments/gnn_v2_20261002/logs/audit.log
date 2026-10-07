@@ -1,0 +1,16 @@
+{example2_problem is not found in the current folder or on the MATLAB path, but exists in:
+    C:\Users\anzai\Documents\znn_new
+    C:\Users\anzai\Documents\znn_new\experiments\example2_oznn_vfcr
+
+Change the MATLAB current folder or add its folder to the MATLAB path.
+
+Error in conclude>speedof (line 242)
+    if k ~= 1, r = reference((0:dt:10).',example2_problem(),c.delta); end
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in conclude (line 85)
+speeds = speedof(refs{1},folder,c);
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in regenerate (line 5)
+conclude(data.results,data.refs,data.c,data.meta,folder);
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

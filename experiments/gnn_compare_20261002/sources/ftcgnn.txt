@@ -1,0 +1,1501 @@
+PAGE 1
+4786 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 8, AUGUST 2024
+GNN Model With Robust Finite-Time Convergence
+for Time-Varying Systems of Linear Equations
+Yinyan Zhang , Member, IEEE, Bolin Liao , and Guanggang Geng
+Abstract—Dynamic neural networks are considered as an
+effective method in the ﬁeld of scientiﬁc computing, among
+which gradient neural networks (GNNs) are an efﬁcient method
+for solving static problems. However, when solving dynamic
+problems, the current GNNs are often subject to lagging
+errors. In this article, we develop a ﬁnite-time convergent GNN
+(FTCGNN) model for solving static and time-varying systems of
+linear equations. Different from zeroing neural networks (ZNNs)
+dedicated to time-varying problem solving, the FTCGNN model
+has ﬁnite-time convergence regardless of the existence of time-
+varying noises. Simulation results show that the FTCGNN model
+is effective, among which the comparisons with existing GNNs
+and ZNNs validate the advantages of the FTCGNN model.
+Index Terms —Finite-time convergence, gradient neural
+network (GNN), neurodynamics, systems of linear equations
+(SLEs), time-varying problems.
+I. I NTRODUCTION
+D
+YNAMIC neural networks (DNNs) are modeled as
+ordinary differential equations. The beneﬁt of DNNs
+lies in its convergence guarantee without off-line training
+based on large amount of data. Such neural networks are
+often with state feedbacks and are called recurrent neural
+networks (RNNs). The most classical RNN should be the
+Hopﬁeld neural network, which is named after its inventor
+Hopﬁeld. Hopﬁeld and Tank [1] showed that DNNs can
+efﬁciently solve the traveling-salesman problem that is NP-
+complete. The early work of Hopﬁeld and Tank provides a
+new perspective for solving scientiﬁc computing problems
+by leveraging the advantages of DNNs. Technically, the
+Hopﬁeld neural network relies on the minimization of an
+Manuscript received 7 January 2024; accepted 8 April 2024. Date of
+publication 30 April 2024; date of current version 19 July 2024. The work
+of Yinyan Zhang was supported in part by the Natural Science Foundation
+of China under Grant 62206109 and Grant 62066015; in part by the Young
+Scholar Program of Pazhou Laboratory under Grant PZL2021KF0022; in
+part by the Guangdong Basic and Applied Basic Research Foundation under
+Grant 2021A1515011314; and in part by the Science and Technology Program
+of Guangzhou under Grant 202201010457. The work of Guanggang Geng
+was supported in part by the Pearl River Talents Plan. This article
+was recommended by Associate Editor X. Wu. (Corresponding author:
+Guanggang Geng.)
+Yinyan Zhang is with the College of Cyber Security, Jinan University,
+Guangzhou 510632, China, and also with Pazhou Lab, Guangzhou 510330,
+China (e-mail: yyzhang@jnu.edu.cn).
+Bolin Liao is with the College of Information Science and Engineering,
+Jishou University, Jishou 416000, China (e-mail: bolinliao@jsu.edu.cn).
+Guanggang Geng is with the College of Cyber Security, Jinan University,
+Guangzhou 510632, China (e-mail: gggeng@jnu.edu.cn).
+Color versions of one or more ﬁgures in this article are available at
+https://doi.org/10.1109/TSMC.2024.3387023.
+Digital Object Identiﬁer 10.1109/TSMC.2024.3387023
+energy function, by using its gradient information. Following
+this idea, many DNNs based on optimization theory have
+been proposed. In particular, Xia and Wang [2] proposed a
+general methodology for designing globally convergent RNNs
+for solving nonlinear constrained optimization problems, of
+which the global asymptotic convergence of the state variable
+to the theoretical solution is theoretically guaranteed by
+using Lyapunov stability theory [3]. DNNs have already been
+adopted for optimization problems in robotics [4], control
+[5], image processing [6], speech enhancement [7],t a s k
+assignment [8], feature selection [9], and distributed chiller
+loading [10].
+While the classical Hopﬁeld neural network targeting at
+optimization problems, many novel DNN models have been
+proposed to solve other types of scientiﬁc computing prob-
+lems. Cichocki and Unbehauen [11] ﬁrst developed RNNs to
+handle static systems of linear equations (SLEs). Wang and
+Li [12] proposed a linear-function-activated RNN to address
+linear equations, and the network has global asymptotic
+convergence. It should be noted that the RNN developed
+in [12] is a special case of the corresponding one proposed
+in [11]. Essentially, the RNN proposed in [12] is a gradient
+neural network (GNN) as its design leverages the energy
+function’s gradient information. Zhang et al. [13] theoretically
+analyzed the convergence behavior of the GNN in [12] with
+different activation functions. Xia et al. [14] proposed globally
+convergent RNNs to address systems of linear inequalities
+and equations by converting the problem into an optimization
+problem. Zhang et al. [15] proposed an RNN to handle
+dynamic Sylvester equations, and the RNN is recognized as the
+zeroing neural network (ZNN) in the existing literature. The
+solution error of the ZNN has exponential convergence. Unlike
+the Hopﬁeld neural network or GNN, the RNN proposed
+in [15] is described by an implicit dynamic equation and its
+design is not based on a non-negative energy function. Instead,
+the RNN proposed in [15] relies on an error function that
+can be matrix- or vector-valued and neural dynamics is then
+designed for exponential error convergence. In terms of model
+complexity, the ZNN is more complex than the Hopﬁeld neural
+network, because the ZNN fully employs the time-derivative
+information of all the matrices, vectors, and scalars involved
+in the computing problems. The RNN proposed in [15] has
+been adopted to solve many scientiﬁc computing problems,
+including dynamic matrix inversion [16], dynamic general-
+ized inversion [17], dynamic linear equation and inequality
+systems [18], dynamic linear equations subject to bound
+constraints [19], and time-varying linear equations [20].
+2168-2216 c⃝ 2024 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 2
+ZHANG et al.: GNN MODEL WITH ROBUST FINITE-TIME CONVERGENCE FOR TIME-V ARYING SLEs 4787
+Zhang et al.’s RNN [15] has been improved by mainly two
+approaches. First, from the perspective of control theory, an
+integration term is introduced to the original design formula,
+by which the robustness of the neural network to noises
+is improved [21], [22], [23], [24]. Second, an interesting
+activation function is developed by Li et al. [25] such that the
+RNN [15] converges in ﬁnite time when handling dynamic
+Sylvester equations, i.e., the state variable of the RNN can
+track the theoretical solution after certain time. Note that,
+although ﬁnite-time stability has been widely investigated[26],
+[27], [28], [29], [30], [31], most of the results focus on
+the design methods of a ﬁnite-time controller for control
+systems, and the extension of such results to the design of
+neural networks of ﬁnite-time convergence when handling
+scientiﬁc computing problems, such as the dynamic SLEs,
+is not trivial. In the design of RNNs for solving scientiﬁc
+computing problems, apart from the stability of the RNN
+models, we must ensure that the state variable converges to
+the corresponding theoretical solution. Following Li et al.’s
+work [25], Xiao and Lu [32], Xiao et al. [33], Dai et al. [34],
+and Lv et al. [35] proposed ﬁnite-time convergent RNNs for
+solving various time-varying scientiﬁc computing problems.
+Xiao et al. [36] also combined the above two improvements,
+and further designed a robust ﬁnite-time convergent RNN for
+solving dynamic linear equations. It should be noted that both
+improvements make the model of the ZNN become more
+complex.
+It is widely recognized that GNNs have intrinsic dis-
+advantages when they are adopted to solving time-varying
+problems [37], [38], [39], [40]. For example, Xiao and Zhang
+[40] showed that the traditional GNN is not favorable for
+handling dynamic linear inequalities, and they argued that
+this is due to the fact that GNN ignores time-derivative
+information in the problem. In [41], for calculating the
+inverse of a dynamic matrix, an adaptive coefﬁcient, including
+time-derivative information, is introduced into the original
+GNN. Owing to the adaptive coefﬁcient, the improved GNN
+has asymptotic convergence for time-varying dynamic matrix
+inversion, which is still not competent compared with the ZNN
+of exponential convergence.
+In this article, we provide a counter-intuition result for the
+design of GNN. Speciﬁcally, we show that GNN can solve
+time-varying SLEs in ﬁnite-time without knowing the exact
+derivatives or partial derivatives about the SLEs. Evidently,
+this result is more promising than the result of [41] in which
+only asymptotic convergence of GNN for solving a time-
+varying problem is achieved. Moreover, we also show that the
+the proposed GNN has satisfactory robustness for the case
+with noises. The major contributions in our work include the
+following ones.
+1) A uniﬁed GNN model is ﬁrst developed for solving
+both static and dynamic SLEs with proven ﬁnite-time
+convergence.
+2) The proposed GNN model is of simpler struc-
+ture compared with existing ZNN [24] dedicated
+to solving time-varying SLEs under noises; unlike
+ZNNs, such as [36], our GNN model does not
+require knowing explicit formulas or exact values
+of time-derivatives of variables involved in the
+SLEs.
+3) Our GNN model has ﬁnite-time convergence when
+solving dynamic SLEs under additive bounded time-
+varying noises by setting the design parameter.
+We describe the considered problem and review the existing
+GNN models for solving SLEs in Section II. Then, the design
+and theoretical analysis of our GNN model are shown in
+Section III. Simulation results and performance comparison
+with existing ZNN and GNN models are shown in Section IV,
+followed by conclusions and future works given in Section V.
+II. P
+ROBLEM DESCRIPTION AND EXISTING GNN M ODELS
+In this section, we introduce the investigated problem and
+revisit some existing GNN models for solving SLEs.
+A. Problem Description
+An SLE can be described as follows:
+Ax − b = 0 ∈ Rm (1)
+in which A ∈ Rm×n and b ∈ Rm are a full-rank matrix with
+m ≥ n and a vector, respectively. The vector x ∈ Rn is the
+unknown variable. Let x∗ denote a theoretical solution of (1).
+We assume that the theoretical solution exists. When A and b
+are independent of time t, the SLE is static; otherwise, it is
+called a time-varying or dynamic SLE.
+B. Existing GNN for SLEs
+In this section, we review the existing GNNs for solving
+SLE (1).
+Basically, the design of GNNs relies on a non-negative
+energy function. For SLE (1), the corresponding energy
+function is given as [13]
+h(x) = ∥Ax − b∥2
+2
+2 .
+Evidently, if the energy function reduces to zero,x is a solution
+to SLE (1). To this end, we make x moves along the opposite
+direction of the gradient of h(x), which is calculated as
+− ∂h(x)
+∂x =− AT(Ax − b).
+It is known that the convergence of DNNs could be improved
+by using activation functions. Let φ(·) : Rm → Rm
+denote a monotonically increasing odd function. Then, a
+GNN model with an activation function is obtained as fol-
+lows [11], [12], [13]:
+˙x =− γATφ(Ax − b) (2)
+where ˙x = dx/dt and γ> 0 ∈ R is used to control
+the convergence of the state variable x of the GNN. It is
+proven that the state variable x of the GNN (2) exponentially
+converges to theoretical solution x∗ of the corresponding
+system of linear equation (1) [13] . There are several widely
+adopted activation functions that can be used for DNNs, such
+as the following ones [42], [43], [44].
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 3
+4788 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 8, AUGUST 2024
+1) Linear activation function
+φ(x) = x. (3)
+2) Sinh activation function
+φ(x) = exp(x) − exp(−x)
+2 . (4)
+3) Bipolar-sigmoid activation function
+φ(x) = (1 + exp(−ω))(1 − exp(−ωx))
+(1 − exp(−ω))(1 + exp(−ωx)), with ω ≥ 2.
+(5)
+4) Powersum activation function
+φ(x) =
+N∑
+i=1
+x2i−1, with N being a positive integer . (6)
+5) Sign-bi-power activation function
+φ(x) = sgnr(x) + sgn1/r(x) (7)
+where r ∈ (0, 1) and sgnr(x) is deﬁned as
+sgnr(x) =
+⎧
+⎪⎨
+⎪⎩
+|x|r, if x > 0
+0, if x = 0
+−|x|r, if x < 0.
+If the linear activation function is adopted, (2) reduces to
+the RNN proposed in [12]. If the activation functions 2)–5)
+are adopted, the GNN (2) achieves better convergence. In
+particular, if the function (7) is used the GNN (2) achieves
+ﬁnite-time convergence, and the corresponding ﬁnite-time
+convergent GNN (FTCGNN) model is given as follows [44]:
+˙x =− γAT
+(
+sgnr(Ax − b) + sgn1/r(Ax − b)
+)
+(8)
+where r ∈ (0, 1) and γ> 0 ∈ R. We say that x converges to
+the theoretical solution x∗ asymptotically if lim t→+∞ x(t) =
+x∗. We further say that x converges to the theoretical solution
+x∗ in ﬁnite time if x(t) = x∗ for any t > T for a certain
+T > 0 ∈ R.
+In terms of the FTCGNN model (8) activated by (7),w e
+have the following remark.
+Remark 1: By comparing the activation functions of RNNs
+with ﬁnite-time convergence in the existing literature, such
+as FTCGNN model (8) activated by (7), we ﬁnd that the
+activation function similar to the sign function is important
+in realizing the ﬁnite-time convergence of the GNN. The sign
+function is
+sign(x) =
+⎧
+⎪⎨
+⎪⎩
+1i f x > 0
+0, if x = 0
+−1i f x < 0.
+In fact, from the existing literature about ﬁnite-time control
+and ﬁnite-time convergent neural networks, such as [34],w e
+can ﬁnd that the sign function or the sign-like function sgn
+r(x)
+are often adopted. In [34], some sign-function-based activation
+functions are adopted in the design of ﬁnite-time convergent
+RNNs. The problem of the sign function lies in its discontinu-
+ity, which causes chattering in the numerical implementation
+Fig. 1. Block diagram for the hardware implementation of FTCGNN
+model (9).
+of the corresponding models and this phenomenon is widely
+recognized in the ﬁeld of sliding mode control [45].I nt e r m s
+of (7) adopted in FTCGNN (8), although it is continuous, its
+implementation via circuits is more complicated than the sign
+function.
+III. N
+EW FTCGNN FOR SLE S
+This section provides a new FTCGNN without using sign
+or sign-like activation functions for solving SLE (1).T h e
+theoretical analysis for the model is also provided.
+A. Model Description of New FTCGNN
+The model of the new FTCGNN is given as follows:
+AT(Ax − b)
+p
+2 ˙x =− γAT(Ax − b) (9)
+in which ∥·∥2 is the 2-norm, γ is used to scale the convergence,
+and p ∈ (0, 2). Evidently, the new FTCGNN is an RNN owing
+to the feedback connection of state variable x. The proposed
+FTCGNN model can be realized by using analog circuits with
+˙x = (1 −∥ AT(Ax − b)∥p
+2)˙x − γAT(Ax − b).F i g .1 shows
+the block diagram regarding the hardware implementation of
+FTCGNN (9). Intuitively, the proposed FTCGNN model (9)
+leverages ∥A
+T(Ax − b)∥p
+2 to provide an adaptive adjustment
+for the evolution of x. Owing to the adaptive feature, the
+proposed FTCGNN model (9) achieves better performance.
+This coincides with the theoretical analysis on its convergence
+and robustness.
+Remark 2: The GNN model proposed in [7] is for solving
+a class of nonlinear optimization problems subject to various
+constraints, which is formulated as
+ϵ˙x =− x + P
+X(x −∇ La(x, y, z))
+ϵ˙y =− y + (y + g(x))+
+ϵ˙z = h(x) (10)
+where the deﬁnitions of the symbols can be found in [7].
+Obviously, our FTCGNN model (9) is totally different from
+the GNN model proposed in [7], i.e., (10). The GNN proposed
+in [9] is formulated as
+˙x =− γAT(Ax − b). (11)
+Obviously, compared with the GNN proposed in [9],a n
+adaptive gain ∥AT(Ax − b)∥p
+2 is included in our FTCGNN
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 4
+ZHANG et al.: GNN MODEL WITH ROBUST FINITE-TIME CONVERGENCE FOR TIME-V ARYING SLEs 4789
+model (9). The new FTCGNN (9) does not employ sign or
+sign-like activation functions. The design of the new FTCGNN
+model (9) is not trivial, and it is different from the existing
+work [44] which accelerates the convergence of the traditional
+GNN (2) by designing a new activation function for the
+classical GNN (2). It can be found that the new FTCGNN
+model (9) cannot be readily developed from the classical
+GNN (2) via choosing monotonically increasing odd activation
+functions. The FTCGNN model (9) has lower complexity
+compared with (8) proposed in [44]. Owing to the new design,
+the theoretical analysis on FTCGNN model (9) cannot be
+trivially generalized from [44].
+B. Convergence of New FTCGNN for Static SLEs
+In the following, the convergence analysis on FTCGNN (9)
+is shown for solving static SLEs.
+Theorem 1: If p ∈ (0, 2), γ> 0, and the minimum
+eigenvalue of A
+T A is larger than 0, then the state variable x
+of FTCGNN model (9) globally converges to a solution x∗ of
+static SLE (1) in ﬁnite time, and the upper bound of the con-
+vergence time is
+√
+2
+2−p
+∥˜x(0)∥p
+2/(λmin(AT A)λ−p
+max(AT A)γp).
+Proof: Let ˜x = x − x∗ denote the difference between the
+state variable x of FTCGNN model (9) and a solution x∗ of
+SLE (1). Consider
+V = ∥x − x∗∥2
+2
+2 =
+˜x
+2
+2
+2 .
+Evidently, V is non-negative and radially unbounded sinceV ≥
+0 ∀˜x and V →+ ∞ if ∥˜x∥2 →+ ∞ . Because x∗ is a solution
+of SLE (1),w eh a v eAx∗ = b. With ˜x = x− x∗ and Ax∗ = b,
+the new FTCGNN model (9) is rewritten in the following form
+with respect to ˜x:
+AT A˜x
+p
+2 ˙x =− γAT A˜x. (12)
+If ∥AT A˜x∥p
+2 = 0, it means AT A˜x = 0, which means that ˜x =
+0 in view of the condition that λmin(AT A)> 0. It follows
+that V = 0. If ∥AT A˜x∥p
+2 ̸= 0, the time derivative of V for
+FTCGNN (9), i.e., (12), is obtained
+˙V = ˜xT ˙˜x
+=− γ˜xT AT A˜x
+AT A˜x
+−p
+2 .
+Let λmin(AT A) denote the minimum eigenvalue of AT A, which
+is assumed to be larger than 0. Let λmax(AT A) denote the
+maximum eigenvalue of AT A. Recall that the eigenvalues of
+AT A are identical to AAT . Then, we further have
+˙V ≤− γλmin
+(
+AT A
+)
+∥˜x∥2
+2λ−p
+max
+(
+AT A
+)
+∥˜x∥−p
+2
+=− λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γ∥˜x∥2−p
+2
+≤− λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γV
+2−p
+2 .
+Let β = λmin(AT A)λ−p
+max(AT A)γ.I tf o l l o w st h a t :
+V
+p−2
+2 dV ≤− βdt.
+Following the steps in [25], the integration over both sides
+from t = 0t o T > 0 yields:
+∫ V(T)
+V(0)
+V
+p−2
+2 dV ≤
+∫ T
+0
+−βdt
+and we further have
+2
+p
+(
+V
+p
+2 (T) − V
+p
+2 (0)
+)
+≤− βT.
+Thus, we have
+V
+p
+2 (T) ≤ V
+p
+2 (0) − λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γpT
+2 . (13)
+Let V(p/2)(0)−λmin(AT A)λ−p
+max(AT A)γpT∗/2 = 0, and we have
+T = 2V
+p
+2 (0)
+λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γp
+=
+√
+2
+2−p
+∥˜x(0)∥p
+2
+λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γp
+.
+In view of V ≥ 0 by the deﬁnition of V, p ∈ (0, 2), γ> 0,
+T > 0, and (13), we further have
+V(t) = 0 ∀t >
+√
+2
+2−p
+∥˜x(0)∥p
+2
+λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γp
+.
+When V(t) = 0, we have ˜x = 0. By summarizing the above
+analysis, x of FTCGNN (9) globally converges to x∗ of static
+SLE (1) in ﬁnite time, and the upper bound of the convergence
+time is
+√
+2
+2−p
+∥˜x(0)∥p
+2/(λmin(AT A)λ−p
+max(AT A)γp). The proof
+is complete. ■
+According to the above analysis, we can adjust the con-
+vergence time by setting the parameters p and γ of the
+proposed FTCGNN (9). In particular, the convergence time is
+almost inversely proportional to γ. Regarding the condition
+that λmin(AT A)> 0, by which AT A is invertible, although
+in this case we can solve the SLE via x = (AT A)−1AT b,
+the computational cost is very large owing to the inversion
+operation when the dimension of matrix A is large [16], [47].
+Note that the general computational complexity of the matrix
+inversion by using numerical algorithms is O(n
+3) [48]. Thus,
+the direct solution via x = (AT A)−1AT b is not suitable for
+large-scale problems. Moreover, such a disadvantages would
+be enlarged when A and b are time-varying, for which the real-
+time calculation of x via (A
+T A)−1AT b becomes more difﬁcult
+owing to the time consumption for the inversion operator [16].
+C. Convergence of New FTCGNN for Time-Varying SLEs
+In the following, we analyze the performance of the
+FTCGNN (9) for time-varying SLE. For the convenience of
+presentation, the argument t is omitted somewhere if there is
+no confusion.
+Assumption 1: The theoretical solution x∗(t) of time-
+varying SLE (1) satisﬁes ∥˙x∗(t)∥2 ≤ η ∀t ∈ [0,+∞ ), where
+η> 0 ∈ R is known.
+Theorem 2: Consider time-varying SLE (1),f o rw h i c h
+Assumption 1 holds. If p = 1, γ> η λmax(AT A)/λmin(AT A),
+and the minimum eigenvalue of AT A is larger than 0, then
+the state variable x of FTCGNN model (9) can globally
+track the dynamic theoretical solution x∗(t) in ﬁnite time with
+the convergence time being less than ∥˜x(0)∥2/μ and μ =
+γλmin(AT A)λ−p
+max(AT A) − η, i.e., ˜x(t) = x(t) − x∗(t) = 0f o r
+any t > ∥˜x(0)∥2/μ.
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 5
+4790 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 8, AUGUST 2024
+Proof: Consider
+V = ∥x − x∗∥2
+2
+2 = ∥˜x∥2
+2
+2 .
+In view of the proof in Theorem 1, when solving dynamic
+SLE (1), i.e., A(t)x(t) = b(t),i f ∥AT A˜x∥p
+2 = 0, it means
+AT A˜x = 0, which indicates ˜x = 0 in view of the condition
+that λmin(AT A)> 0. It follows that V = 0. If ∥AT A˜x∥p
+2 ̸= 0,
+via the proposed FTCGNN model (9),w eh a v e
+˙V = ˜xT ˙˜x
+= ˜xT
+(
+−γAT A˜x∥AT A˜x∥−p
+2 − ˙x∗
+)
+≤− λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γ∥˜x∥2−p
+2 +
+˙x∗
+2∥˜x∥2
+≤− λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γ∥˜x∥2−p
+2 + η∥˜x∥2
+=− ∥˜x∥2
+(
+γλmin(AT A)λ−p
+max(AT A)∥˜x∥1−p
+2 − η
+)
+.
+If p = 1, then we have
+˙V ≤− ∥ ˜x∥2
+(
+γλmin(AT A)λ−p
+max(AT A) − η
+)
+. (14)
+Let μ = γλmin(AT A)λ−p
+max(AT A) − η. Based on inequal-
+ity (14),i f γλmin(AT A)λ−p
+max(AT A)>η , i.e., γ>
+ηλmax(AT A)/λmin(AT A), then μ> 0, by which ˙V ≤ 0. Then,
+from (14) and the deﬁnition of V, we further have
+˙V ≤−
+√
+2μV
+1
+2 .
+Solving the above inequality yields
+V
+1
+2 (t)
+⎧
+⎪⎨
+⎪⎩
+≤ V
+1
+2 (0) − μt√
+2, if t <
+√
+2V
+1
+2 (0)
+μ
+= 0, if t ≥
+√
+2V
+1
+2 (0)
+μ
+i.e.,
+∥˜x(t)∥2
+{
+≤∥ ˜x(0)∥2 − μt, if t < ∥˜x(0)∥2
+μ
+= 0, if t ≥ ∥˜x(0)∥2
+μ .
+Then, in light of the radially unbounded property of V,i ti s
+concluded that the state variable x of FTCGNN model (9)
+can globally track theoretical solution x∗(t) in ﬁnite time,
+and the convergence time is less than ∥˜x(0)∥2/μ with μ =
+γλmin(AT A)λ−p
+max(AT A) − η. The proof is complete. ■
+Theorem 2 provides a very interesting result about using
+GNNs for dynamic SLEs. Currently, in the literature of time-
+varying problem solving, researchers argued that using GNNs
+to address dynamic problems is often subject to lagging
+errors [37], [38], [39], [40]. In Theorem 2, we show that
+the designed GNN model (9) can handle time-varying SLEs
+with ﬁnite-time convergence. In practice, the varying rate of
+solutions to SLEs is always limited. Given that there is a
+proper estimation of the upper bound of ∥˙x
+∗(t)∥2, our GNN
+can address the problem by setting a large value of γ in order
+to ensure that μ> 0. We recall the classical ZNNs for solving
+SLEs. For example, in [20], a ZNN model for dynamic SLEs
+is presented as
+A˙x =− ˙Ax − γφ(Ax − b) + ˙b (15)
+where ˙A = dA/dt and ˙b = db/dt.I n [34], a ﬁnite-time
+convergent ZNN (FTCZNN) model for dynamic SLEs is
+presented as
+A
+T A˙x =− AT ˙Ax − γATφ(Ax − b) + AT ˙b (16)
+where the alternative activation functions φ(·) are given
+in [34]. Other ZNN models for dynamic SLEs are also
+proposed in [35], [36], and [46]. The difference or advantages
+of the proposed FTCGNN model (9) compared with ZNN
+models (15) and (16), and those in [35], [36], and [46] for
+solving time-varying SLEs are listed as follows.
+1) Different from ZNN models (15) and (16), and those in
+[35], [36], and [46], the proposed FTCGNN model (9)
+does not need to know the values or explicit formulas of
+˙A and ˙b, and has global ﬁnite-time convergence given
+that a prior knowledge on the upper bound of ∥˙x∗∥2
+is available. It should be noted that get the derivatives
+of variables are sensitive to noises, especially in circuit
+implementation.
+2) Compared with the existing FTCZNN models, such
+as [34], the proposed FTCGNN model (9) does not
+rely on sign or sign-like activation functions and has a
+simpler structure.
+D. Robustness of New FTCGNN to Noises When Solving
+Time-Varying SLEs
+In [24], to deal with unavoidable noises in hardware imple-
+mentation, the ZNN model (15) is improved by leveraging
+control theory via introducing the integration operator, and
+a noise-tolerant ZNN (NTZNN) model is derived. Let the
+time-varying noise be denoted by σ(t). The following is the
+NTZNN model for solving time-varying SLEs perturbed by
+noise σ(t) [24]:
+˙x = A
++
+(
+−γ(Ax − b) − κ
+∫ t
+0
+(A(τ)x(τ)− b(τ))dτ− ˙Ax + ˙b
+)
++σ(t) (17)
+where A+ denotes the pseudoinverse of A with γ and κ being
+positive design parameters.
+By following [24], the perturbed model of the proposed
+FTCGNN (9) for solving dynamic SLE A(t)x(t) = b(t) is
+described as follows:
+AT(Ax − b)
+p
+2 ˙x =− γAT(Ax − b) +
+AT(Ax − b)
+p
+2σ(t).
+(18)
+Theorem 3: Consider dynamic SLE (1), i.e., A(t)x(t) =
+b(t), of which the theoretical solution x∗(t) to time-varying
+SLE (1) satisﬁes ∥˙x∗(t)∥2 ≤ η and the noise satisﬁes
+∥σ(t)∥2 ≤ ρ ∀t ∈ [0,+∞ ).I f p = 1, γ> ( η +
+ρ)λmax(AT A)/λmin(AT A), and the minimum eigenvalue ofAT A
+is larger than 0, then the state variable x of the noise-perturbed
+FTCGNN model (18) can globally track x∗(t) in ﬁnite time,
+and the convergence time is less than ∥˜x(0)∥2/μ with μ =
+γλmin(AT A)λ−p
+max(AT A) − η− ρ, i.e., ˜x(t) = x(t) − x∗(t) = 0
+for any t > ∥˜x(0)∥2/μ.
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 6
+ZHANG et al.: GNN MODEL WITH ROBUST FINITE-TIME CONVERGENCE FOR TIME-V ARYING SLEs 4791
+Proof: Consider
+V = ∥x − x∗∥2
+2
+2 = ∥˜x∥2
+2
+2 .
+With the proof in Theorem1,i f ∥AT A˜x∥p
+2 ̸= 0, with ∥˙x∗(t)∥2 ≤
+η and ∥σ(t)∥2 ≤ ρ ∀t ∈ [0,+∞ ), for the noise-perturbed
+FTCGNN model (18),w eh a v e
+˙V = ˜xT ˙˜x
+= ˜xT
+(
+−γAT A˜x∥AT A˜x∥−p
+2 + σ − ˙x∗
+)
+≤− λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γ∥˜x∥2−p
+2 +∥ σ − ˙x∗∥2∥˜x∥2
+≤− λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γ∥˜x∥2−p
+2 +
+(
+∥˙x∗∥2 +∥ σ∥2
+)
+∥˜x∥2
+=− λmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+γ∥˜x∥2−p
+2 + (η+ ρ)∥˜x∥2
+=− ∥˜x∥2
+(
+γλmin(AT A)λ−p
+max(AT A)∥˜x∥1−p
+2 − η− ρ
+)
+.
+If p = 1, then we further have
+˙V ≤− ∥ ˜x∥2
+(
+γλmin(AT A)λ−p
+max(AT A) − η− ρ
+)
+. (19)
+Based on the above inequality, if γλmin(AT A)λ−p
+max(AT A)>
+(η+ ρ), i.e., γ> ( η+ ρ)λmax(AT A)/λmin(AT A), then
+˙V ≤ 0.
+In fact, let
+μ = γλmin
+(
+AT A
+)
+λ−p
+max
+(
+AT A
+)
+− η− ρ> 0.
+Then, from (19) and the deﬁnition of V, we further have
+˙V ≤−
+√
+2μV
+1
+2 .
+Solving the above inequality yields
+V
+1
+2 (t)
+⎧
+⎪⎨
+⎪⎩
+≤ V
+1
+2 (0) − μt√
+2, if t <
+√
+2V
+1
+2 (0)
+μ
+= 0, if t ≥
+√
+2V
+1
+2 (0)
+μ
+i.e.,
+˜x(t)
+
+2
+⎧
+⎨
+⎩
+≤∥ ˜x(0)∥2 − μt, if t < ∥˜x(0)∥2
+μ
+= 0, if t ≥ ∥˜x(0)∥2
+μ .
+Then, in light of the radially unbounded property of V,
+it is concluded that x of the noise-perturbed FTCGNN
+model (18) can globally track x∗(t) in ﬁnite time, and
+the convergence time is less than ∥˜x(0)∥2/μ with μ =
+γλmin(AT A)λ−p
+max(AT A) − η− ρ. The proof is complete. ■
+Remark 3: There are two parameters in the proposed
+FTCGNN model, i.e., p and γ. According to Theorem 1,
+p should satisfy 0 < p < 2 to have a good performance
+for solving static SLEs. According to Theorems 2 and 3, p
+should be set to 1 to have a good performance for solving
+time-varying SLEs. In terms of γ, Theorems 1–3 indicate that
+a larger value of γ leads to faster convergence and better
+robustness to noises.
+Remark 4: Compared with NTZNN model (17), the advan-
+tages of FTCGNN model (18) for solving time-varying SLEs
+include the following aspects.
+1) Compared with NTZNN model (17), the proposed
+FTCGNN model (18) does not need the explicit formulas
+or values of ˙A and ˙b. Instead, the proposed FTCGNN
+model (18) only needs to know an upper bound of
+∥˙x∗(t)∥2, which may be estimated in practical applica-
+tions by using available prior knowledge.
+2) Compared with NTZNN model (17), the proposed
+FTCGNN model (18) does not need the integration oper-
+ator to realize the robustness to noises. By comparing
+(17) with (18), it can be readily found that the FTCGNN
+model has a simpler structure.
+3) Under bounded noises, the NTZNN model (17) cannot
+achieve asymptotic convergence for solving time-
+varying SLEs, while the proposed FTCGNN model (18)
+can achieve ﬁnite-time convergence under mild condi-
+tions.
+Remark 5: The limitation of the proposed method lies in the
+requirement on knowing the upper bound of ∥˙x
+∗(t)∥2, i.e., the
+Euclidian norm of the time derivative of the theoretical solu-
+tion to the time-varying SLE. According to Theorems 2 and 3,
+to ensure ﬁnite-time convergence of the proposed FTCGNN
+model, γ should be larger than a value that depends on the
+upper bound of ∥˙x
+∗(t)∥2. In practice, for some applications,
+we can determine the upper bound of ∥˙x∗(t)∥2 based on the
+physical meaning of ˙x∗. For example, for the manipulator
+application shown in Section IV-E of this article, we have prior
+knowledge about the maximum joint acceleration ¨θ for a given
+physical manipulator, and we can use this prior knowledge
+to get an upper bound of ∥˙x∗(t)∥2. For the case that such
+prior knowledge is not available, we can set the value of γ
+to be sufﬁciently large such that the condition about γ can
+be satisﬁed. We can determine whether the setting of γ is
+suitable by monitoring the convergence of the residual error
+∥A(t)x(t) − b(t)∥2.
+According to Theorems 1–3, the proposed FTCGNN
+method is not sensitive to initial conditions, i.e., global
+convergence is theoretically guaranteed given that the model
+parameters are properly set. Such a property is desirable for
+practical applications.
+IV . S
+IMULATIONS AND COMPARISONS
+In this section, simulation results of the proposed FTCGNN
+model are discussed. We also emphasize our FTCGNN
+model’s advantages in terms of its ability to solve time-varying
+SLEs with robustness to noises by conducting comparisons
+with the state-of-the-art methods for solving this problem.
+A. Static SLE
+We ﬁrst consider a static SLE given in [44], of which
+A =
+⎡
+⎢⎢
+⎢⎢⎢
+⎢⎣
+2.25 .713 .83 .56 .9
+3.102 .50 3 .57 .9
+8.92 .84 .31 1 .31
+33 .65 .24 .91 0 .62 .3
+5.802 .80 5 .26 .8
+2.16 .303 .56 .95 .4
+⎤
+⎥⎥
+⎥⎥⎥
+⎥⎦
+, b =
+⎡
+⎢⎢
+⎢⎢⎢
+⎢⎣
+3.1
+0
+2.7
+0
+5.
+3
+1.9
+⎤
+⎥⎥
+⎥⎥⎥
+⎥⎦
+(20)
+with the solution being
+x
+∗ ≈ [2.5984,−3.4402,−3.7138, 5.1895,−0.1967, 0.2428]T .
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 7
+4792 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 8, AUGUST 2024
+(a) (b)
+Fig. 2. State trajectories and solution error ∥Ax − b∥2 of the FTCGNN model (9) for solving static SLE speciﬁed by (20) with γ = 1000, p = 1, and
+x(0) = [0, 0, 0, 0, 0, 0]T . (a) State trajectories. (b) Solution error.
+Fig. 3. Solution errors ∥Ax − b∥2 of the FTCGNN model (9) for solving
+static SLE (1) speciﬁed by (20) with γ = 1000, p = 1, and 50 sets of initial
+values randomly generated within the region [ − 10, 10]6 for state variable x.
+With γ = 1000, p = 1 and x(0) = [0, 0, 0, 0, 0, 0]T ,
+simulation is conducted for the proposed FTCGNN model (9),
+and the state evolution and solution error ∥Ax − b∥2 are
+depicted in Fig. 2. According to Theorem 1, the FTCGNN
+model (9) can solve SLE speciﬁed by (20) in ﬁnite time
+tc < 35.2621. As seen from Fig. 2, x of FTCGNN model
+(9) converges to x∗ of the SLE speciﬁed by (20) in ﬁnite
+time, i.e., less than 0.02, which is consistent with Theorem 1.
+To test the convergence region of the FTCGNN model (9),
+50 sets of initial values randomly generated within the region
+[− 10, 10]6 for x are tested, and the solution errors are shown
+in Fig. 3. Stating from any initial values, the solution error
+∥Ax− b∥2 synthesized by the FTCGNN model (9) converges,
+showing the global ﬁnite-time convergence of the model. To
+show the effect of the parameter γ on the convergence rate,
+under the same initial value with p = 1, simulations are
+conducted for the FTCGNN model (9) with γ = 1, γ = 10,
+and γ = 100. As shown in Fig. 4, larger values of γ lead
+to faster convergence of the solution error ∥Ax − b∥2, which
+coincides with Theorem 1.
+Fig. 4. Solution errors ∥Ax − b∥2 of the FTCGNN model (9) for solving
+static SLE (1) speciﬁed by (20) with p = 1, x(0) = [0, 0, 0, 0, 0, 0]T ,a n d
+different values of γ.
+B. Time-Varying SLE
+In this section, a dynamic SLE given in [35] is considered
+with
+A(t) =
+[ 0.3 cos(t) + 0.20 .3s i n(t)
+−0.3s i n(t) 0.3 cos(t) − 0.2
+]
+b(t) =
+[ −0.5 cos(t)
+0.5s i n(t)
+]
+(21)
+and the solution is
+x∗(t) =
+[ 2 cos(t) − 3
+2s i n(t)
+]
+. (22)
+With γ = 100 and p = 1, the performance of FTCGNN
+model (9) is tested for dynamic SLE (1) speciﬁed by (21)
+with x(0) = [1, 1]T . As seen from Fig. 5, the state variable
+x of the proposed FTCGNN model (9) can track x∗ of the
+time-varying SLE (21) speciﬁed by (21) in ﬁnite time, which
+veriﬁes Theorem 2.
+The proposed FTCGNN model is also compared with other
+GNN models for solving time-varying SLE (21). Speciﬁcally,
+the GNN model (2) activated by linear function (3),s i n h
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 8
+ZHANG et al.: GNN MODEL WITH ROBUST FINITE-TIME CONVERGENCE FOR TIME-V ARYING SLEs 4793
+(a) (b)
+Fig. 5. Trajectories of the time-varying theoretical solution (22) denoted by x∗ and the state variable x of the FTCGNN model (9) for solving time-varying
+SLE (1) speciﬁed by (21) with γ = 100, p = 1, and x(0) = [1, 1]T . (a) and (b) State trajectories.
+Fig. 6. Trajectories of solution error ∥A(t)x(t) − b(t)∥2 synthesized by
+different GNN models for solving time-varying SLE (1) speciﬁed by (21),
+where GNN-L, GNN-S, GNN-PS, and GNN-BS denote GNN (2) activated
+by linear function (3), sinh function (4), bipolar-sigmoid function (5),a n d
+powersum function (6) with N = 5, respectively, the initial value of x is
+set to x(0) = [1, 1]T , and the parameters of the GNN models are set to
+γ = 100, p = 1, r = 0.2.
+function (4), bipolar-sigmoid function (5), and powersum
+function (6) with N = 5, which are abbreviated as GNN-L,
+GNN-S, GNN-PS, GNN-BS, respectively, and the FTCGNN
+model (8) in [44] are considered. We set γ = 100, p = 1,
+and r = 0.2 for a fair comparison. With x(0) = [1, 1]
+T ,
+the solution errors ∥A(t)x(t) − b(t)∥2 synthesized by different
+GNN models for the SLE speciﬁed by (21) are shown in
+Fig. 6. Evidently, GNN-L, GNN-S, GNN-PS, and GNN-BS
+models have large solution errors ∥A(t)x(t)− b(t)∥2 for solving
+the dynamic SLE, while the proposed FTCGNN (9) and the
+FTCGNN (8) proposed in [44] can make ∥A(t)x(t) − b(t)∥2
+converge. In particular, the proposed FTCGNN (9) has faster
+convergence than the FTCGNN (8) proposed in [44].T h e
+comparison demonstrates the advantages of our FTCGNN (9)
+in terms of convergence behavior for dynamic SLEs under
+without noises.
+Fig. 7. Comparison of solution error ∥A(t)x(t)− b(t)∥2 generated by different
+GNN models for solving time-varying SLE speciﬁed by (21) under noise
+σ(t) = 20+10 sin(4t), where GNN-L, GNN-S, GNN-PS, and GNN-BS denote
+GNN (2) activated by linear function (3), sinh function (4), bipolar-sigmoid
+function (5), and powersum function (6) with N = 5, respectively, the initial
+value of x is set to x(0) = [1, 1]T , and the parameters of the GNN models
+are set to γ = 200, p = 1, and r = 0.2.
+C. Robustness to Noises
+In this section, we further test FTCGNN model (9) in terms
+of robustness to noises via simulations. In the simulations, it
+is found that the condition regarding the setting of γ given
+in Theorem 3 is conservative, and the proposed FTCGNN
+model (9) has much better robustness to noises than our
+expectation. We ﬁrst compare the performance of different
+GNN models for solving time-varying SLE (1) speciﬁed
+by (21) under noise σ(t) = 20 + 10 sin(4t). As seen from
+Fig. 7, when polluted by noise σ(t) = 20 + 10 sin(4t),t h e
+proposed FTCGNN model (9) can still make the solution error
+∥A(t)x(t)− b(t)∥
+2 converge to zero in ﬁnite time. Meanwhile,
+the solution errors ∥A(t)x(t) − b(t)∥2 synthesized by other
+GNN models are quite large. We also compare the proposed
+FTCGNN model (9) with ZNN model (15) [20] , FTCZNN
+model (16) [34] , and NTZNN model (17) [24] for dynamic
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 9
+4794 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 8, AUGUST 2024
+Fig. 8. Comparison of solution error ∥A(t)x(t) − b(t)∥2 generated by
+the proposed FTCGNN model (9), ZNN model (15) with linear activation
+function (3), FTCZNN model (16) with sign-bi-power activation function (7),
+and NTZNN model (17) for solving time-varying SLE speciﬁed by (21) under
+noise σ(t) = 20 + 10 sin(4t), for which the initial value of x is set to x(0) =
+[1, 1]T , and the parameters of the models are set to γ = 200,κ = 200, p =
+1, r = 0.2.
+SLE (1) speciﬁed by (21) under noise σ(t) = 20 + 10 sin(4t)
+under the same setting. As seen from Fig. 8, under noise
+σ(t) = 20 + 10 sin(4t), the NTZNN model (17) proposed
+in [24] has much smaller solution error ∥A(t)x(t)− b(t)∥2 than
+the ZNN model (15) [20] and the FTCZNN model (16) [34],
+but still cannot make the solution error converge. However,
+via the proposed FTCGNN model (9), the solution error
+∥A(t)x(t)− b(t)∥2 quickly converges to zero in ﬁnite time (i.e.,
+less than 0.05). The above results demonstrate the advantages
+of the proposed FTCGNN model (9) for solving time-varying
+SLEs in terms of robustness to noises.
+Remark 6: Our work provides a modiﬁed GNN model
+for solving SLEs, and it belongs to the GNN family. As
+a result, it makes sense to compare the proposed GNN
+model with existing GNN models for solving SLEs. This
+comparison shows that our modiﬁcation does contribute to
+better performance for the GNN model. Meanwhile, in this
+article, we also compare our GNN model (9) with ZNN models
+for solving SLEs. It should be noted that ZNN models require
+knowing explicit formulas or exact values of time-derivatives
+of variables involved in the SLEs, and they are state-of-the-
+art method for solving time-varying SLEs. By simulation, we
+show that our GNN model (9) outperforms ZNN models in
+the case with noises, showing the advantages of the our GNN
+model compared with ZNN models in terms of robustness.
+Additionally, we also conduct simulation comparison with the
+most advanced FTCZNN model in [34], and the comparison
+validates the advantages of the proposed GNN model (9) in
+the case with noise. It should be noted that ZNN models
+use explicit formulas or exact values of time-derivatives of
+variables involved in the SLEs, but our GNN model (9) does
+not use such information, i.e., our model uses less information
+than the ZNN models. Finally, we would like to clarify that
+our work propose a FTCGNN model for solving SLEs, and
+our model does not belong to the ZNN family.
+(a)
+(b)
+Fig. 9. Comparison of solution error ∥A(t)x(t)− b(t)∥2 generated by different
+models for solving time-varying SLE speciﬁed by (21), for which the initial
+value of x is set to x(0) = [1, 1]T , and the parameters of the models are set
+to p = k1 = k2 = k3 = 1, ρ = 0.2, and λ = 10−3. (a) Case with no noise
+and γ = 100. (b) Case with noise σ(t) = 20+10 sin(4t) and γ = 200. (a) No
+noise. (b) With noise.
+D. Comparison With [50]
+In light of the comment of an anonymous reviewer, in this
+section, we would like to clarify that our model is not a special
+case of the models in [50].
+Let
+Lipρ(xi) =
+⎧
+⎪⎨
+⎪⎩
+xρ
+i , xi > 0
+0, xi = 0
+−xρ
+i , xi < 0
+where ρ ∈ (0, 1). The models in [50] and our FTCGNN model
+are listed in Table I for clear comparison. Compared with the
+ZNN model in [50], our FTCGNN model does not include
+the terms λI, ˙A(t), ˙b(t), or the activation function /Phi1(·),b u t
+has an additional term ∥AT(t)(A(t)x(t) − b(t))∥p
+2. Compared
+with the GNN model in [50], our FTCGNN model does not
+has the terms λI or the activation function /Phi1(·), but has an
+additional term ∥AT(t)(A(t)x(t)− b(t))∥p
+2. Thus, our FTCGNN
+model cannot be viewed as a special case of the ZNN model
+or the GNN model in [50].
+We perform simulations to show the performance difference
+between our model and the models in [50] using the time-
+varying SLE (21). In the simulation, the parameters are set to
+k1 = k2 = k3 = p = 1,λ = 10−3, and ρ = 1/3 according
+to [50]. As seen from Fig. 9(a), under no noise and γ = 100,
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 10
+ZHANG et al.: GNN MODEL WITH ROBUST FINITE-TIME CONVERGENCE FOR TIME-V ARYING SLEs 4795
+TABLE I
+COMPARISON OF THE MODELS IN [50] AND OUR FTCGNN M ODEL (9) FOR SOLVING TIME -VARYING SLE S
+(a) (b) (c)
+Fig. 10. Relevant data proﬁles for the UR5 manipulator equipped with FTCGNN model (9) with γ = 10 by solving time-varying SLE (23) with ϑ = 10
+and the desired trajectory given in (24),w h e r ee = [eX, eY, eZ]T = r− rd. (a) Joint angle proﬁles. (b) Velocity command proﬁles. (c) Proﬁles of end-effector
+tracking error e.
+FTCGNN model (9) outperforms the GNN model in [50].
+Meanwhile, in this case, the performance of our FTCGNN
+model is comparable with the ZNN model in [50], although
+our FTCGNN model (9) does not use the real-time information
+of ˙A(t) and ˙b(t). As seen from Fig. 9(b), for the case with
+noise σ(t) = 20 + 10 sin(4t) and γ = 200, the proposed
+FTCGNN model (9) outperforms the GNN model and the
+ZNN model in [50]. In fact, as seen from the ﬁgure, the
+solution error ∥A(t)x(t)− b(t)∥2 of the other two models do not
+converge. These results validate the advantages of the proposed
+model in terms of robustness to noises and convergence speed.
+The simulation results also indicate that our model (9) is not a
+special case of the models in [50], and in fact, our model (9)
+is of better performance than those in [50].
+E. Application to Kinematic Control of Manipulator
+One potential application of the proposed model can be
+the kinematic control of manipulators. The kinematic control
+problem of a serial redundant manipulator can be described as
+a time-varying SLE problem as follows [49]:
+J(θ(t))u(t) = ˙r
+d(t) − ϑ(r(t) − rd(t)) (23)
+where J(θ(t)) ∈ Rm×n = ∂f(θ(t))/∂θ(t) with n > m is
+the real-time Jacobian matrix of the corresponding forward
+kinematics r(t) = f(θ(t)) of the manipulator with r ∈ Rm
+denoting the end-effector coordinate, u = ˙θ ∈ Rn = dθ/dt is
+the control input with θ denoting the joint angle vector of the
+manipulator, and ˙rd = dr/dt with rd ∈ Rm being the desired
+end-effector trajectory. We consider a UR5 robot manipulator
+with n = 6 and m = 3 with r(t) = [r
+X(t), rY(t), rZ(t)]T ,
+and the simulation is performed by combining MATLAB and
+Fig. 11. End-effector trajectory of the UR5 manipulator in V-rep.
+V-rep with ϑ = 10. The desired trajectory is given as
+rd(t) =
+⎡
+⎣
+0.4(cos(2t)/25 + cos((4t)/3)/10) + rX(0) − 0.056
+0.4(sin(2t)/25 − (3s i n((4t)/3))/50) + rY(0)
+rZ(0)
+⎤
+⎦
+(24)
+which describes a star-shape trajectory. The proposed
+FTCGNN model (9) is adopted with γ = 10. As seen from
+Fig. 10, the position error is very small (less than 2 ×10−5 m),
+and the generated velocity commands and joint angle proﬁles
+are smooth. As seen from Fig. 11, the end-effector trajectory
+of the UR5 manipulator is of the star shape which is consistent
+with the desired one described by (24). The results substantiate
+the effectiveness of the proposed FTCGNN model (9) for the
+kinematic control of manipulators.
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 11
+4796 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 54, NO. 8, AUGUST 2024
+V. C ONCLUSION
+In this article, a FTCGNN model has been proposed to
+solve both static and time-varying SLEs. Without knowing
+the explicit formulas or exact values of derivative information
+about time-varying SLEs, under mild conditions, the state
+variable of the proposed GNN has ﬁnite-time convergence
+to the corresponding theoretical solution regardless of the
+existence of time-varying noises. The effectiveness and supe-
+riority of the proposed GNN model have been validated
+by simulation results, including comparisons with the state-
+of-the-art methods for time-varying problem solving. An
+application to the kinematic control of a UR5 manipulator
+has also substantiated the potential impact of the proposed
+model. Nonlinear control problems are widely encountered
+in engineering applications. There have been some works
+that convert nonlinear control problems into time-varying
+optimization problems, such as [51], [52], and [53].A sa
+result, it is possible to extend the current method to deal with
+nonlinear control problems by converting the problem into
+a time-varying optimization problem. It would be interesting
+to investigate the extension of the proposed model to deal
+with time-varying optimization problems for nonlinear control.
+Given that matrix A is uncertain, the accurate solution of SLEs
+cannot be found. The extension of the proposed method for
+the case that matrix A of SLEs is uncertain will be our future
+work.
+R
+EFERENCES
+[1] J. J. Hopﬁeld and D. W. Tank, “‘Neural’ computation of decisions
+in optimization problems,” Biol. Cybern. , vol. 52, no. 3, pp. 141–152,
+1985.
+[2] Y . Xia and J. Wang, “A general methodology for designing globally
+convergent optimization neural networks,” IEEE Trans. Neural Netw. ,
+vol. 9, no. 6, pp. 1331–1343, Nov. 1998.
+[3] H. K. Khalil, Nonlinear Systems , 3rd ed., Hoboken, NJ, USA:
+Prentice-Hall, 2002.
+[4] J. Yan, L. Jin, Z. Yuan, and Z. Liu, “RNN for receding horizon control
+of redundant robot manipulators,” IEEE Trans. Ind. Electron. , vol. 69,
+no. 2, pp. 1608–1619, Feb. 2022.
+[5] Y .-J. Liu, W. Zhao, L. Liu, D. Li, S. Tong, and C. L. P. Chen, “Adaptive
+neural network control for a class of nonlinear systems with function
+constraints on states,” IEEE Trans. Neural Netw. Learn. Syt. , vol. 34,
+no. 6, pp. 2732–2741, Jun. 2023.
+[6] Y . Xia and J. Wang, “Robust regression estimation based on low-
+dimensional recurrent neural networks,” IEEE Trans. Neural Netw.
+Learn. Syst., vol. 29, no. 12, pp. 5939–5946, Dec. 2018.
+[7] Y . Xia and J. Wang, “Low-dimensional recurrent neural network-
+based Kalman ﬁlter for speech enhancement,” Neural Netw. , vol. 67,
+pp. 131–139, Jul. 2015.
+[8] J. Wang, J. Wang, and H. Che, “Task assignment for multivehicle
+systems based on collaborative neurodynamic optimization,” IEEE
+Trans. Neural Netw. Learn. Syst. , vol. 31, no. 4, pp. 1145–1154,
+Apr. 2020.
+[9] Y . Wang, J. Wang, and N. R. Pal, “Supervised feature
+selection via collaborative neurodynamic optimization,” IEEE
+Trans. Neural Netw. Learn. Syst. , early access, Oct. 28, 2022,
+doi: 10.1109/TNNLS.2022.3213167.
+[10] Z. Chen, J. Wang, and Q.-L. Han, “A collaborative neurodynamic
+optimization approach to distributed chiller loading,” IEEE
+Trans. Neural Learn. Syst. , early access, Feb. 24, 2023,
+doi: 10.1109/TNNLS.2023.3245812.
+[11] A. Cichocki and R. Unbehauen, “Neural networks for solving systems
+of linear equations and related problems,” IEEE Trans. Circuits Syst. I,
+Fundam. Theory Appl. , vol. 39, no. 2, pp. 124–138, Feb. 1992.
+[12] J. Wang and H. Li, “Solving simultaneous linear equations using
+recurrent neural networks,” Inform. Sci., vol. 76, nos. 3–4, pp. 255–277,
+1994.
+[13] Y .-N. Zhang, Z.-H. Chen, and K. Chen, “Convergence properties analysis
+of gradient neural network for solving online linear equations,” Acta
+Automatica Sinica, vol. 35, no. 8, pp. 1136–1139, Aug. 2009.
+[14] Y . Xia, J. Wang, and D. L. Hung, “Recurrent neural networks for solving
+linear inequalities and equations,” IEEE Trans. Circuits Syst. I, Fundam.
+Theory Appl., vol. 46, no. 4, pp. 452–462, Apr. 1999.
+[15] Y . Zhang, D. Jiang, and J. Wang, “A recurrent neural network for solving
+Sylvester equation with time-varying coefﬁcients,” IEEE Trans. Neural
+Netw., vol. 13, no. 5, pp. 1053–1063, Sep. 2002.
+[16] Y . Zhang and S. S. Ge, “Design and analysis of a general recurrent
+neural network model for time-varying matrix inversion,” IEEE Trans.
+Neural Netw., vol. 16, no. 6, pp. 1477–1490, Nov. 2005.
+[17] B. Liao and Y . Zhang, “Different complex ZFs leading to different
+complex ZNN models for time-varying complex generalized inverse
+matrices,” IEEE Trans. Neural Netw. Learn. Syst. , vol. 25, no. 9,
+pp. 1621–1631, Sep. 2014.
+[18] F. Xu, Z. Li, Z. Nie, H. Shao, and D. Guo, “Zeroing neural network
+for solving time-varying linear equation and inequality systems,” IEEE
+Trans. Neural Netw. Learn. Syst. , vol. 30, no. 8, pp. 2346–2357,
+Aug. 2019.
+[19] F. Xu, Z. Li, Z. Nie, H. Shao, and D. Guo, “New recurrent neural
+network for online solution of time-dependent underdetermined linear
+system with bound constraint,” IEEE Trans. Ind. Informat.
+, vol. 15,
+no. 4, pp. 2167–2176, Apr. 2019.
+[20] C. Yi and Y . Zhang, “Analogue recurrent neural network for linear
+algebraic equation solving,” Electron. Lett. , vol. 44, pp. 1078–1079,
+Aug. 2008.
+[21] Y . Qi, L. Jin, X. Luo, and M. Zhou, “Recurrent neural dynamics models
+for perturbed nonstationary quadratic programs: A control-theoretical
+perspective,” IEEE Trans. Neural Netw. Learn. Syst. , vol. 33, no. 3,
+pp. 1216–1227, Mar. 2022.
+[22] L. Jin et al., “Perturbed manipulability optimization in a distributed
+network of redundant robots,” IEEE Trans. Ind. Electron., vol. 68, no. 8,
+pp. 7209–7220, Aug. 2021.
+[23] L. Wei, L. Jin, C. Yang, K. Chen, and W. Li, “New noise-tolerant neural
+algorithms for future dynamic nonlinear optimization with estimation
+on Hessian matrix inversion,” IEEE Trans. Syst., Man, Cybern., Syst. ,
+vol. 51, no. 4, pp. 2611–2623, Apr. 2021.
+[24] L. Jin, Y . Zhang, S. Li, and Y . Zhang, “Noise-tolerant ZNN models
+for solving time-varying zero-ﬁnding problems: A control-theoretic
+approach,” IEEE Trans. Autom. Control , vol. 62, no. 2, pp. 992–997,
+Feb. 2017.
+[25] S. Li, S. Chen, and B. Liu, “Accelerating a recurrent neural network to
+ﬁnite-time convergence for solving time-varying Sylvester equation by
+using a sign-bi-power activation function,”Neural Process. Lett., vol. 37,
+pp. 189–205, Apr. 2013.
+[26] Y . Xu, R. Lu, P. Shi, H. Li, and S. Xie, “Finite-time distributed state
+estimation over sensor networks with round-robin protocol and fading
+channels,” IEEE Trans. Cybern., vol. 48, no. 1, pp. 336–345, Jan. 2018.
+[27] B. Xu, “Composite learning ﬁnite-time control with application to
+quadrotors,” IEEE Trans. Syst., Man, Cybern., Syst. , vol. 48, no. 10,
+pp. 1806–1815, Oct. 2018.
+[28] Y . Wang, Y . Song, and M. Krstic, “Collectively rotating formation and
+containment deployment of multiagent systems: A polar coordinate-
+based ﬁnite time approach,” IEEE Trans. Cybern. , vol. 47, no. 8,
+pp. 2161–2172, Aug. 2017.
+[29] Y . Li, F. Qu, and S. Tong, “Observer-based fuzzy adaptive ﬁnite-
+time containment control of nonlinear multiagent systems with input
+delay,” IEEE Trans. Cybern. , vol. 51, no. 1, pp. 126–137, Jan. 2021.
+[30] Y .-X. Li, M. Wei, and S. Tong, “Event-triggered adaptive neural
+control for fractional-order nonlinear systems based on ﬁnite-
+time scheme,” IEEE Trans. Cybern. , vol. 52, no. 9, pp. 9481–9489,
+Sep. 2022.
+[31] S.-L. Dai, K. Lu, and J. Fu, “Adaptive ﬁnite-time tracking control
+of nonholonomic multirobot formation systems with limited ﬁeld-of-
+view sensors,” IEEE Trans. Cybern., vol. 52, no. 10, pp. 10695–10708,
+Oct. 2022.
+[32] L. Xiao and R. Lu, “Finite-time solution to nonlinear equation using
+recurrent neural dynamics with a specially-constructed activation func-
+tion,” Neurocomputing, vol. 151, pp. 246–251, Mar. 2015.
+[33] L. Xiao, S. Li, F.-J. Lin, Z. Tan, and A. H. Khan, “Zeroing neural
+dynamics for control design: Comprehensive analysis on stability,
+robustness, and convergence speed,”IEEE Trans. Ind. Informat., vol. 15,
+no. 5, pp. 2605–2616, May 2019.
+[34] J. Dai, Y . Li, L. Xiao, and L. Jia, “Zeroing neural network for time-
+varying linear equations with application to dynamic positioning,” IEEE
+Trans. Ind. Informat. , vol. 18, no. 3, pp. 1552–1561, Mar. 2022.
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 
+
+PAGE 12
+ZHANG et al.: GNN MODEL WITH ROBUST FINITE-TIME CONVERGENCE FOR TIME-V ARYING SLEs 4797
+[35] X. Lv, L. Xiao, and Z. Tan, “Improved Zhang neural network with
+ﬁnite-time convergence for time-varying linear system of equations
+solving,” Inform. Process. Lett. , vol. 147, pp. 88–93, Jul. 2019.
+[36] L. Xiao, S. Li, K. Li, L. Jin, and B. Liao, “Co-design of ﬁnite-time
+convergence and noise suppression: A uniﬁed neural model for time-
+varying linear equations with robotic applications,” IEEE Trans. Syst.,
+Man, Cybern., Syst. , vol. 50, no. 12, pp. 5233–5243, Dec. 2020.
+[37] Z. Zhang, Z. Li, and S. Yang, “A barrier varying-parameter dynamic
+learning network for solving time-varying quadratic programming prob-
+lems with multiple constraints,” IEEE Trans. Cybern. , vol. 52, no. 9,
+pp. 8781–8792, Sep. 2022.
+[38] S. Li and Y . Li, “Nonlinearly activated neural network for solving time-
+varying complex Sylvester equation,” IEEE Trans. Cybern. , vol. 44,
+no. 8, pp. 1397–1407, Aug. 2014.
+[39] Y . Zhang, K. Chen, and H.-Z. Tan, “Performance analysis of gradient
+neural network exploited for online time-varying matrix inversion,”IEEE
+Trans. Autom. Control, vol. 54, no. 8, pp. 1940–1945, Aug. 2009.
+[40] L. Xiao and Y . Zhang, “Zhang neural network versus gradient neural
+network for solving time-varying linear inequalities,” IEEE Trans.
+Neural Netw., vol. 22, no. 10, pp. 1676–1684, Oct. 2011.
+[41] L. Jin, S. Li, and B. Hu, “RNN models for dynamic matrix inversion:
+A control-theoretical perspective,” IEEE Trans. Ind. Informat. , vol. 14,
+no. 1, pp. 189–199, Jan. 2018.
+[42] Z. Zhang, S. Yang, and L. Zheng, “A penalty strategy combined varying-
+parameter recurrent neural network for solving time-varying multi-type
+constrained quadratic programming problems,” IEEE Trans. Neural
+Netw. Learn. Syst., vol. 32, no. 7, pp. 2993–3004, Jul. 2021.
+[43] L. Jin, L. Ying, H. Lu, and Z. Zhang, “Saturation-allowed neural
+dynamics applied to perturbed time-dependent system of linear equations
+and robots,” IEEE Trans. Ind. Electron., vol. 68, no. 10, pp. 9844–9854,
+Oct. 2021.
+[44] L. Xiao et al., “Nonlinear gradient neural network for solving system of
+linear equations,” Inform. Process. Lett., vol. 142, pp. 35–40, Feb. 2019.
+[45] A. Bartoszewicz and P. Le ´sniewski, “New switching and nonswitching
+type reaching laws for SMC of discrete time systems,” IEEE Trans.
+Control Syst. Technol., vol. 24, no. 2, pp. 670–677, Mar. 2016.
+[46] L. Jin, S. Li, B. Hu, M. Liu, and J. Yu, “A noise-suppressing neural
+algorithm for solving the time-varying system of linear equations: A
+control-based approach,” IEEE Trans. Ind. Informat. , vol. 15, no. 1,
+pp. 236–246, Jan. 2019.
+[47] M. Mao, J. Li, L. Jin, S. Li, and Y . N. Zhang, “Enhanced discrete-time
+Zhang neural network for time-variant matrix inversion in the presence
+of bias noises,” Neurocomputing, vol. 207, pp. 220–230, Sep. 2016.
+[48] L. Xiao et al., “A new noise-tolerant and predeﬁned-time ZNN model for
+time-dependent matrix inversion,” Neural Netw., vol. 117, pp. 124–134,
+Sep. 2019.
+[49] Y . Shi, L. Jin, S. Li, J. Li, J. Qiang, and D. K. Gerontitis, “Novel
+discrete-time recurrent neural networks handling discrete-form time-
+variant multi-augmented Sylvester matrix problems and manipulator
+application,” IEEE Trans. Neural Netw. Learn. Syst. , vol. 33, no. 2,
+pp. 587–599, Feb. 2022.
+[50] X. Wang, L. Liang, and M. Che, “Finite-time convergent complex-
+valued neural networks for the time-varying complex linear matrix
+equations,” Eng. Lett., vol. 26, no. 4, pp. 432–440, Jan. 2018.
+[51] Y . Zhang, S. Li, and J. Weng, “Learning and near-optimal control of
+underactuated surface vessels with periodic disturbances,” IEEE Trans.
+Cybern., vol. 52, no. 8, pp. 7453–7463, Aug. 2022.
+[52] G. Lv, Z. Peng, L. Liu, and J. Wang, “Barrier-certiﬁed distributed model
+predictive control of under-actuated autonomous surface vehicles via
+neurodynamic optimization,” IEEE Trans. Syst., Man, Cybern., Syst. ,
+vol. 53, no. 1, pp. 563–575, Jan. 2023.
+[53] E. Picotti, M. Bruschetta, E. Mion, and A. Beghi, “A nonlinear model-
+predictive contouring controller for shared control driving assistance in
+high-performance scenarios,” IEEE Trans. Syst., Man, Cybern., Syst. ,
+vol. 53, no. 1, pp. 204–215, Jan. 2023.
+Yinyan Zhang (Member, IEEE) received the B.E.
+degree in automation from Sun Yat-sen University,
+Guangzhou, China, in 2016, and the Ph.D. degree
+in computing from The Hong Kong Polytechnic
+University, Hong Kong, in 2019.
+He is currently with the College of Cyber
+Security, Jinan University, Guangzhou, China, and
+the Pazhou Lab, Guangzhou. Before joining Jinan
+University in 2019, he was a Postdoctoral Fellow
+with the Department of Computing, The Hong Kong
+Polytechnic University, Hong Kong. His current
+research interests include security and control of multiagent systems, intelli-
+gent control, and dynamic neural networks.
+Dr. Zhang is currently an Associate Editor for IEEE T
+RANSACTIONS ON
+INDUSTRIAL ELECTRONICS and Neural Processing Letters .
+Bolin Liao was born in Hunan, China, in 1981.
+He received the Ph.D. degree in communication and
+information systems from Sun Yat-Sen University,
+Guangzhou, China, in 2015.
+He is currently a Professor with the College
+of Information Science and Engineering, Jishou
+University, Jishou, China. He has published over 60
+articles in various journals/conferences. His current
+research interests include neural networks, robotics,
+and nonlinear control.
+Guanggang Geng received the Ph.D. degree in
+pattern recognition and intelligent system from
+the Institute of Automation, Chinese Academy of
+Sciences, Beijing, China, in 2008.
+He was with the Computer Network Information
+Center, Chinese Academy of Sciences. He was
+with the China Internet Network Information Center,
+Beijing, from 2016 to 2020. He is currently a
+Professor with the College of Cyber Security,
+Jinan University, Guangzhou, China. His current
+research interests include machine learning, com-
+puter networking, anti-fraud, and Web search.
+Authorized licensed use limited to: Jinan University. Downloaded on October 21,2024 at 13:49:36 UTC from IEEE Xplore.  Restrictions apply. 

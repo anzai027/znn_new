@@ -1,0 +1,17 @@
+cases=320, Jacobian=2.12672e-10, residual=1.44468e-16, matrix formula=3.4702e-13
+predictor=3.31442e-13, correction=2.51819e-13, fixed-g difference=0, damping=0
+time-difference versus analytic partial=2.55791e-06
+          m3: 0
+          m5: 1.0000
+    expected: 1.0000
+
+      positive: 9.9950e-10
+    derivative: 1
+      negative: -3.4142e+08
+
+        alpha: 3.0969e-05
+        speed: [0.0056 0.0200 0.0178]
+    direction: 0
+      descent: -0.0487
+
+All assertions passed; derivative fields were forbidden.

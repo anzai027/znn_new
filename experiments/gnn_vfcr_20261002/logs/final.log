@@ -1,0 +1,10 @@
+参考解和无导数调用检查通过，雅可比相对误差 1.064e-10。
+{Unrecognized method, property, or field 'DisplayName' for class 'matlab.graphics.GraphicsPlaceholder'.
+
+Error in inspect (line 18)
+    labels = string({lines.DisplayName});
+                     ^^^^^^^^^^^^^^^^^
+Error in run_compare (line 108)
+    audit = inspect(folder,results,c);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

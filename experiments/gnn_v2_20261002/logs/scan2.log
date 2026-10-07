@@ -1,0 +1,71 @@
+[1/164] scan M1 ex2 finite zero gamma=100 eps=0 lambda=0
+  complete last=10 0.341s calls=26514 deltaRMSE=483.4 residual=3786 motion=0
+[2/164] scan VFCR ex2 finite zero gamma=100 eps=0 lambda=0
+  budget last=4.8792214 19.331s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[3/164] scan VFCR-S ex2 finite zero gamma=100 eps=0.01 lambda=0
+  complete last=10 0.754s calls=10375 deltaRMSE=2.325e-06 residual=1.075e-05 motion=NaN
+[4/164] scan M2 ex2 finite zero gamma=100 eps=0.001 lambda=0
+  budget last=5.807565 10.151s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[5/164] scan M3 ex2 finite zero gamma=100 eps=0.001 lambda=1e-06
+  complete last=10 0.221s calls=5868 deltaRMSE=0.001306 residual=0.04281 motion=1
+[6/164] scan M3 ex2 finite zero gamma=100 eps=0.001 lambda=0.0001
+  complete last=10 0.290s calls=5880 deltaRMSE=0.001022 residual=0.03265 motion=1
+[7/164] scan M3 ex2 finite zero gamma=100 eps=0.001 lambda=0.01
+  complete last=10 0.266s calls=7653 deltaRMSE=0.0006991 residual=0.02605 motion=1
+[8/164] scan M2 ex2 finite zero gamma=200 eps=0.001 lambda=0
+  budget last=4.3416332 9.526s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[9/164] scan M3 ex2 finite zero gamma=200 eps=0.001 lambda=1e-06
+  complete last=10 0.182s calls=5400 deltaRMSE=0.0001698 residual=0.005597 motion=1
+[10/164] scan M3 ex2 finite zero gamma=200 eps=0.001 lambda=0.0001
+  complete last=10 0.166s calls=5503 deltaRMSE=0.0001206 residual=0.004025 motion=1
+[11/164] scan M3 ex2 finite zero gamma=200 eps=0.001 lambda=0.01
+  complete last=10 0.204s calls=7517 deltaRMSE=0.0001102 residual=0.003828 motion=1
+[12/164] scan M4 ex2 finite zero gamma=200 eps=0.001 lambda=1e-06
+  complete last=10 0.290s calls=6857 deltaRMSE=0.0004665 residual=0.02793 motion=1
+[13/164] scan M4 ex2 finite zero gamma=300 eps=0.001 lambda=1e-06
+  complete last=10 0.197s calls=5801 deltaRMSE=0.0002372 residual=0.01659 motion=1
+[14/164] scan M4 ex2 finite zero gamma=200 eps=0.001 lambda=0.0001
+  complete last=10 0.284s calls=5983 deltaRMSE=0.00014 residual=0.01146 motion=1
+[15/164] scan M4 ex2 finite zero gamma=300 eps=0.001 lambda=0.0001
+  complete last=10 0.261s calls=6070 deltaRMSE=0.0001134 residual=0.009316 motion=1
+[16/164] scan M4 ex2 finite zero gamma=200 eps=0.001 lambda=0.01
+  complete last=10 0.294s calls=8254 deltaRMSE=0.0001736 residual=0.003886 motion=1
+[17/164] scan M4 ex2 finite zero gamma=300 eps=0.001 lambda=0.01
+  complete last=10 0.360s calls=8711 deltaRMSE=0.0001294 residual=0.003795 motion=1
+[18/164] scan M2 ex2 finite zero gamma=100 eps=0.01 lambda=0
+  complete last=10 0.478s calls=20330 deltaRMSE=0.0304 residual=0.185 motion=1
+[19/164] scan M3 ex2 finite zero gamma=100 eps=0.01 lambda=1e-06
+  complete last=10 0.185s calls=5198 deltaRMSE=0.001528 residual=0.04328 motion=1
+[20/164] scan M3 ex2 finite zero gamma=100 eps=0.01 lambda=0.0001
+  complete last=10 0.190s calls=5284 deltaRMSE=0.001294 residual=0.03314 motion=1
+[21/164] scan M3 ex2 finite zero gamma=100 eps=0.01 lambda=0.01
+  complete last=10 0.187s calls=6613 deltaRMSE=0.001915 residual=0.02833 motion=1
+[22/164] scan M2 ex2 finite zero gamma=200 eps=0.01 lambda=0
+  complete last=10 0.462s calls=20971 deltaRMSE=0.01997 residual=0.1264 motion=1
+[23/164] scan M3 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.148s calls=4941 deltaRMSE=0.0003965 residual=0.005637 motion=1
+[24/164] scan M3 ex2 finite zero gamma=200 eps=0.01 lambda=0.0001
+  complete last=10 0.178s calls=5148 deltaRMSE=0.0003804 residual=0.004173 motion=1
+[25/164] scan M3 ex2 finite zero gamma=200 eps=0.01 lambda=0.01
+  complete last=10 0.238s calls=6875 deltaRMSE=0.0008939 residual=0.02576 motion=1
+[26/164] scan M4 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.215s calls=5352 deltaRMSE=0.001154 residual=0.02464 motion=1
+[27/164] scan M4 ex2 finite zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.232s calls=4902 deltaRMSE=0.0007676 residual=0.01767 motion=1
+[28/164] scan M4 ex2 finite zero gamma=200 eps=0.01 lambda=0.0001
+  complete last=10 0.266s calls=5324 deltaRMSE=0.001096 residual=0.01106 motion=1
+[29/164] scan M4 ex2 finite zero gamma=300 eps=0.01 lambda=0.0001
+  complete last=10 0.209s calls=5273 deltaRMSE=0.0007275 residual=0.007108 motion=1
+[30/164] scan M4 ex2 finite zero gamma=200 eps=0.01 lambda=0.01
+  complete last=10 0.323s calls=6862 deltaRMSE=0.001595 residual=0.02786 motion=1
+[31/164] scan M4 ex2 finite zero gamma=300 eps=0.01 lambda=0.01
+  complete last=10 0.301s calls=7038 deltaRMSE=0.0009651 residual=0.01915 motion=1
+[32/164] scan M2 ex2 finite zero gamma=150 eps=0.01 lambda=1e-06
+  complete last=10 0.480s calls=20312 deltaRMSE=0.02393 residual=0.1481 motion=1
+[33/164] scan M3 ex2 finite zero gamma=150 eps=0.01 lambda=1e-06
+  complete last=10 0.193s calls=5146 deltaRMSE=0.0005122 residual=0.005832 motion=1
+[34/164] scan M2 ex2 finite zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.784s calls=33447 deltaRMSE=0.01552 residual=0.09238 motion=1
+[35/164] scan M3 ex2 finite zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.180s calls=4922 deltaRMSE=0.0002887 residual=0.005413 motion=1
+已保存 35/164 组。

@@ -1,0 +1,6 @@
+collect.m
+AGROW line25: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+simulate.m
+NASGU line34: Value assigned to variable might be unused.
+NASGU line59: Value assigned to variable might be unused.
+run20 norm(g(10))=1.42415e+07 speed-bound excess=1.42405e+07

@@ -1,0 +1,65 @@
+[165/228] scan M3 ex2 finite zero gamma=100 eps=0 lambda=1e-06
+  solver_failure last=0.0297258 0.399s calls=3452 deltaRMSE=NaN residual=NaN motion=0
+[166/228] scan M3 ex2 finite zero gamma=100 eps=0 lambda=0.0001
+  solver_failure last=0.017578627 0.086s calls=558 deltaRMSE=NaN residual=NaN motion=1
+[167/228] scan M3 ex2 finite zero gamma=100 eps=0 lambda=0.01
+  solver_failure last=0.017582852 0.222s calls=6427 deltaRMSE=NaN residual=NaN motion=1
+[168/228] scan M3 ex2 finite zero gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0088454372 0.300s calls=8621 deltaRMSE=NaN residual=NaN motion=1
+[169/228] scan M3 ex2 finite zero gamma=200 eps=0 lambda=0.0001
+  solver_failure last=0.0088451154 0.152s calls=3093 deltaRMSE=NaN residual=NaN motion=1
+[170/228] scan M3 ex2 finite zero gamma=200 eps=0 lambda=0.01
+  solver_failure last=0.0088421519 0.337s calls=10904 deltaRMSE=NaN residual=NaN motion=1
+[171/228] scan M4 ex2 finite zero gamma=200 eps=0 lambda=1e-06
+  budget last=0.0018439798 17.514s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[172/228] scan M4 ex2 finite zero gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012320021 15.604s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[173/228] scan M4 ex2 finite zero gamma=200 eps=0 lambda=0.0001
+  budget last=0.001844667 14.151s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[174/228] scan M4 ex2 finite zero gamma=300 eps=0 lambda=0.0001
+  budget last=0.0012324016 10.281s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[175/228] scan M4 ex2 finite zero gamma=200 eps=0 lambda=0.01
+  budget last=0.0019261758 10.340s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[176/228] scan M4 ex2 finite zero gamma=300 eps=0 lambda=0.01
+  budget last=0.0012866075 9.570s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[177/228] scan M3 ex2 finite zero gamma=150 eps=0 lambda=1e-06
+  solver_failure last=0.011765002 0.020s calls=1080 deltaRMSE=NaN residual=NaN motion=1
+[178/228] scan M3 ex2 finite zero gamma=300 eps=0 lambda=1e-06
+  solver_failure last=0.0059131044 0.162s calls=10678 deltaRMSE=NaN residual=NaN motion=1
+[179/228] main M3 ex2 finite zero gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0088454372 0.127s calls=8621 deltaRMSE=NaN residual=NaN motion=1
+[180/228] main M4 ex2 finite zero gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012320021 9.617s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[181/228] main M3 ex2 finite constant gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0089611586 0.035s calls=2053 deltaRMSE=NaN residual=NaN motion=1
+[182/228] main M4 ex2 finite constant gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012171027 9.749s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[183/228] main M3 ex2 finite linear gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0098431366 0.088s calls=5572 deltaRMSE=NaN residual=NaN motion=0
+[184/228] main M4 ex2 finite linear gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012319568 9.815s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[185/228] main M3 ex2 finite cosine gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0089095627 0.125s calls=8110 deltaRMSE=NaN residual=NaN motion=1
+[186/228] main M4 ex2 finite cosine gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012244921 9.786s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[187/228] main M3 ex2 finite gamma gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0090332386 0.078s calls=4687 deltaRMSE=NaN residual=NaN motion=0
+[188/228] main M4 ex2 finite gamma gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012272664 9.800s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[189/228] main M3 ex2 finite gamma gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0089238981 0.178s calls=11900 deltaRMSE=NaN residual=NaN motion=1
+[190/228] main M4 ex2 finite gamma gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012294427 9.450s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[191/228] main M3 ex2 finite gamma gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.011091854 0.049s calls=2565 deltaRMSE=NaN residual=NaN motion=1
+[192/228] main M4 ex2 finite gamma gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012317895 9.394s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[193/228] main M3 ex2 finite gamma gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0089102198 0.190s calls=12672 deltaRMSE=NaN residual=NaN motion=1
+[194/228] main M4 ex2 finite gamma gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012287464 9.332s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+[195/228] main M3 ex2 finite gamma gamma=200 eps=0 lambda=1e-06
+  solver_failure last=0.0088868561 0.105s calls=7314 deltaRMSE=NaN residual=NaN motion=1
+[196/228] main M4 ex2 finite gamma gamma=300 eps=0 lambda=1e-06
+  budget last=0.0012300753 9.377s calls=500001 deltaRMSE=NaN residual=NaN motion=1
+已保存 196/228 组。

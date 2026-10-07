@@ -1,0 +1,19 @@
+      feasible: 5.8219e-14
+      residual: 5.8220e-14
+    derivative: 1.2371e-15
+      identity: 7.9579e-14
+          time: 3.4611
+         speed: 4.7357e+03
+    difference: [4×1 double]
+      periodic: 1.1170e-12
+        vector: 1.2413e-16
+         empty: [0 7]
+
+      h      speed      relative 
+    _____    ______    __________
+
+    1e-06    4734.6    0.00023442
+    1e-07    4735.7    2.3467e-06
+    1e-08    4735.7    2.7243e-08
+    1e-09    4735.7    9.6739e-08
+

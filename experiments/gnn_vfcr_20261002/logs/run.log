@@ -1,0 +1,142 @@
+参考解和无导数调用检查通过，雅可比相对误差 1.064e-10。
+[2/71] initial ex1 GNN zero seed1 gamma=100 p=1
+  solver_failure: t=0.020934369, 0.223s, calls=864, residual=9.748e-08
+[3/71] initial ex1 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=3.2177136, 10.796s, calls=500001, residual=9.076e-08
+[4/71] initial ex1 GNN zero seed1 gamma=100 p=1
+  solver_failure: t=0.17161551, 0.056s, calls=3482, residual=3.317e-08
+[5/71] initial ex1 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=3.5614019, 10.366s, calls=500001, residual=3.106e-08
+[6/71] initial ex1 GNN zero seed1 gamma=100 p=1
+  solver_failure: t=1.5726551, 0.045s, calls=1418, residual=8.675e-08
+[7/71] initial ex1 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=3.549142, 10.393s, calls=500001, residual=6.466e-08
+[8/71] initial ex1 GNN zero seed1 gamma=100 p=1
+  complete: t=10, 0.019s, calls=551, residual=1.302e+03
+[9/71] paper ex2 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=4.8792214, 10.683s, calls=500001, residual=1.083e-08
+[10/71] main ex2 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=4.8792214, 11.176s, calls=500001, residual=1.083e-08
+[11/71] main ex2 GNN zero seed1 gamma=100 p=1
+  complete: t=10, 0.341s, calls=26514, residual=1.449e+03
+[12/71] paper ex2 VFCR-ZNN constant seed1 gamma=NaN p=0.5
+  complete: t=10, 1.743s, calls=76325, residual=7.220e-08
+[13/71] main ex2 VFCR-ZNN constant seed1 gamma=NaN p=0.5
+  complete: t=10, 0.726s, calls=29083, residual=2.133e-01
+[14/71] main ex2 GNN constant seed1 gamma=100 p=1
+  complete: t=10, 0.889s, calls=64471, residual=4.297e+04
+[15/71] paper ex2 VFCR-ZNN linear seed1 gamma=NaN p=0.5
+  complete: t=10, 0.346s, calls=13412, residual=4.760e-04
+[16/71] main ex2 VFCR-ZNN linear seed1 gamma=NaN p=0.5
+  complete: t=10, 0.406s, calls=16113, residual=6.413e-02
+[17/71] main ex2 GNN linear seed1 gamma=100 p=1
+  complete: t=10, 1.091s, calls=77308, residual=1.408e+03
+[18/71] paper ex2 VFCR-ZNN cosine seed1 gamma=NaN p=0.5
+  complete: t=10, 0.215s, calls=8355, residual=1.404e-03
+[19/71] main ex2 VFCR-ZNN cosine seed1 gamma=NaN p=0.5
+  complete: t=10, 0.377s, calls=14578, residual=5.299e-02
+[20/71] main ex2 GNN cosine seed1 gamma=100 p=1
+  complete: t=10, 0.095s, calls=6536, residual=2.240e+07
+[21/71] paper ex2 VFCR-ZNN gamma seed1 gamma=NaN p=0.5
+  complete: t=10, 2.658s, calls=82458, residual=2.000e-02
+[22/71] main ex2 VFCR-ZNN gamma seed1 gamma=NaN p=0.5
+  complete: t=10, 2.831s, calls=81492, residual=6.598e-02
+[23/71] main ex2 GNN gamma seed1 gamma=100 p=1
+  budget: t=0.042886232, 7.062s, calls=500001, residual=1.129e-06
+[24/71] paper ex2 VFCR-ZNN gamma seed2 gamma=NaN p=0.5
+  complete: t=10, 2.571s, calls=82966, residual=2.484e-02
+[25/71] main ex2 VFCR-ZNN gamma seed2 gamma=NaN p=0.5
+  complete: t=10, 2.664s, calls=82545, residual=6.019e-02
+[26/71] main ex2 GNN gamma seed2 gamma=100 p=1
+  solver_failure: t=0.055275723, 1.304s, calls=102183, residual=2.530e-14
+[27/71] paper ex2 VFCR-ZNN gamma seed3 gamma=NaN p=0.5
+  complete: t=10, 2.757s, calls=85079, residual=3.280e-02
+[28/71] main ex2 VFCR-ZNN gamma seed3 gamma=NaN p=0.5
+  complete: t=10, 2.716s, calls=82690, residual=9.793e-02
+[29/71] main ex2 GNN gamma seed3 gamma=100 p=1
+  budget: t=0.2243194, 6.894s, calls=500001, residual=1.997e-07
+[30/71] paper ex2 VFCR-ZNN gamma seed4 gamma=NaN p=0.5
+  complete: t=10, 2.608s, calls=83124, residual=1.364e-02
+[31/71] main ex2 VFCR-ZNN gamma seed4 gamma=NaN p=0.5
+  complete: t=10, 2.697s, calls=81119, residual=5.699e-02
+[32/71] main ex2 GNN gamma seed4 gamma=100 p=1
+  budget: t=0.42457647, 6.716s, calls=500001, residual=7.092e-07
+[33/71] paper ex2 VFCR-ZNN gamma seed5 gamma=NaN p=0.5
+  complete: t=10, 2.622s, calls=82385, residual=1.779e-02
+[34/71] main ex2 VFCR-ZNN gamma seed5 gamma=NaN p=0.5
+  complete: t=10, 2.684s, calls=81932, residual=4.972e-02
+[35/71] main ex2 GNN gamma seed5 gamma=100 p=1
+  budget: t=0.45425565, 6.471s, calls=500001, residual=2.140e-09
+[36/71] paper ex2 VFCR-ZNN gaussian seed1 gamma=NaN p=0.5
+  complete: t=10, 3.409s, calls=102447, residual=3.246e-02
+[37/71] main ex2 VFCR-ZNN gaussian seed1 gamma=NaN p=0.5
+  complete: t=10, 3.282s, calls=100672, residual=3.833e-02
+[38/71] main ex2 GNN gaussian seed1 gamma=100 p=1
+  budget: t=0.2559275, 7.017s, calls=500001, residual=4.700e-07
+[39/71] paper ex2 VFCR-ZNN gaussian seed2 gamma=NaN p=0.5
+  complete: t=10, 3.229s, calls=103327, residual=5.751e-02
+[40/71] main ex2 VFCR-ZNN gaussian seed2 gamma=NaN p=0.5
+  complete: t=10, 3.365s, calls=100857, residual=6.822e-02
+[41/71] main ex2 GNN gaussian seed2 gamma=100 p=1
+  budget: t=0.4887267, 6.437s, calls=500001, residual=3.368e-07
+[42/71] paper ex2 VFCR-ZNN gaussian seed3 gamma=NaN p=0.5
+  complete: t=10, 3.131s, calls=104580, residual=2.511e-02
+[43/71] main ex2 VFCR-ZNN gaussian seed3 gamma=NaN p=0.5
+  complete: t=10, 3.350s, calls=102401, residual=5.165e-02
+[44/71] main ex2 GNN gaussian seed3 gamma=100 p=1
+  budget: t=0.55938884, 6.466s, calls=500001, residual=1.254e-06
+[45/71] paper ex2 VFCR-ZNN gaussian seed4 gamma=NaN p=0.5
+  complete: t=10, 3.787s, calls=104624, residual=2.977e-02
+[46/71] main ex2 VFCR-ZNN gaussian seed4 gamma=NaN p=0.5
+  complete: t=10, 3.641s, calls=102708, residual=2.924e-02
+[47/71] main ex2 GNN gaussian seed4 gamma=100 p=1
+  budget: t=0.063958192, 7.249s, calls=500001, residual=9.031e-07
+[48/71] paper ex2 VFCR-ZNN gaussian seed5 gamma=NaN p=0.5
+  complete: t=10, 3.759s, calls=102379, residual=2.490e-02
+[49/71] main ex2 VFCR-ZNN gaussian seed5 gamma=NaN p=0.5
+  complete: t=10, 3.557s, calls=100155, residual=2.213e-02
+[50/71] main ex2 GNN gaussian seed5 gamma=100 p=1
+  budget: t=0.33690856, 6.691s, calls=500001, residual=9.848e-07
+[51/71] paper ex2 VFCR-ZNN harmonic seed1 gamma=NaN p=0.5
+  complete: t=10, 0.510s, calls=19932, residual=7.219e-02
+[52/71] main ex2 VFCR-ZNN harmonic seed1 gamma=NaN p=0.5
+  complete: t=10, 0.930s, calls=33076, residual=8.431e-02
+[53/71] main ex2 GNN harmonic seed1 gamma=100 p=1
+  complete: t=10, 0.440s, calls=32459, residual=2.220e+08
+[54/71] parameter ex2 GNN zero seed1 gamma=1 p=1
+  complete: t=10, 0.023s, calls=963, residual=8.536e-01
+[55/71] parameter ex2 GNN cosine seed1 gamma=1 p=1
+  complete: t=10, 0.019s, calls=827, residual=2.962e+00
+[56/71] parameter ex2 GNN zero seed1 gamma=10 p=1
+  complete: t=10, 1.367s, calls=104125, residual=1.796e+00
+[57/71] parameter ex2 GNN cosine seed1 gamma=10 p=1
+  complete: t=10, 0.173s, calls=12217, residual=5.495e+02
+[58/71] parameter ex2 GNN zero seed1 gamma=100 p=0.5
+  complete: t=10, 0.186s, calls=12917, residual=2.684e-03
+[59/71] parameter ex2 GNN cosine seed1 gamma=100 p=0.5
+  complete: t=10, 0.200s, calls=13306, residual=2.541e-03
+[60/71] parameter ex2 GNN zero seed1 gamma=100 p=1.5
+  solver_failure: t=0.024607508, 0.032s, calls=2273, residual=5.367e-10
+[61/71] parameter ex2 GNN cosine seed1 gamma=100 p=1.5
+  solver_failure: t=0.025045756, 0.015s, calls=927, residual=7.997e-10
+[62/71] precision ex2 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=1.5675527, 11.966s, calls=500001, residual=1.142e-09
+[63/71] precision ex2 GNN zero seed1 gamma=100 p=1
+  solver_failure: t=0.2114447, 0.165s, calls=12429, residual=6.123e-14
+[64/71] timing ex2 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=4.8792214, 11.824s, calls=500001, residual=1.083e-08
+[65/71] timing ex2 GNN zero seed1 gamma=100 p=1
+  complete: t=10, 0.356s, calls=26514, residual=1.449e+03
+[66/71] timing ex2 VFCR-ZNN cosine seed1 gamma=NaN p=0.5
+  complete: t=10, 0.380s, calls=14578, residual=5.299e-02
+[67/71] timing ex2 GNN cosine seed1 gamma=100 p=1
+  complete: t=10, 0.095s, calls=6536, residual=2.240e+07
+[68/71] timing ex2 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=4.8792214, 11.987s, calls=500001, residual=1.083e-08
+[69/71] timing ex2 GNN zero seed1 gamma=100 p=1
+  complete: t=10, 0.381s, calls=26514, residual=1.449e+03
+[70/71] timing ex2 VFCR-ZNN cosine seed1 gamma=NaN p=0.5
+  complete: t=10, 0.417s, calls=14578, residual=5.299e-02
+[71/71] timing ex2 GNN cosine seed1 gamma=100 p=1
+  complete: t=10, 0.101s, calls=6536, residual=2.240e+07
+全部 71 组已尝试并保存，完整运行 46 组。

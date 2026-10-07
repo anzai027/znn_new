@@ -1,0 +1,8 @@
+[Warning: Function new_system has the same name as a MATLAB built-in. We suggest you rename the function to avoid a potential name conflict.] 
+{Error: File: C:\Users\anzai\Documents\znn_new\experiments\gnn_v2_20261002\jobs.m Line: 77 Column: 66
+Illegal use of reserved keyword "case".
+
+Error in run_v2 (line 10)
+c = config(); list = jobs(c,prior);
+                     ^^^^^^^^^^^^^
+} 

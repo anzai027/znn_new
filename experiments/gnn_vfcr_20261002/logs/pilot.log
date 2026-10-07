@@ -1,0 +1,22 @@
+collect.m
+         id: 'AGROW'
+    message: 'Variable appears to change size on every loop iteration. Consider preallocating for speed.'
+        fix: 0
+       line: 25
+     column: [9 12]
+
+simulate.m
+  2×1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+参考解和无导数调用检查通过，雅可比相对误差 1.064e-10。
+[1/71] initial ex1 VFCR-ZNN zero seed1 gamma=NaN p=0.5
+  budget: t=2.0450146, 11.108s, calls=500001, residual=5.586e-08
+[2/71] initial ex1 GNN zero seed1 gamma=100 p=1
+  exception: t=0.020934369, 0.112s, calls=864, residual=9.748e-08
+本批次保存 2/71 组，调用 run_compare 可继续。

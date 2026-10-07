@@ -1,0 +1,201 @@
+[36/164] main M2 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.766s calls=20971 deltaRMSE=0.01997 residual=0.1264 motion=1
+[37/164] main M3 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.282s calls=4941 deltaRMSE=0.0003965 residual=0.005637 motion=1
+[38/164] main M4 ex2 finite zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.267s calls=4902 deltaRMSE=0.0007676 residual=0.01767 motion=1
+[39/164] main VFCR ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=4.8792214 19.473s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[40/164] main VFCR-S ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.575s calls=10375 deltaRMSE=2.325e-06 residual=1.075e-05 motion=NaN
+[41/164] main M2 ex2 finite constant gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.555s calls=23418 deltaRMSE=0.01962 residual=0.1247 motion=1
+[42/164] main M3 ex2 finite constant gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.173s calls=5091 deltaRMSE=0.0004399 residual=0.007163 motion=1
+[43/164] main M4 ex2 finite constant gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.258s calls=5121 deltaRMSE=0.0008178 residual=0.01597 motion=1
+[44/164] main VFCR ex2 finite constant gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 1.465s calls=29083 deltaRMSE=0.1581 residual=0.3326 motion=NaN
+[45/164] main VFCR-S ex2 finite constant gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.429s calls=6685 deltaRMSE=0.1582 residual=0.3325 motion=NaN
+[46/164] main M2 ex2 finite linear gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.570s calls=23186 deltaRMSE=0.01983 residual=0.1259 motion=1
+[47/164] main M3 ex2 finite linear gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.182s calls=4849 deltaRMSE=0.0004085 residual=0.006158 motion=1
+[48/164] main M4 ex2 finite linear gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.243s calls=5747 deltaRMSE=0.0007741 residual=0.01679 motion=1
+[49/164] main VFCR ex2 finite linear gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.710s calls=16113 deltaRMSE=0.03627 residual=0.1075 motion=NaN
+[50/164] main VFCR-S ex2 finite linear gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.428s calls=7598 deltaRMSE=0.03632 residual=0.1074 motion=NaN
+[51/164] main M2 ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.464s calls=20627 deltaRMSE=0.01994 residual=0.1256 motion=1
+[52/164] main M3 ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.190s calls=4884 deltaRMSE=0.0003942 residual=0.005623 motion=1
+[53/164] main M4 ex2 finite cosine gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.215s calls=5119 deltaRMSE=0.0007773 residual=0.0186 motion=1
+[54/164] main VFCR ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.762s calls=14578 deltaRMSE=0.03781 residual=0.1016 motion=NaN
+[55/164] main VFCR-S ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.391s calls=6993 deltaRMSE=0.03767 residual=0.1017 motion=NaN
+[56/164] main M2 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.874s calls=80522 deltaRMSE=0.02007 residual=0.1278 motion=1
+[57/164] main M3 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.566s calls=54719 deltaRMSE=0.0004191 residual=0.00646 motion=1
+[58/164] main M4 ex2 finite gamma gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.902s calls=55964 deltaRMSE=0.0007902 residual=0.01571 motion=1
+[59/164] main VFCR ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 4.469s calls=81492 deltaRMSE=0.05967 residual=0.2003 motion=NaN
+[60/164] main VFCR-S ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.478s calls=46181 deltaRMSE=0.0597 residual=0.2003 motion=NaN
+[61/164] main M2 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.455s calls=80481 deltaRMSE=0.01986 residual=0.1264 motion=1
+[62/164] main M3 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.251s calls=54731 deltaRMSE=0.0004096 residual=0.006811 motion=1
+[63/164] main M4 ex2 finite gamma gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 3.003s calls=56031 deltaRMSE=0.0007886 residual=0.01627 motion=1
+[64/164] main VFCR ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 4.570s calls=82545 deltaRMSE=0.06055 residual=0.2585 motion=NaN
+[65/164] main VFCR-S ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.325s calls=45777 deltaRMSE=0.06054 residual=0.2585 motion=NaN
+[66/164] main M2 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.548s calls=80138 deltaRMSE=0.01974 residual=0.1245 motion=1
+[67/164] main M3 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.495s calls=54410 deltaRMSE=0.0004247 residual=0.00748 motion=1
+[68/164] main M4 ex2 finite gamma gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.995s calls=55611 deltaRMSE=0.0007888 residual=0.01827 motion=1
+[69/164] main VFCR ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 4.611s calls=82690 deltaRMSE=0.05835 residual=0.2174 motion=NaN
+[70/164] main VFCR-S ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.226s calls=45745 deltaRMSE=0.0584 residual=0.2173 motion=NaN
+[71/164] main M2 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.600s calls=80800 deltaRMSE=0.01969 residual=0.1262 motion=1
+[72/164] main M3 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.424s calls=54743 deltaRMSE=0.0004186 residual=0.006946 motion=1
+[73/164] main M4 ex2 finite gamma gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 3.252s calls=56007 deltaRMSE=0.000787 residual=0.0169 motion=1
+[74/164] main VFCR ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 4.524s calls=81119 deltaRMSE=0.0654 residual=0.2216 motion=NaN
+[75/164] main VFCR-S ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.373s calls=45849 deltaRMSE=0.06547 residual=0.2219 motion=NaN
+[76/164] main M2 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.456s calls=79906 deltaRMSE=0.02003 residual=0.1266 motion=1
+[77/164] main M3 ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.158s calls=54266 deltaRMSE=0.0004087 residual=0.006222 motion=1
+[78/164] main M4 ex2 finite gamma gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.979s calls=55590 deltaRMSE=0.0007837 residual=0.01718 motion=1
+[79/164] main VFCR ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 4.665s calls=81932 deltaRMSE=0.06204 residual=0.1836 motion=NaN
+[80/164] main VFCR-S ex2 finite gamma gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.027s calls=45773 deltaRMSE=0.06203 residual=0.1835 motion=NaN
+[81/164] main M2 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.597s calls=80849 deltaRMSE=0.01989 residual=0.1267 motion=1
+[82/164] main M3 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.352s calls=54690 deltaRMSE=0.0004001 residual=0.00523 motion=1
+[83/164] main M4 ex2 finite gaussian gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.719s calls=56048 deltaRMSE=0.0007863 residual=0.01563 motion=1
+[84/164] main VFCR ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 5.659s calls=100672 deltaRMSE=0.02203 residual=0.1106 motion=NaN
+[85/164] main VFCR-S ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.256s calls=49467 deltaRMSE=0.02205 residual=0.1107 motion=NaN
+[86/164] main M2 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.424s calls=81242 deltaRMSE=0.01999 residual=0.1252 motion=1
+[87/164] main M3 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.340s calls=54957 deltaRMSE=0.0004315 residual=0.007964 motion=1
+[88/164] main M4 ex2 finite gaussian gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 3.043s calls=56282 deltaRMSE=0.0007801 residual=0.0163 motion=1
+[89/164] main VFCR ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 5.428s calls=100857 deltaRMSE=0.01947 residual=0.1243 motion=NaN
+[90/164] main VFCR-S ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.144s calls=49664 deltaRMSE=0.01944 residual=0.1244 motion=NaN
+[91/164] main M2 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.505s calls=81037 deltaRMSE=0.02025 residual=0.1255 motion=1
+[92/164] main M3 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.416s calls=54728 deltaRMSE=0.0004083 residual=0.006376 motion=1
+[93/164] main M4 ex2 finite gaussian gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.854s calls=56077 deltaRMSE=0.0007692 residual=0.01803 motion=1
+[94/164] main VFCR ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 5.933s calls=102401 deltaRMSE=0.01774 residual=0.1021 motion=NaN
+[95/164] main VFCR-S ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.210s calls=49706 deltaRMSE=0.01779 residual=0.1023 motion=NaN
+[96/164] main M2 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.370s calls=81367 deltaRMSE=0.02003 residual=0.1247 motion=1
+[97/164] main M3 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.294s calls=54934 deltaRMSE=0.0003999 residual=0.005396 motion=1
+[98/164] main M4 ex2 finite gaussian gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 3.114s calls=56303 deltaRMSE=0.0007814 residual=0.01715 motion=1
+[99/164] main VFCR ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 5.599s calls=102708 deltaRMSE=0.01975 residual=0.1159 motion=NaN
+[100/164] main VFCR-S ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.073s calls=49912 deltaRMSE=0.01981 residual=0.1161 motion=NaN
+[101/164] main M2 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.547s calls=80939 deltaRMSE=0.0201 residual=0.1265 motion=1
+[102/164] main M3 ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.477s calls=54634 deltaRMSE=0.0004066 residual=0.006612 motion=1
+[103/164] main M4 ex2 finite gaussian gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.849s calls=55976 deltaRMSE=0.0007755 residual=0.01896 motion=1
+[104/164] main VFCR ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 5.523s calls=100155 deltaRMSE=0.02056 residual=0.127 motion=NaN
+[105/164] main VFCR-S ex2 finite gaussian gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.214s calls=49570 deltaRMSE=0.02067 residual=0.1272 motion=NaN
+[106/164] main M2 ex2 finite harmonic gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.519s calls=21674 deltaRMSE=0.01982 residual=0.1257 motion=1
+[107/164] main M3 ex2 finite harmonic gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.173s calls=4951 deltaRMSE=0.0004052 residual=0.006145 motion=1
+[108/164] main M4 ex2 finite harmonic gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.228s calls=5047 deltaRMSE=0.0007674 residual=0.0168 motion=1
+[109/164] main VFCR ex2 finite harmonic gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 1.401s calls=33076 deltaRMSE=0.02953 residual=0.1252 motion=NaN
+[110/164] main VFCR-S ex2 finite harmonic gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.814s calls=13684 deltaRMSE=0.02967 residual=0.1253 motion=NaN
+[111/164] timing M2 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.461s calls=20971 deltaRMSE=0.01997 residual=0.1264 motion=1
+[112/164] timing M3 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.184s calls=4941 deltaRMSE=0.0003965 residual=0.005637 motion=1
+[113/164] timing M4 ex2 finite zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.262s calls=4902 deltaRMSE=0.0007676 residual=0.01767 motion=1
+[114/164] timing VFCR ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=4.8792214 19.328s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[115/164] timing VFCR-S ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.519s calls=10375 deltaRMSE=2.325e-06 residual=1.075e-05 motion=NaN
+[116/164] timing M2 ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.474s calls=20627 deltaRMSE=0.01994 residual=0.1256 motion=1
+[117/164] timing M3 ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.153s calls=4884 deltaRMSE=0.0003942 residual=0.005623 motion=1
+[118/164] timing M4 ex2 finite cosine gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.192s calls=5119 deltaRMSE=0.0007773 residual=0.0186 motion=1
+[119/164] timing VFCR ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.749s calls=14578 deltaRMSE=0.03781 residual=0.1016 motion=NaN
+[120/164] timing VFCR-S ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.450s calls=6993 deltaRMSE=0.03767 residual=0.1017 motion=NaN
+[121/164] timing M2 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.533s calls=20971 deltaRMSE=0.01997 residual=0.1264 motion=1
+[122/164] timing M3 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.173s calls=4941 deltaRMSE=0.0003965 residual=0.005637 motion=1
+[123/164] timing M4 ex2 finite zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.252s calls=4902 deltaRMSE=0.0007676 residual=0.01767 motion=1
+[124/164] timing VFCR ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=4.8792214 21.655s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[125/164] timing VFCR-S ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.485s calls=10375 deltaRMSE=2.325e-06 residual=1.075e-05 motion=NaN
+[126/164] timing M2 ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.480s calls=20627 deltaRMSE=0.01994 residual=0.1256 motion=1
+[127/164] timing M3 ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.178s calls=4884 deltaRMSE=0.0003942 residual=0.005623 motion=1
+[128/164] timing M4 ex2 finite cosine gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.188s calls=5119 deltaRMSE=0.0007773 residual=0.0186 motion=1
+[129/164] timing VFCR ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.647s calls=14578 deltaRMSE=0.03781 residual=0.1016 motion=NaN
+[130/164] timing VFCR-S ex2 finite cosine gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.408s calls=6993 deltaRMSE=0.03767 residual=0.1017 motion=NaN
+[131/164] precision M2 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.691s calls=28128 deltaRMSE=0.01997 residual=0.1264 motion=1
+[132/164] precision M3 ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.297s calls=8659 deltaRMSE=0.0003965 residual=0.005637 motion=1
+[133/164] precision M4 ex2 finite zero gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.368s calls=8590 deltaRMSE=0.0007676 residual=0.01767 motion=1
+[134/164] precision VFCR ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  budget last=1.5675527 19.413s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN
+[135/164] precision VFCR-S ex2 finite zero gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.627s calls=12775 deltaRMSE=3.754e-08 residual=2.105e-07 motion=NaN
+已保存 135/164 组。

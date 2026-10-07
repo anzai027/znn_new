@@ -1,0 +1,209 @@
+[05-Oct-2026 20:31:15] [1/99] source=1 scan M1 noise=zero seed=1 gamma=100 eps=0 lambda=0
+  complete last=10 1.065s calls=26514 deltaRMSE=483.369 residual=3786.04 motion=0 olddiff=0
+[05-Oct-2026 20:31:16] [2/99] source=2 scan VFCR noise=zero seed=1 gamma=100 eps=0 lambda=0
+  budget last=4.8792214 21.076s calls=500001 deltaRMSE=NaN residual=NaN motion=NaN olddiff=0
+[05-Oct-2026 20:31:38] [3/99] source=3 scan VFCR-S noise=zero seed=1 gamma=100 eps=0.01 lambda=0
+  complete last=10 0.609s calls=10375 deltaRMSE=2.32514e-06 residual=1.07525e-05 motion=NaN olddiff=0
+[05-Oct-2026 20:31:39] [4/99] source=4 scan M2 noise=zero seed=1 gamma=100 eps=0.001 lambda=0
+  budget last=5.807565 9.922s calls=500001 deltaRMSE=NaN residual=NaN motion=1 olddiff=0
+[05-Oct-2026 20:31:49] [5/99] source=5 scan M3 noise=zero seed=1 gamma=100 eps=0.001 lambda=1e-06
+  complete last=10 0.266s calls=5868 deltaRMSE=0.00130586 residual=0.042808 motion=1 olddiff=0
+[05-Oct-2026 20:31:50] [6/99] source=6 scan M3 noise=zero seed=1 gamma=100 eps=0.001 lambda=0.0001
+  complete last=10 0.219s calls=5880 deltaRMSE=0.00102228 residual=0.0326451 motion=1 olddiff=0
+[05-Oct-2026 20:31:50] [7/99] source=7 scan M3 noise=zero seed=1 gamma=100 eps=0.001 lambda=0.01
+  complete last=10 0.311s calls=7653 deltaRMSE=0.000699106 residual=0.0260501 motion=1 olddiff=0
+[05-Oct-2026 20:31:51] [8/99] source=8 scan M2 noise=zero seed=1 gamma=200 eps=0.001 lambda=0
+  budget last=4.3416332 10.728s calls=500001 deltaRMSE=NaN residual=NaN motion=1 olddiff=0
+[05-Oct-2026 20:32:02] [9/99] source=9 scan M3 noise=zero seed=1 gamma=200 eps=0.001 lambda=1e-06
+  complete last=10 0.192s calls=5400 deltaRMSE=0.000169807 residual=0.00559675 motion=1 olddiff=0
+[05-Oct-2026 20:32:02] [10/99] source=10 scan M3 noise=zero seed=1 gamma=200 eps=0.001 lambda=0.0001
+  complete last=10 0.175s calls=5503 deltaRMSE=0.000120608 residual=0.00402484 motion=1 olddiff=0
+[05-Oct-2026 20:32:02] [11/99] source=11 scan M3 noise=zero seed=1 gamma=200 eps=0.001 lambda=0.01
+  complete last=10 0.262s calls=7517 deltaRMSE=0.000110195 residual=0.00382774 motion=1 olddiff=0
+[05-Oct-2026 20:32:03] [12/99] source=12 scan M4 noise=zero seed=1 gamma=200 eps=0.001 lambda=1e-06
+  complete last=10 0.292s calls=6857 deltaRMSE=0.00046647 residual=0.0279318 motion=1 olddiff=0
+[05-Oct-2026 20:32:03] [13/99] source=13 scan M4 noise=zero seed=1 gamma=300 eps=0.001 lambda=1e-06
+  complete last=10 0.276s calls=5801 deltaRMSE=0.000237247 residual=0.0165872 motion=1 olddiff=0
+[05-Oct-2026 20:32:04] [14/99] source=14 scan M4 noise=zero seed=1 gamma=200 eps=0.001 lambda=0.0001
+  complete last=10 0.279s calls=5983 deltaRMSE=0.000140036 residual=0.0114613 motion=1 olddiff=0
+[05-Oct-2026 20:32:05] [15/99] source=15 scan M4 noise=zero seed=1 gamma=300 eps=0.001 lambda=0.0001
+  complete last=10 0.301s calls=6070 deltaRMSE=0.000113368 residual=0.00931586 motion=1 olddiff=0
+[05-Oct-2026 20:32:05] [16/99] source=16 scan M4 noise=zero seed=1 gamma=200 eps=0.001 lambda=0.01
+  complete last=10 0.355s calls=8254 deltaRMSE=0.000173574 residual=0.00388609 motion=1 olddiff=0
+[05-Oct-2026 20:32:06] [17/99] source=17 scan M4 noise=zero seed=1 gamma=300 eps=0.001 lambda=0.01
+  complete last=10 0.351s calls=8711 deltaRMSE=0.000129435 residual=0.00379477 motion=1 olddiff=0
+[05-Oct-2026 20:32:06] [18/99] source=18 scan M2 noise=zero seed=1 gamma=100 eps=0.01 lambda=0
+  complete last=10 0.533s calls=20330 deltaRMSE=0.0304023 residual=0.184975 motion=1 olddiff=0
+[05-Oct-2026 20:32:07] [19/99] source=19 scan M3 noise=zero seed=1 gamma=100 eps=0.01 lambda=1e-06
+  complete last=10 0.210s calls=5198 deltaRMSE=0.00152804 residual=0.0432778 motion=1 olddiff=0
+[05-Oct-2026 20:32:07] [20/99] source=20 scan M3 noise=zero seed=1 gamma=100 eps=0.01 lambda=0.0001
+  complete last=10 0.223s calls=5284 deltaRMSE=0.00129361 residual=0.0331361 motion=1 olddiff=0
+[05-Oct-2026 20:32:08] [21/99] source=21 scan M3 noise=zero seed=1 gamma=100 eps=0.01 lambda=0.01
+  complete last=10 0.223s calls=6613 deltaRMSE=0.00191464 residual=0.0283256 motion=1 olddiff=0
+[05-Oct-2026 20:32:08] [22/99] source=22 scan M2 noise=zero seed=1 gamma=200 eps=0.01 lambda=0
+  complete last=10 0.496s calls=20971 deltaRMSE=0.0199699 residual=0.126356 motion=1 olddiff=0
+[05-Oct-2026 20:32:09] [23/99] source=23 scan M3 noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.192s calls=4941 deltaRMSE=0.000396502 residual=0.00563667 motion=1 olddiff=0
+[05-Oct-2026 20:32:09] [24/99] source=24 scan M3 noise=zero seed=1 gamma=200 eps=0.01 lambda=0.0001
+  complete last=10 0.175s calls=5148 deltaRMSE=0.000380441 residual=0.00417308 motion=1 olddiff=0
+[05-Oct-2026 20:32:10] [25/99] source=25 scan M3 noise=zero seed=1 gamma=200 eps=0.01 lambda=0.01
+  complete last=10 0.234s calls=6875 deltaRMSE=0.000893923 residual=0.0257593 motion=1 olddiff=0
+[05-Oct-2026 20:32:10] [26/99] source=26 scan M4 noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.232s calls=5352 deltaRMSE=0.00115363 residual=0.0246379 motion=1 olddiff=0
+[05-Oct-2026 20:32:11] [27/99] source=27 scan M4 noise=zero seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.228s calls=4902 deltaRMSE=0.00076763 residual=0.0176665 motion=1 olddiff=0
+[05-Oct-2026 20:32:11] [28/99] source=28 scan M4 noise=zero seed=1 gamma=200 eps=0.01 lambda=0.0001
+  complete last=10 0.253s calls=5324 deltaRMSE=0.00109579 residual=0.0110638 motion=1 olddiff=0
+[05-Oct-2026 20:32:12] [29/99] source=29 scan M4 noise=zero seed=1 gamma=300 eps=0.01 lambda=0.0001
+  complete last=10 0.238s calls=5273 deltaRMSE=0.000727517 residual=0.00710808 motion=1 olddiff=0
+[05-Oct-2026 20:32:12] [30/99] source=30 scan M4 noise=zero seed=1 gamma=200 eps=0.01 lambda=0.01
+  complete last=10 0.329s calls=6862 deltaRMSE=0.00159504 residual=0.0278567 motion=1 olddiff=0
+[05-Oct-2026 20:32:13] [31/99] source=31 scan M4 noise=zero seed=1 gamma=300 eps=0.01 lambda=0.01
+  complete last=10 0.281s calls=7038 deltaRMSE=0.000965134 residual=0.0191529 motion=1 olddiff=0
+[05-Oct-2026 20:32:14] [32/99] source=32 scan M2 noise=zero seed=1 gamma=150 eps=0.01 lambda=1e-06
+  complete last=10 0.584s calls=20312 deltaRMSE=0.0239272 residual=0.148061 motion=1 olddiff=0
+[05-Oct-2026 20:32:14] [33/99] source=33 scan M3 noise=zero seed=1 gamma=150 eps=0.01 lambda=1e-06
+  complete last=10 0.233s calls=5146 deltaRMSE=0.00051219 residual=0.00583209 motion=1 olddiff=0
+[05-Oct-2026 20:32:15] [34/99] source=34 scan M2 noise=zero seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.959s calls=33447 deltaRMSE=0.0155218 residual=0.0923753 motion=1 olddiff=0
+[05-Oct-2026 20:32:16] [35/99] source=35 scan M3 noise=zero seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.297s calls=4922 deltaRMSE=0.000288688 residual=0.00541256 motion=1 olddiff=0
+[05-Oct-2026 20:32:16] [36/99] source=36 main M2 noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.633s calls=20971 deltaRMSE=0.0199699 residual=0.126356 motion=1 olddiff=0
+[05-Oct-2026 20:32:17] [37/99] source=37 main M3 noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.170s calls=4941 deltaRMSE=0.000396502 residual=0.00563667 motion=1 olddiff=0
+[05-Oct-2026 20:32:18] [38/99] source=38 main M4 noise=zero seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.241s calls=4902 deltaRMSE=0.00076763 residual=0.0176665 motion=1 olddiff=0
+[05-Oct-2026 20:32:18] [39/99] source=40 main VFCR-S noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.594s calls=10375 deltaRMSE=2.32514e-06 residual=1.07525e-05 motion=NaN olddiff=0
+[05-Oct-2026 20:32:19] [40/99] source=41 main M2 noise=constant seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.653s calls=23418 deltaRMSE=0.0196197 residual=0.124673 motion=1 olddiff=0
+[05-Oct-2026 20:32:20] [41/99] source=42 main M3 noise=constant seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.227s calls=5091 deltaRMSE=0.000439933 residual=0.00716279 motion=1 olddiff=0
+[05-Oct-2026 20:32:21] [42/99] source=43 main M4 noise=constant seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.291s calls=5121 deltaRMSE=0.000817774 residual=0.0159742 motion=1 olddiff=0
+[05-Oct-2026 20:32:21] [43/99] source=45 main VFCR-S noise=constant seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.542s calls=6685 deltaRMSE=0.158244 residual=0.332542 motion=NaN olddiff=0
+[05-Oct-2026 20:32:22] [44/99] source=46 main M2 noise=linear seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.603s calls=23186 deltaRMSE=0.0198321 residual=0.125907 motion=1 olddiff=0
+[05-Oct-2026 20:32:23] [45/99] source=47 main M3 noise=linear seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.190s calls=4849 deltaRMSE=0.000408501 residual=0.00615844 motion=1 olddiff=0
+[05-Oct-2026 20:32:23] [46/99] source=48 main M4 noise=linear seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.304s calls=5747 deltaRMSE=0.000774115 residual=0.0167911 motion=1 olddiff=0
+[05-Oct-2026 20:32:24] [47/99] source=50 main VFCR-S noise=linear seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.555s calls=7598 deltaRMSE=0.0363158 residual=0.107384 motion=NaN olddiff=0
+[05-Oct-2026 20:32:25] [48/99] source=51 main M2 noise=cosine seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.541s calls=20627 deltaRMSE=0.0199371 residual=0.125615 motion=1 olddiff=0
+[05-Oct-2026 20:32:25] [49/99] source=52 main M3 noise=cosine seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.192s calls=4884 deltaRMSE=0.000394223 residual=0.00562252 motion=1 olddiff=0
+[05-Oct-2026 20:32:26] [50/99] source=53 main M4 noise=cosine seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.207s calls=5119 deltaRMSE=0.000777282 residual=0.0185979 motion=1 olddiff=0
+[05-Oct-2026 20:32:26] [51/99] source=55 main VFCR-S noise=cosine seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.462s calls=6993 deltaRMSE=0.0376651 residual=0.101689 motion=NaN olddiff=0
+[05-Oct-2026 20:32:27] [52/99] source=56 main M2 noise=gamma seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.840s calls=80522 deltaRMSE=0.020065 residual=0.12775 motion=1 olddiff=0
+[05-Oct-2026 20:32:30] [53/99] source=57 main M3 noise=gamma seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.664s calls=54719 deltaRMSE=0.000419091 residual=0.00646044 motion=1 olddiff=0
+[05-Oct-2026 20:32:33] [54/99] source=58 main M4 noise=gamma seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 3.044s calls=55964 deltaRMSE=0.000790154 residual=0.015706 motion=1 olddiff=0
+[05-Oct-2026 20:32:37] [55/99] source=60 main VFCR-S noise=gamma seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.508s calls=46181 deltaRMSE=0.0596955 residual=0.200271 motion=NaN olddiff=0
+[05-Oct-2026 20:32:41] [56/99] source=61 main M2 noise=gamma seed=2 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.867s calls=80481 deltaRMSE=0.0198581 residual=0.126371 motion=1 olddiff=0
+[05-Oct-2026 20:32:44] [57/99] source=62 main M3 noise=gamma seed=2 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.457s calls=54731 deltaRMSE=0.000409554 residual=0.0068108 motion=1 olddiff=0
+[05-Oct-2026 20:32:47] [58/99] source=63 main M4 noise=gamma seed=2 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 3.065s calls=56031 deltaRMSE=0.000788647 residual=0.0162658 motion=1 olddiff=0
+[05-Oct-2026 20:32:50] [59/99] source=65 main VFCR-S noise=gamma seed=2 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.512s calls=45777 deltaRMSE=0.0605402 residual=0.258544 motion=NaN olddiff=0
+[05-Oct-2026 20:32:54] [60/99] source=66 main M2 noise=gamma seed=3 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.494s calls=80138 deltaRMSE=0.0197352 residual=0.124482 motion=1 olddiff=0
+[05-Oct-2026 20:32:57] [61/99] source=67 main M3 noise=gamma seed=3 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.137s calls=54410 deltaRMSE=0.000424673 residual=0.00747951 motion=1 olddiff=0
+[05-Oct-2026 20:32:59] [62/99] source=68 main M4 noise=gamma seed=3 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.616s calls=55611 deltaRMSE=0.000788764 residual=0.0182716 motion=1 olddiff=0
+[05-Oct-2026 20:33:02] [63/99] source=70 main VFCR-S noise=gamma seed=3 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.113s calls=45745 deltaRMSE=0.0583967 residual=0.217331 motion=NaN olddiff=0
+[05-Oct-2026 20:33:06] [64/99] source=71 main M2 noise=gamma seed=4 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.399s calls=80800 deltaRMSE=0.0196929 residual=0.126236 motion=1 olddiff=0
+[05-Oct-2026 20:33:08] [65/99] source=72 main M3 noise=gamma seed=4 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.448s calls=54743 deltaRMSE=0.000418567 residual=0.00694558 motion=1 olddiff=0
+[05-Oct-2026 20:33:11] [66/99] source=73 main M4 noise=gamma seed=4 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.721s calls=56007 deltaRMSE=0.000786961 residual=0.0169046 motion=1 olddiff=0
+[05-Oct-2026 20:33:14] [67/99] source=75 main VFCR-S noise=gamma seed=4 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.742s calls=45849 deltaRMSE=0.065472 residual=0.221936 motion=NaN olddiff=0
+[05-Oct-2026 20:33:17] [68/99] source=76 main M2 noise=gamma seed=5 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.253s calls=79906 deltaRMSE=0.0200321 residual=0.126609 motion=1 olddiff=0
+[05-Oct-2026 20:33:20] [69/99] source=77 main M3 noise=gamma seed=5 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.104s calls=54266 deltaRMSE=0.000408657 residual=0.00622175 motion=1 olddiff=0
+[05-Oct-2026 20:33:22] [70/99] source=78 main M4 noise=gamma seed=5 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.680s calls=55590 deltaRMSE=0.000783653 residual=0.0171819 motion=1 olddiff=0
+[05-Oct-2026 20:33:25] [71/99] source=80 main VFCR-S noise=gamma seed=5 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.851s calls=45773 deltaRMSE=0.0620331 residual=0.183473 motion=NaN olddiff=0
+[05-Oct-2026 20:33:28] [72/99] source=81 main M2 noise=gaussian seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.214s calls=80849 deltaRMSE=0.0198863 residual=0.126669 motion=1 olddiff=0
+[05-Oct-2026 20:33:31] [73/99] source=82 main M3 noise=gaussian seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.232s calls=54690 deltaRMSE=0.000400111 residual=0.00522996 motion=1 olddiff=0
+[05-Oct-2026 20:33:33] [74/99] source=83 main M4 noise=gaussian seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.659s calls=56048 deltaRMSE=0.00078632 residual=0.0156305 motion=1 olddiff=0
+[05-Oct-2026 20:33:36] [75/99] source=85 main VFCR-S noise=gaussian seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.478s calls=49467 deltaRMSE=0.0220537 residual=0.110698 motion=NaN olddiff=0
+[05-Oct-2026 20:33:40] [76/99] source=86 main M2 noise=gaussian seed=2 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.742s calls=81242 deltaRMSE=0.0199944 residual=0.125218 motion=1 olddiff=0
+[05-Oct-2026 20:33:43] [77/99] source=87 main M3 noise=gaussian seed=2 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.235s calls=54957 deltaRMSE=0.000431546 residual=0.00796367 motion=1 olddiff=0
+[05-Oct-2026 20:33:46] [78/99] source=88 main M4 noise=gaussian seed=2 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.594s calls=56282 deltaRMSE=0.000780085 residual=0.0163045 motion=1 olddiff=0
+[05-Oct-2026 20:33:49] [79/99] source=90 main VFCR-S noise=gaussian seed=2 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.140s calls=49664 deltaRMSE=0.0194379 residual=0.124385 motion=NaN olddiff=0
+[05-Oct-2026 20:33:53] [80/99] source=91 main M2 noise=gaussian seed=3 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.286s calls=81037 deltaRMSE=0.0202507 residual=0.12553 motion=1 olddiff=0
+[05-Oct-2026 20:33:55] [81/99] source=92 main M3 noise=gaussian seed=3 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.094s calls=54728 deltaRMSE=0.000408321 residual=0.00637589 motion=1 olddiff=0
+[05-Oct-2026 20:33:57] [82/99] source=93 main M4 noise=gaussian seed=3 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.691s calls=56077 deltaRMSE=0.000769211 residual=0.0180285 motion=1 olddiff=0
+[05-Oct-2026 20:34:00] [83/99] source=95 main VFCR-S noise=gaussian seed=3 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.651s calls=49706 deltaRMSE=0.017788 residual=0.102271 motion=NaN olddiff=0
+[05-Oct-2026 20:34:05] [84/99] source=96 main M2 noise=gaussian seed=4 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.600s calls=81367 deltaRMSE=0.0200282 residual=0.124738 motion=1 olddiff=0
+[05-Oct-2026 20:34:07] [85/99] source=97 main M3 noise=gaussian seed=4 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.098s calls=54934 deltaRMSE=0.000399852 residual=0.00539638 motion=1 olddiff=0
+[05-Oct-2026 20:34:10] [86/99] source=98 main M4 noise=gaussian seed=4 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.558s calls=56303 deltaRMSE=0.000781362 residual=0.0171546 motion=1 olddiff=0
+[05-Oct-2026 20:34:13] [87/99] source=100 main VFCR-S noise=gaussian seed=4 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 3.939s calls=49912 deltaRMSE=0.0198054 residual=0.116083 motion=NaN olddiff=0
+[05-Oct-2026 20:34:17] [88/99] source=101 main M2 noise=gaussian seed=5 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.965s calls=80939 deltaRMSE=0.0201002 residual=0.126466 motion=1 olddiff=0
+[05-Oct-2026 20:34:20] [89/99] source=102 main M3 noise=gaussian seed=5 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.506s calls=54634 deltaRMSE=0.000406587 residual=0.00661197 motion=1 olddiff=0
+[05-Oct-2026 20:34:23] [90/99] source=103 main M4 noise=gaussian seed=5 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 2.693s calls=55976 deltaRMSE=0.000775499 residual=0.01896 motion=1 olddiff=0
+[05-Oct-2026 20:34:26] [91/99] source=105 main VFCR-S noise=gaussian seed=5 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 2.954s calls=49570 deltaRMSE=0.0206746 residual=0.12716 motion=NaN olddiff=0
+[05-Oct-2026 20:34:30] [92/99] source=106 main M2 noise=harmonic seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.475s calls=21674 deltaRMSE=0.0198155 residual=0.125722 motion=1 olddiff=0
+[05-Oct-2026 20:34:30] [93/99] source=107 main M3 noise=harmonic seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.151s calls=4951 deltaRMSE=0.000405165 residual=0.00614523 motion=1 olddiff=0
+[05-Oct-2026 20:34:31] [94/99] source=108 main M4 noise=harmonic seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.226s calls=5047 deltaRMSE=0.000767423 residual=0.0168045 motion=1 olddiff=0
+[05-Oct-2026 20:34:31] [95/99] source=110 main VFCR-S noise=harmonic seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.740s calls=13684 deltaRMSE=0.0296703 residual=0.125308 motion=NaN olddiff=0
+[05-Oct-2026 20:34:32] [96/99] source=131 precision M2 noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.715s calls=28128 deltaRMSE=0.0199697 residual=0.126358 motion=1 olddiff=0
+[05-Oct-2026 20:34:33] [97/99] source=132 precision M3 noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.342s calls=8659 deltaRMSE=0.000396493 residual=0.0056367 motion=1 olddiff=0
+[05-Oct-2026 20:34:34] [98/99] source=133 precision M4 noise=zero seed=1 gamma=300 eps=0.01 lambda=1e-06
+  complete last=10 0.402s calls=8590 deltaRMSE=0.000767627 residual=0.0176664 motion=1 olddiff=0
+[05-Oct-2026 20:34:34] [99/99] source=135 precision VFCR-S noise=zero seed=1 gamma=200 eps=0.01 lambda=1e-06
+  complete last=10 0.785s calls=12775 deltaRMSE=3.75446e-08 residual=2.10461e-07 motion=NaN olddiff=0
+独立重跑已保存 99/99 组，完成到 t=10 的有 96 组，总耗时 201.2 秒。
+     model      saved    complete    failed    motiontested    motionpassed    samestatus    callsmaxdiff    trajectorymaxdiff    rmsedmaxdiff    seconds
+    ________    _____    ________    ______    ____________    ____________    __________    ____________    _________________    ____________    _______
+
+    "M1"          1          1         0             1               0              1             0                  0             2.8422e-13     1.0645 
+    "VFCR"        1          0         1             0               0              1             0                  0                    NaN     21.076 
+    "VFCR-S"     17         17         0             0               0             17             0                  0             1.6653e-16     37.175 
+    "M2"         22         20         2            22              22             22             0                  0             4.8572e-17     52.503 
+    "M3"         30         30         0            30              30             30             0                  0             4.5536e-18     27.456 
+    "M4"         28         28         0            28              28             28             0                  0             3.9031e-18     32.406 
+
